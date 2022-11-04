@@ -4,14 +4,13 @@ import { theme } from "./style/theme";
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <div className="App">
-        <h1>Olá, mundo!</h1>
-      </div>
+      <div className="App"></div>
       <Box bg="mixFlavor">
-        <Text fontSize="3xl" color="grapeJuice">
+        <Text fontSize="2xl" fontWeight="semibold" color="water">
           Teste
         </Text>
       </Box>
+      <Text>Teste2</Text>
     </ChakraProvider>
   );
 }
