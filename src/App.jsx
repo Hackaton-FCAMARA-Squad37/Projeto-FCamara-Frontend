@@ -1,4 +1,4 @@
-import { Box, ChakraProvider, Text } from "@chakra-ui/react";
+import { Box, ChakraProvider, Text, Flex } from "@chakra-ui/react";
 import { theme } from "./style/theme";
 
 function App() {
