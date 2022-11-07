@@ -1,5 +1,5 @@
 import { MenuBurger } from "../MenuBurger/MenuBurger.jsx"
-import { Box } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 
 export const Header = () => {
     return (
@@ -9,11 +9,10 @@ export const Header = () => {
           justifyContent: 'space-between',
           p: 1,
           m: 1,
-          bgcolor: 'background.paper',
-          borderRadius: 1,
+          borderRadius: 1
         }}
         >
-           <h1>Teste</h1>
+            <Typography>Teste</Typography>
             <MenuBurger/> 
         </Box>
     )
