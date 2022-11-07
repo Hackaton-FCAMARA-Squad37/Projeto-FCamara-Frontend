@@ -16,13 +16,15 @@ export const MenuBurger = () => {
         open={isOpen}
         onOpen={() => setIsOpen(true)}
         onClose={() => setIsOpen(false)}>
-            <Box sx={{ height:'100vh' }} p={2} width='250px' textAlign='center' role='presentation'>
-                <Typography variant='h6' component='div'>
-                    Side Panel
-                </Typography>
-                <IconButton size='large' color='inherit' aria-label='logo' onClick={() => setIsOpen(false)}>
-                    <CloseIcon/>
-                </IconButton>
+            <Box sx={{ height:'100vh', width:'100vw'}} textAlign='center' role='presentation'>
+                <Box sx={{ display:'flex', justifyContent:'space-between' }}>
+                    <Typography variant='h6' component='div'>
+                        Side Panel
+                    </Typography>
+                    <IconButton size='large' color='inherit' aria-label='logo' onClick={() => setIsOpen(false)}>
+                        <CloseIcon/>
+                    </IconButton>
+                </Box>
             </Box>
         </SwipeableDrawer>
         </>
