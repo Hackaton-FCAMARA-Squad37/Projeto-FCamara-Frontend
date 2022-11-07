@@ -1,7 +1,9 @@
+import { Header } from "../../components/Header/Header";
+
 export function Home() {
     return (
         <div>
-            <h2>Testando rotas</h2>
+            <Header></Header>
         </div>
     )
 }
