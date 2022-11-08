@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import { ButtonLogin } from "../ButtonLogin/ButtonLogin";
+import { LogoButton } from "../LogoButton/LogoButton";
 
 export const MenuBurger = () => {
     //Hook para abrir e fechar a sidebar
@@ -23,9 +24,7 @@ export const MenuBurger = () => {
         onClose={() => setIsOpen(false)}>
             <Box sx={{ height:'100vh', width:'100vw'}} textAlign='center' role='presentation'>
                 <Box sx={{ display:'flex', justifyContent:'space-between' }}>
-                    <Typography variant='h6' component='div'>
-                        Logo
-                    </Typography>
+                    <LogoButton onClick={ ()=> setIsOpen(false)}/>
                     <IconButton size='large' color='inherit' onClick={() => setIsOpen(false)}>
                         <CloseIcon/>
                     </IconButton>
@@ -36,7 +35,7 @@ export const MenuBurger = () => {
                         style={{ textDecoration:'inherit', color:'inherit' }} 
                         onClick={() => setIsOpen(false)}
                     >
-                        <Typography mt='83px' ml={3} mr={3} align='justify'>Início</Typography>
+                        <Typography mt='5.188rem' ml={3} mr={3} align='justify'>Início</Typography>
                     </Link>
 
 

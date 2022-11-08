@@ -2,11 +2,11 @@ import { Link } from "react-router-dom"
 import { Box, useMediaQuery } from "@mui/material"
 import imagemLogo from '../../assets/logofcamara.png'
 
-export const LogoButton = () => {
+export const LogoButton = (props) => {
     const cellphone = useMediaQuery('(max-width:600px)')
 
     return (
-        <Link>
+        <Link to='/' onClick={props.onClick}>
             <Box
             sx={
             {
