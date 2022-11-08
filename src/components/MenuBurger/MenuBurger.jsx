@@ -8,7 +8,7 @@ import { HashLink } from 'react-router-hash-link';
 
 export const MenuBurger = () => {
     const [isOpen, setIsOpen] = useState(false)
-
+    
     return (
         <>
         <IconButton size='large' color='inherit' aria-label='logo' onClick={() => setIsOpen(true)}>
@@ -29,7 +29,13 @@ export const MenuBurger = () => {
                     </IconButton>
                 </Box>
                 <Box>
-                    <HashLink smooth to='/#section-trilhas' onClick={() => setIsOpen(false)}>Trilhas</HashLink>
+                    <HashLink 
+                        smooth to='/#section-trilhas' 
+                        style={{ textDecoration:'inherit', color:'inherit' }} 
+                        onClick={() => setIsOpen(false)}
+                    >
+                        <Typography>Trilhas</Typography>
+                    </HashLink>
                 </Box>
             </Box>
         </SwipeableDrawer>
