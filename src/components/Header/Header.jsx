@@ -1,5 +1,5 @@
 import { MenuBurger } from "../MenuBurger/MenuBurger.jsx"
-import { Box, Typography } from "@mui/material"
+import { Box, Paper, Typography } from "@mui/material"
 
 export const Header = () => {
     return (
@@ -12,7 +12,9 @@ export const Header = () => {
           borderRadius: 1
         }}
         >
-            <Typography>Teste</Typography>
+            <Paper variant='outlined'>
+                <img src="../../assets/logoFcamara.png" alt="Logo Orange Evolution" />
+            </Paper>
             <MenuBurger/> 
         </Box>
     )

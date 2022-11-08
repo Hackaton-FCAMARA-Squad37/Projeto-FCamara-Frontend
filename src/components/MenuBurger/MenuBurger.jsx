@@ -1,12 +1,14 @@
 import { Box, Typography, IconButton, SwipeableDrawer, Divider, Button } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
+import PersonIcon from '@mui/icons-material/Person';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 
 
 export const MenuBurger = () => {
+    //Hook para abrir e fechar a sidebar
     const [isOpen, setIsOpen] = useState(false)
     
     return (
@@ -24,17 +26,17 @@ export const MenuBurger = () => {
                     <Typography variant='h6' component='div'>
                         Logo
                     </Typography>
-                    <IconButton size='large' color='inherit' aria-label='logo' onClick={() => setIsOpen(false)}>
+                    <IconButton size='large' color='inherit' onClick={() => setIsOpen(false)}>
                         <CloseIcon/>
                     </IconButton>
                 </Box>
-                <Divider></Divider>
-                <Box>
+                <Divider/>
+                <Box >
                     <Link to='/' 
                         style={{ textDecoration:'inherit', color:'inherit' }} 
                         onClick={() => setIsOpen(false)}
                     >
-                        <Typography>Início</Typography>
+                        <Typography mt='83px' ml={3} mr={3} align='justify'>Início</Typography>
                     </Link>
 
 
@@ -42,7 +44,7 @@ export const MenuBurger = () => {
                         style={{ textDecoration:'inherit', color:'inherit' }} 
                         onClick={() => setIsOpen(false)}
                     >
-                        <Typography>Trilhas</Typography>
+                        <Typography mt={3} ml={3} mr={3} align='justify'>Trilhas</Typography>
                     </HashLink>
 
 
@@ -50,17 +52,20 @@ export const MenuBurger = () => {
                         style={{ textDecoration:'inherit', color:'inherit' }} 
                         onClick={() => setIsOpen(false)}
                     >
-                        <Typography>Sobre a Orange</Typography>
+                        <Typography mt={3} mb='83px' ml={3} mr={3} align='justify'>Sobre a Orange</Typography>
                     </a>
                 </Box>
                 <Divider/>
-                <Box>
-                    <Typography>Entrar</Typography>
-                    <Button variant="contained">Criar Conta</Button>
+                <Box sx={{ display:'flex', flexDirection:'column' }}>
+                    <Box sx={{display:'flex'}}>
+                        <PersonIcon sx={{ marginTop:'50px', marginLeft:'24px'}}/>
+                        <Typography mt='50px' ml={3} align='justify'>Entrar</Typography>
+                    </Box>
+                    
+                    <Button variant="contained" sx={{ width:'163px', marginTop:'30px', marginLeft:'24px' }}>Criar Conta</Button>
                 </Box>
             </Box>
         </SwipeableDrawer>
         </>
-        
     )
 }
