@@ -2,6 +2,9 @@ import { Box, Typography, IconButton, SwipeableDrawer } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
+
 
 export const MenuBurger = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -24,6 +27,9 @@ export const MenuBurger = () => {
                     <IconButton size='large' color='inherit' aria-label='logo' onClick={() => setIsOpen(false)}>
                         <CloseIcon/>
                     </IconButton>
+                </Box>
+                <Box>
+                    <HashLink smooth to='/#section-trilhas' onClick={() => setIsOpen(false)}>Trilhas</HashLink>
                 </Box>
             </Box>
         </SwipeableDrawer>
