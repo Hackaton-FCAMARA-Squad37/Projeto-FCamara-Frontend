@@ -30,6 +30,9 @@ export const Navbar = () => {
                     }}>Sobre a Orange</Typography>
                 </Link>
             </Box>
+            <Box>
+                
+            </Box>
         </Box>
     )
 }

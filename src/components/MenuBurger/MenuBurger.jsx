@@ -5,7 +5,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
-
+import { ButtonLogin } from "../ButtonLogin/ButtonLogin";
 
 export const MenuBurger = () => {
     //Hook para abrir e fechar a sidebar
@@ -57,10 +57,7 @@ export const MenuBurger = () => {
                 </Box>
                 <Divider/>
                 <Box sx={{ display:'flex', flexDirection:'column' }}>
-                    <Box sx={{display:'flex'}}>
-                        <PersonIcon sx={{ marginTop:'50px', marginLeft:'24px'}}/>
-                        <Typography mt='50px' ml={3} align='justify'>Entrar</Typography>
-                    </Box>
+                    <ButtonLogin/>
                     
                     <Button variant="contained" sx={{ width:'163px', marginTop:'30px', marginLeft:'24px' }}>Criar Conta</Button>
                 </Box>
