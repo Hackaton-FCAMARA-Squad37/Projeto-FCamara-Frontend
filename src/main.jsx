@@ -12,12 +12,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-      <main>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/trilhaUXUI' element={<TrilhaUXUI/>}/>
         </Routes>
-      </main>
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
