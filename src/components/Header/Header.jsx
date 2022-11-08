@@ -1,21 +1,35 @@
 import { MenuBurger } from "../MenuBurger/MenuBurger.jsx"
-import { Box, Paper } from "@mui/material"
+import { Box, useMediaQuery } from "@mui/material"
+import imagemLogo from '../../assets/logofcamara.png'
+import { Navbar } from "../Navbar/Navbar.jsx"
 
 export const Header = () => {
+    const cellphone = useMediaQuery('(max-width:600px)')
+
     return (
         <Box
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          p: 1,
-          m: 1,
-          borderRadius: 1
+          backgroundColor: 'vitamin.main',
+          height: `${cellphone?'3rem':'6rem'}`
         }}
         >
-            <Paper variant='outlined'>
-                <img src="../../assets/logoFcamara.png" alt="Logo Orange Evolution" />
-            </Paper>
-            <MenuBurger/> 
+            <Box
+            sx={
+            {
+                backgroundImage: `url(${imagemLogo})`,
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                width: `${cellphone?'2.5rem':'4rem'}`,
+                height: `${cellphone?'2.5rem':'4rem'}`,
+                mt: '2px'
+            }}
+            />
+            {cellphone? <MenuBurger/> :
+            <Navbar/>
+            }
+             
         </Box>
     )
 }

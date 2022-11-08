@@ -14,7 +14,7 @@ export const MenuBurger = () => {
     return (
         <>
         <IconButton size='large' color='inherit' aria-label='logo' onClick={() => setIsOpen(true)}>
-            <MenuIcon />
+            <MenuIcon color="primary" />
         </IconButton>
         <SwipeableDrawer 
         anchor='top' 

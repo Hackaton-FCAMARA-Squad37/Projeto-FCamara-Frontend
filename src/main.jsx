@@ -4,8 +4,7 @@ import { ThemeProvider } from '@mui/material'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Home } from './pages/Home/Home.jsx'
 import { theme } from './style/theme.js'
-import './reset.css'
-import { TrilhaUXUI } from './pages/TrilhaUXUI/TrilhaUXUI.jsx'
+import '../src/style/reset.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
