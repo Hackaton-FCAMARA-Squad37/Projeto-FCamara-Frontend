@@ -1,5 +1,5 @@
 import { MenuBurger } from "../MenuBurger/MenuBurger.jsx"
-import { Box, Paper, Typography } from "@mui/material"
+import { Box, Paper } from "@mui/material"
 
 export const Header = () => {
     return (
