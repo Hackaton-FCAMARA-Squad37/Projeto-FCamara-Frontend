@@ -24,11 +24,15 @@ export const MenuBurger = () => {
         onOpen={() => setIsOpen(true)}
         onClose={() => setIsOpen(false)}>
             <Box sx={{ height:'100vh', width:'100vw'}} textAlign='center' role='presentation' color='white' bgcolor='coffe.main'>
-                <Box bgcolor='vitamin.main' sx={{ display:'flex', justifyContent:'space-between' }}>
-                    <LogoButton onClick={ ()=> setIsOpen(false)}/>
-                    <IconButton size='large' color='inherit' onClick={() => setIsOpen(false)}>
-                        <CloseIcon/>
-                    </IconButton>
+                <Box bgcolor='vitamin.main' sx={{ display:'flex', justifyContent:'space-between', height:'3.5rem' }}>
+                    <Box pl='1.5rem' pt='0.25rem'>
+                        <LogoButton onClick={ ()=> setIsOpen(false)}/>
+                    </Box>
+                    <Box pr='1.625rem' pt='0.25rem'>
+                        <IconButton size='large' color='inherit' onClick={() => setIsOpen(false)}>
+                            <CloseIcon/>
+                        </IconButton>
+                    </Box>
                 </Box>
                 <Box >
                     <Link to='/' 
