@@ -9,7 +9,7 @@ export const ButtonLogin = () => {
         <Link to='/' style={{ textDecoration:'inherit', color:'inherit' }}>
             <Box sx={{display:'flex', minWidth: '5rem', maxWidth:`${mobile?'4.875rem':''}` , justifyContent:'space-between'}}>
                 <PersonIcon color='primary'/>
-                <Typography align='justify' color='water.main'>Entrar</Typography>
+                <Typography fontWeight='600' align='justify' color='water.main'>Entrar</Typography>
             </Box>
         </Link>  
     )

@@ -39,7 +39,7 @@ export const MenuBurger = () => {
                         style={{ textDecoration:'inherit', color:'inherit' }} 
                         onClick={() => setIsOpen(false)}
                     >
-                        <Typography mt='5.188rem' ml={3} mr={3} align='justify'>Início</Typography>
+                        <Typography fontWeight='600' mt='5.188rem' ml={3} mr={3} align='justify'>Início</Typography>
                     </Link>
 
 
@@ -47,7 +47,7 @@ export const MenuBurger = () => {
                         style={{ textDecoration:'inherit', color:'inherit' }} 
                         onClick={() => setIsOpen(false)}
                     >
-                        <Typography mt={3} ml={3} mr={3} align='justify'>Trilhas</Typography>
+                        <Typography fontWeight='600' mt={3} ml={3} mr={3} align='justify'>Trilhas</Typography>
                     </HashLink>
 
 
@@ -55,12 +55,13 @@ export const MenuBurger = () => {
                         style={{ textDecoration:'inherit', color:'inherit' }} 
                         onClick={() => setIsOpen(false)}
                     >
-                        <Typography mt={3} mb='83px' ml={3} mr={3} align='justify'>Sobre a Orange</Typography>
+                        <Typography fontWeight='600' mt={3} mb='83px' ml={3} mr={3} align='justify'>Sobre a Orange</Typography>
                     </a>
                 </Box>
-                <Divider color='white' sx={{
+                <Divider sx={{
                     width: '93%',
-                    margin: 'auto'
+                    margin: 'auto',
+                    bgcolor: 'white'
                 }}/>
                 <Box sx={{ display:'flex', flexDirection:'column', paddingLeft:'1.438rem', paddingTop:'2.25rem' }}>
                     <ButtonLogin/>

@@ -17,17 +17,20 @@ export const Navbar = () => {
         }}>
             <Link style={{ textDecoration:'inherit', color:'inherit', height:'1.5rem' }} >
                 <Typography sx={{
-                    color: 'water.main'
+                    color: 'water.main',
+                    fontWeight: '600'
                 }}>Início</Typography>
             </Link>
             <Link style={{ textDecoration:'inherit', color:'inherit', height:'1.5rem' }}>
                 <Typography sx={{
-                    color: 'water.main'
+                    color: 'water.main',
+                    fontWeight: '600'
                 }}>Trilhas</Typography>
             </Link>
             <Link style={{ textDecoration:'inherit', color:'inherit', height:'1.5rem' }}>
                 <Typography sx={{
-                    color: 'water.main'
+                    color: 'water.main',
+                    fontWeight: '600'
                 }}>Sobre a Orange</Typography>
             </Link>
         </Box>     
