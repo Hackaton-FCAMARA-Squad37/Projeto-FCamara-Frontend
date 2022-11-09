@@ -15,17 +15,17 @@ export const Navbar = () => {
             maxWidth:'24.375rem',
             justifyContent: 'space-between'
         }}>
-            <Link style={{ textDecoration:'inherit', color:'inherit' }} >
+            <Link style={{ textDecoration:'inherit', color:'inherit', height:'1.5rem' }} >
                 <Typography sx={{
                     color: 'water.main'
                 }}>Início</Typography>
             </Link>
-            <Link style={{ textDecoration:'inherit', color:'inherit' }}>
+            <Link style={{ textDecoration:'inherit', color:'inherit', height:'1.5rem' }}>
                 <Typography sx={{
                     color: 'water.main'
                 }}>Trilhas</Typography>
             </Link>
-            <Link style={{ textDecoration:'inherit', color:'inherit' }}>
+            <Link style={{ textDecoration:'inherit', color:'inherit', height:'1.5rem' }}>
                 <Typography sx={{
                     color: 'water.main'
                 }}>Sobre a Orange</Typography>

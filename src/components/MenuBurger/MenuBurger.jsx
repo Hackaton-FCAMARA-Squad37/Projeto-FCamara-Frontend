@@ -30,7 +30,7 @@ export const MenuBurger = () => {
                     </Box>
                     <Box pr='1.625rem' pt='0.25rem'>
                         <IconButton size='large' color='inherit' onClick={() => setIsOpen(false)}>
-                            <CloseIcon/>
+                            <CloseIcon color='primary'/>
                         </IconButton>
                     </Box>
                 </Box>
@@ -58,10 +58,15 @@ export const MenuBurger = () => {
                         <Typography mt={3} mb='83px' ml={3} mr={3} align='justify'>Sobre a Orange</Typography>
                     </a>
                 </Box>
-                <Divider color='white'/>
-                <Box sx={{ display:'flex', flexDirection:'column' }}>
+                <Divider color='white' sx={{
+                    width: '93%',
+                    margin: 'auto'
+                }}/>
+                <Box sx={{ display:'flex', flexDirection:'column', paddingLeft:'1.438rem', paddingTop:'2.25rem' }}>
                     <ButtonLogin/>
-                    <ButtonCreateAccount/>
+                    <Box mt='1.75rem' width='fit-content'>
+                        <ButtonCreateAccount/>
+                    </Box>
                 </Box>
             </Box>
         </SwipeableDrawer>
