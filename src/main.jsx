@@ -6,6 +6,7 @@ import { Home } from './pages/Home/Home.jsx'
 import { theme } from './style/theme.js'
 import '../src/style/reset.css'
 import { Header } from './components/Header/Header.jsx'
+import { Footer } from './components/Footer/Footer.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -21,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </Routes>
         </main>
         <footer>
-          
+          <Footer/>
         </footer>
       </BrowserRouter>
     </ThemeProvider>

@@ -1,7 +1,6 @@
-import { Box, Typography, IconButton, SwipeableDrawer, Divider, Button } from "@mui/material";
+import { Box, Typography, IconButton, SwipeableDrawer, Divider} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
-import PersonIcon from '@mui/icons-material/Person';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
@@ -13,6 +12,7 @@ export const MenuBurger = () => {
     //Hook para abrir e fechar a sidebar
     const [isOpen, setIsOpen] = useState(false)
     
+
     return (
         <>
         <IconButton size='large' color='inherit' aria-label='logo' onClick={() => setIsOpen(true)}>
