@@ -23,7 +23,7 @@ export const MenuBurger = () => {
         open={isOpen}
         onOpen={() => setIsOpen(true)}
         onClose={() => setIsOpen(false)}>
-            <Box sx={{ height:'100vh', width:'100vw'}} textAlign='center' role='presentation' color='white' bgcolor='coffe.main'>
+            <Box sx={{ height:'100vh', width:'100vw'}} textAlign='center' role='presentation' color='white' bgcolor='coffee.main'>
                 <Box bgcolor='vitamin.main' sx={{ display:'flex', justifyContent:'space-between', height:'3.5rem' }}>
                     <Box pl='1.5rem' pt='0.25rem'>
                         <LogoButton onClick={ ()=> setIsOpen(false)}/>
