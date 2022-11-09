@@ -3,7 +3,7 @@ import { Box, useMediaQuery } from "@mui/material"
 import imagemLogo from '../../assets/logofcamara.png'
 
 export const LogoButton = (props) => {
-    const cellphone = useMediaQuery('(max-width:600px)')
+    const mobile = useMediaQuery('(max-width:768px)')
 
     return (
         <Link to='/' onClick={props.onClick}>
@@ -13,8 +13,8 @@ export const LogoButton = (props) => {
                 backgroundImage: `url(${imagemLogo})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
-                width: `${cellphone?'2.5rem':'4rem'}`,
-                height: `${cellphone?'2.5rem':'4rem'}`,
+                width: `${mobile?'2.5rem':'4rem'}`,
+                height: `${mobile?'2.5rem':'4rem'}`,
                 mt: '2px'
             }}
             />

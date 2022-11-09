@@ -5,9 +5,9 @@ import { Box, Typography } from "@mui/material";
 export const ButtonLogin = () => {
     return (
         <Link to='/' style={{ textDecoration:'inherit', color:'inherit' }}>
-            <Box sx={{display:'flex', marginTop:'3.125rem', marginLeft:''}}>
-                <PersonIcon />
-                <Typography ml={2} align='justify'>Entrar</Typography>
+            <Box sx={{display:'flex', minWidth: '5rem', justifyContent:'space-between'}}>
+                <PersonIcon color='primary'/>
+                <Typography align='justify' color='water.main'>Entrar</Typography>
             </Box>
         </Link>  
     )

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import { ButtonLogin } from "../ButtonLogin/ButtonLogin";
 import { LogoButton } from "../LogoButton/LogoButton";
+import { ButtonCreateAccount } from "../ButtonCreateAccount/ButtonCreateAccount";
 
 export const MenuBurger = () => {
     //Hook para abrir e fechar a sidebar
@@ -22,14 +23,13 @@ export const MenuBurger = () => {
         open={isOpen}
         onOpen={() => setIsOpen(true)}
         onClose={() => setIsOpen(false)}>
-            <Box sx={{ height:'100vh', width:'100vw'}} textAlign='center' role='presentation'>
-                <Box sx={{ display:'flex', justifyContent:'space-between' }}>
+            <Box sx={{ height:'100vh', width:'100vw'}} textAlign='center' role='presentation' color='white' bgcolor='coffe.main'>
+                <Box bgcolor='vitamin.main' sx={{ display:'flex', justifyContent:'space-between' }}>
                     <LogoButton onClick={ ()=> setIsOpen(false)}/>
                     <IconButton size='large' color='inherit' onClick={() => setIsOpen(false)}>
                         <CloseIcon/>
                     </IconButton>
                 </Box>
-                <Divider/>
                 <Box >
                     <Link to='/' 
                         style={{ textDecoration:'inherit', color:'inherit' }} 
@@ -54,11 +54,10 @@ export const MenuBurger = () => {
                         <Typography mt={3} mb='83px' ml={3} mr={3} align='justify'>Sobre a Orange</Typography>
                     </a>
                 </Box>
-                <Divider/>
+                <Divider color='white'/>
                 <Box sx={{ display:'flex', flexDirection:'column' }}>
                     <ButtonLogin/>
-                    
-                    <Button variant="contained" sx={{ width:'163px', marginTop:'30px', marginLeft:'24px' }}>Criar Conta</Button>
+                    <ButtonCreateAccount/>
                 </Box>
             </Box>
         </SwipeableDrawer>
