@@ -6,6 +6,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import useUserState from '../../hook/useUserState';
 
 
 export function Login() {
@@ -18,6 +19,8 @@ export function Login() {
     });
   };
 
+  const login = useUserState()
+  console.log(login.logado)
   return (
       <Container component="main" maxWidth="xs">
         <Box
@@ -61,6 +64,8 @@ export function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+
+              onClick={()=>{login.logar()}}
             >
               Logar
             </Button>
