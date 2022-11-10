@@ -4,11 +4,12 @@ import { Navbar } from "../Navbar/Navbar.jsx"
 import { LogoButton } from "../LogoButton/LogoButton.jsx"
 import { ButtonLogin } from "../ButtonLogin/ButtonLogin.jsx"
 import { ButtonCreateAccount } from "../ButtonCreateAccount/ButtonCreateAccount.jsx"
+import useUserState from "../../hook/useUserState.jsx"
 
 export const Header = () => {
     const mobile = useMediaQuery('(max-width:768px)')
     const notebook = useMediaQuery('(max-width:1024px)')
-
+    
     return (
         <Box
         pr={mobile?'1.5rem':notebook?'1rem':'4.5rem'}

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { Box, useMediaQuery } from "@mui/material"
-import imagemLogo from '../../assets/logofcamara.png'
+import imagemLogo from '../../assets/logoOrangeJuice.png'
 
 export const LogoButton = (props) => {
     const mobile = useMediaQuery('(max-width:768px)')

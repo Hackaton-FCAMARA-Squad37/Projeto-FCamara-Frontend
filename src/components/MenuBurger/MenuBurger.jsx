@@ -64,7 +64,7 @@ export const MenuBurger = () => {
                     bgcolor: 'white'
                 }}/>
                 <Box sx={{ display:'flex', flexDirection:'column', paddingLeft:'1.438rem', paddingTop:'2.25rem' }}>
-                    <ButtonLogin/>
+                    <ButtonLogin onClick={() => setIsOpen(false)}/>
                     <Box mt='1.75rem' width='fit-content'>
                         <ButtonCreateAccount/>
                     </Box>
