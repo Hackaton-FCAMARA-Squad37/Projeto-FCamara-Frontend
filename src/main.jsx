@@ -7,7 +7,6 @@ import { theme } from './style/theme.js'
 import '../src/style/reset.css'
 import { Header } from './components/Header/Header.jsx'
 import { Footer } from './components/Footer/Footer.jsx'
-import { Login } from './pages/Login/Login.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -19,7 +18,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <main>
             <Routes>
               <Route path='/' element={<Home/>}/>
-              <Route path='/login' element={<Login/>}/>
             </Routes>
           </main>
           <footer>
