@@ -7,8 +7,8 @@ export const SThreeOnboarding = () => {
     const mobile = useMediaQuery('(max-width:768px)')
 
     return (
-        <Box bgcolor='coffee.main' color='water.main' textAlign='center' sx={{
-            padding:'0 1.5rem 0 1.5rem'
+        <Box bgcolor='coffee.main' color='water.main' textAlign='justify' sx={{
+            padding:`0 ${mobile?'1.5rem':'4.5rem'} 0 ${mobile?'1.5rem':'4.5rem'}`
         }}>
             <Typography fontWeight='600' fontSize={mobile?'1rem':'1.5rem'} mb={mobile? '2rem':'4rem'}>
                 Você pode escolher qualquer uma das áreas disponíveis para estudar

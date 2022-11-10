@@ -11,7 +11,7 @@ export const SFourOnboarding = () => {
         <Box sx={{
             backgroundColor:'coffee.main',
             color:'water.main',
-            padding:`0 ${mobile?'1.5rem':'4.5rem'} 3rem ${mobile?'1.5rem':'4.5rem'}`
+            padding:`0 ${mobile?'1.5rem':'4.5rem'} ${mobile?'3rem':'6rem'} ${mobile?'1.5rem':'4.5rem'}`
         }}>
             <Typography fontWeight='600' fontSize={mobile?'1rem':'1.5rem'} mb={mobile? '2rem':'4rem'}>
                 Para quem o Orange Evolution é feito?
@@ -39,7 +39,7 @@ export const SFourOnboarding = () => {
                             Em transição de carreira
                         </Typography>
                     </Box>
-                    <Typography>
+                    <Typography fontSize={mobile?'0.75rem':'1.25rem'} fontWeight='400'>
                         Nossas trilhas niveladas ajudam a quem quer migrar de 
                         profissão a saber por onde começar, pois há uma ordem a ser estudada
                     </Typography>
@@ -65,7 +65,7 @@ export const SFourOnboarding = () => {
                             Estudantes, trainees e juniors
                         </Typography>
                     </Box>
-                    <Typography>
+                    <Typography fontSize={mobile?'0.75rem':'1.25rem'} fontWeight='400'>
                         Temos conteúdos para quem 
                         já tem contato com a tecnologia no seu dia a dia, mas ainda precisa 
                         consolidar os conhecimentos
@@ -93,7 +93,7 @@ export const SFourOnboarding = () => {
                             Profissionais pleno e senior
                         </Typography>
                     </Box>
-                    <Typography>
+                    <Typography fontSize={mobile?'0.75rem':'1.25rem'} fontWeight='400'>
                         Nossas trilhas avançadas capacitam os profissionais que 
                         necessitam de conteúdos mais especializados
                     </Typography>
