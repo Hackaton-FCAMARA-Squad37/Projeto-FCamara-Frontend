@@ -8,9 +8,10 @@ export const STwoOnboarding = () => {
     return (
         <div id='section-trilhas'>
             <Box bgcolor='coffee.main' color='water.main' textAlign='center' sx={{
-                padding:'3rem 1.5rem 3rem 1.5rem'
+                padding:`3rem ${mobile?'1.5rem':'4.5rem'} 3rem ${mobile?'1.5rem':'4.5rem'}`
             }}>
-                <Typography fontWeight='600' fontSize={mobile?'1rem':'1.5rem'} mb={mobile? '2rem':'4rem'}>
+                <Typography fontWeight='600' fontSize={mobile?'1rem':'1.5rem'}
+                mb={mobile? '2rem':'4rem'} textAlign='justify'>
                     Somos uma plataforma de aprendizado contínuo e nivelado
                 </Typography>
                 <Box>
@@ -78,6 +79,7 @@ export const STwoOnboarding = () => {
                             padding: `${mobile? '1rem': '2rem 3rem'}`,
                             alignItems: 'center',
                             textAlign: `${mobile? 'center':'justify'}`,
+                            minWidth:`${mobile?'':'30.438rem'}`,
 
                             '&:after': mobile?{
                                 position: 'absolute',
@@ -162,6 +164,7 @@ export const STwoOnboarding = () => {
                             padding: `${mobile? '1rem': '2rem 3rem'}`,
                             alignItems: 'center',
                             textAlign: `${mobile? 'center':'justify'}`,
+                            minWidth:`${mobile?'':'30.438rem'}`,
 
                             '&:after': mobile?{
                                 position: 'absolute',
@@ -238,7 +241,8 @@ export const STwoOnboarding = () => {
                             height: `${mobile? '9rem': '10rem'}`,
                             padding: `${mobile? '1rem': '2rem 3rem'}`,
                             alignItems: 'center',
-                            textAlign: `${mobile? 'center':'justify'}`
+                            textAlign: `${mobile? 'center':'justify'}`,
+                            minWidth:`${mobile?'':'30.438rem'}`
                         }}>
                             <Typography fontWeight='600' fontSize={mobile?'1rem':'1.5rem'} pr={mobile?'0':'3rem'} pb={mobile?'1.5rem':''}>
                                 Coletar

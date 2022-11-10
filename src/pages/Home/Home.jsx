@@ -5,6 +5,7 @@ import { SThreeOnboarding } from "../../components/SThreeOnboarding/SThreeOnboar
 import { SFourOnboarding } from "../../components/SFourOnboarding/SFourOnboarding";
 import { SFiveOnboarding } from "../../components/SFiveOnboarding/SFiveOnboarding";
 import { SSixOnboarding } from "../../components/SSixOnboarding/SsixOnboarding";
+import { SSevenOnboarding } from "../../components/SSevenOnboarding/SSevenOnboarding";
 
 
 export function Home() {
@@ -16,6 +17,7 @@ export function Home() {
             <SFourOnboarding/>
             <SFiveOnboarding/>
             <SSixOnboarding/>
+            <SSevenOnboarding/>
         </Box>
     )
 }
