@@ -8,7 +8,6 @@ import '../src/style/reset.css'
 import { Header } from './components/Header/Header.jsx'
 import { Footer } from './components/Footer/Footer.jsx'
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
