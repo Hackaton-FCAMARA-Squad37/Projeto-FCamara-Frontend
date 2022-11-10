@@ -1,4 +1,4 @@
-import { Divider, Typography, useMediaQuery } from "@mui/material"
+import { Typography, useMediaQuery } from "@mui/material"
 import { Box } from "@mui/system"
 
 export const STwoOnboarding = () => {

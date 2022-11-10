@@ -8,7 +8,7 @@ export const SThreeOnboarding = () => {
 
     return (
         <Box bgcolor='coffee.main' color='water.main' textAlign='center' sx={{
-            padding:'0rem 3rem 3rem 3rem'
+            padding:'0 1.5rem 0 1.5rem'
         }}>
             <Typography fontWeight='600' fontSize={mobile?'1rem':'1.5rem'} mb={mobile? '2rem':'4rem'}>
                 Você pode escolher qualquer uma das áreas disponíveis para estudar
@@ -17,7 +17,7 @@ export const SThreeOnboarding = () => {
                 display:'flex',
                 flexDirection: `${mobile?'column':'row'}`,
                 justifyContent:'space-between',
-                paddingLeft:`${mobile?'50px':''}`
+                padding:`0 1.5rem ${mobile?'3rem':'4rem'} 1.5rem`
             }}>
                 <Box
                 sx={
