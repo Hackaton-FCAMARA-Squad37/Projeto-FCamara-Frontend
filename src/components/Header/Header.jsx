@@ -9,8 +9,6 @@ import useUserState from "../../hook/useUserState.jsx"
 export const Header = () => {
     const mobile = useMediaQuery('(max-width:768px)')
     const notebook = useMediaQuery('(max-width:1024px)')
-    const login = useUserState()
-    console.log(login.logado)
     
     return (
         <Box

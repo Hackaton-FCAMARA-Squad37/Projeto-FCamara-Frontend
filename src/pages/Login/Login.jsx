@@ -20,7 +20,6 @@ export function Login() {
   };
 
   const login = useUserState()
-  console.log(login.logado)
   return (
       <Container component="main" maxWidth="xs">
         <Box
