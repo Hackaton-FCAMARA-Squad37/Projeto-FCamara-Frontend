@@ -16,7 +16,7 @@ export const SSixOnboarding = () => {
             <Typography fontWeight='600' fontSize={mobile?'1rem':'1.5rem'} mb={mobile? '1rem':'2rem'}>
                 Quem nos apoia
             </Typography>
-            <Typography fontWeight='400' fontSize={mobile?'1rem':'1.25rem'} mb={mobile?'2.75rem':'4rem'}>
+            <Typography fontWeight='400' fontSize={mobile?'1rem':'1.25rem'} >
                 Somos parceiros das melhores empresas
             </Typography>
             <Box sx={{
@@ -24,14 +24,15 @@ export const SSixOnboarding = () => {
                 flexWrap: 'wrap',
                 justifyContent: 'space-between',
                 maxWidth:'71.25rem',
-                margin: 'auto'
+                margin: 'auto',
+                marginTop: `${mobile?'0':'1.25rem'}`
             }}>
                 <Box sx={{
                     display:'flex',
                     flexDirection:'row',
                     justifyContent:'space-between',
-                    paddingBottom: '2.25rem',
-                    paddingRight: '6.563rem'
+                    paddingRight: '6.563rem',
+                    flexWrap:'wrap',
                     
                 }}>
                     <a target= '_blank' href="https://www.fcamara.com.br/">
@@ -41,8 +42,8 @@ export const SSixOnboarding = () => {
                             backgroundRepeat: 'no-repeat',
                             width: `${mobile?'9.729rem':'13.578rem'}`,
                             height: `${mobile?'3.391rem':'4.756rem'}`,
-                            margin:'auto',
-                            paddingRight: '6.563rem'
+                            paddingRight: '6.563rem',
+                            marginTop: '2.75rem'
                         }}/>
                     </a>
                     <a target= '_blank' href="https://www.alura.com.br/">
@@ -52,7 +53,7 @@ export const SSixOnboarding = () => {
                             backgroundRepeat: 'no-repeat',
                             width: `${mobile?'4.813rem':'8.5rem'}`,
                             height: `${mobile?'3.391rem':'4.756rem'}`,
-                            margin:'auto'
+                            marginTop:'2.75rem'
                         }}/>
                     </a>
                 </Box>
@@ -70,7 +71,8 @@ export const SSixOnboarding = () => {
                             backgroundRepeat: 'no-repeat',
                             width: `${mobile?'11.25rem':'20.313rem'}`,
                             height: `${mobile?'2.125rem':'3.875rem'}`,
-                            paddingRight: '6.563rem'
+                            paddingRight: '6.563rem',
+                            marginTop: '2.75rem'
                         }}/>
                     </a>
                     <a target= '_blank' href="https://cubos.academy/">
@@ -79,7 +81,8 @@ export const SSixOnboarding = () => {
                             backgroundSize: 'contain',
                             backgroundRepeat: 'no-repeat',
                             width: `${mobile?'5.125rem':'8.688rem'}`,
-                            height: `${mobile?'2.313rem':'3.875rem'}`
+                            height: `${mobile?'2.313rem':'3.875rem'}`,
+                            marginTop: '2.75rem'
                         }}/>
                     </a>
                 </Box>

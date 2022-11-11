@@ -14,7 +14,8 @@ export const CardDepoimento = (props) => {
                 backgroundRepeat: 'no-repeat',
                 minWidth: `${mobile?'2rem':'4.5rem'}`,
                 minHeight: `${mobile?'2rem':'4.5rem'}`,
-                margin:'auto 0'
+                margin:'auto 0',
+                position: 'relative'
             }}/>
             <Box sx={{
                 padding: '2rem',
