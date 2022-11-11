@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import useUserState from '../../hook/useUserState';
+import { Link } from 'react-router-dom';
 
 
 export function Login() {
@@ -68,6 +69,7 @@ export function Login() {
             >
               Logar
             </Button>
+            <Link to='/signin'>Cadastre-se</Link>
           </Box>
         </Box>
       </Container>
