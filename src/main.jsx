@@ -9,10 +9,12 @@ import { Header } from './components/Header/Header.jsx'
 import { Footer } from './components/Footer/Footer.jsx'
 import { Login } from './pages/Login/Login.jsx'
 import { SignIn } from './pages/SignIn/SigIn.jsx'
+import { AuthProvider } from "./context/AuthContext";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
         <BrowserRouter>
           <header>
             <Header/>
@@ -28,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Footer/>
           </footer>
         </BrowserRouter>
-    </ThemeProvider>
+      </ThemeProvider>
+    </AuthProvider>
   </React.StrictMode>
 )

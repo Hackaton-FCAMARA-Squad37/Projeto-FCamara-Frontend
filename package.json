@@ -21,7 +21,8 @@
     "react-burger-menu": "^3.0.8",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
-    "react-router-hash-link": "^2.4.3"
+    "react-router-hash-link": "^2.4.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.22",

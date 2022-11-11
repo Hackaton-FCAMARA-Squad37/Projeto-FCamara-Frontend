@@ -1,5 +1,6 @@
 import { Button, Typography, useMediaQuery } from "@mui/material"
 import { Box } from "@mui/system"
+import { Link } from "react-router-dom"
 import imagemDNA from '../../assets/dna-onboard.png'
 import imagemLogo from '../../assets/logoOrangeJuice.png'
 
@@ -37,21 +38,23 @@ export const SOneOnboarding = () => {
                     paddingTop:`3.438rem`,
                     paddingBottom:'5rem'
                 }}>
-                    <Button variant='contained' sx={{
-                        fontWeight:'600',
-                        width: `100%`,
-                        height:`${mobile?'3rem':'4.5rem'}`,
-                        fontSize:`${mobile?'1rem':'1.5em'}`,
-                        backgroundColor:'vitamin.main',
-                        color:'primary.main',
-                        border:'1px solid',
-                        borderRadius:'8px',
-                        '&:hover':{
-                            backgroundColor:'#141111'
-                        }
-                    }}>
-                        Quero começar
-                    </Button>
+                    <Link to='/signin'>
+                        <Button variant='contained' sx={{
+                            fontWeight:'600',
+                            width: `100%`,
+                            height:`${mobile?'3rem':'4.5rem'}`,
+                            fontSize:`${mobile?'1rem':'1.5em'}`,
+                            backgroundColor:'vitamin.main',
+                            color:'primary.main',
+                            border:'1px solid',
+                            borderRadius:'8px',
+                            '&:hover':{
+                                backgroundColor:'#141111'
+                            }
+                        }}>
+                            Quero começar
+                        </Button>
+                    </Link>
                 </Box>
             </Box>
         </Box>
