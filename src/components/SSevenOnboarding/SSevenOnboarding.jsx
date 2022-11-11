@@ -1,5 +1,6 @@
 import { Button, Typography, useMediaQuery } from "@mui/material"
 import { Box } from "@mui/system"
+import { Link } from "react-router-dom"
 import imagemOrganization from '../../assets/organization.png'
 
 export const SSevenOnboarding = () => {
@@ -37,15 +38,27 @@ export const SSevenOnboarding = () => {
                     display:'flex',
                     justifyContent:'center'
                 }}>
-                    <Button variant='outlined' sx={{
-                            fontWeight:'600',
-                            width: `100%`,
-                            height:`${mobile?'3rem':'4.5rem'}`,
-                            fontSize:`${mobile?'1rem':'1.5em'}`,
-                            width:`${mobile?'10.375rem':'16.063rem'}`
-                        }}>
-                            Quero começar
-                    </Button>
+                    <Link to='/signin'>
+                        <Button variant='outlined' sx={{
+                                fontWeight:'600',
+                                width: `100%`,
+                                height:`${mobile?'3rem':'4.5rem'}`,
+                                fontSize:`${mobile?'1rem':'1.5em'}`,
+                                width:`${mobile?'10.375rem':'16.063rem'}`,
+                                backgroundColor:'vitamin.main',
+                                color:'primary.main',
+                                border:'1px solid',
+                                borderRadius:'8px',
+                                '&:hover':{
+                                    backgroundColor:'#141111'
+                                },
+                                '&:active': {
+                                    backgroundColor:'#222020'
+                                }
+                            }}>
+                                Quero começar
+                        </Button>
+                    </Link>
                 </Box>
             </Box>
         </Box>
