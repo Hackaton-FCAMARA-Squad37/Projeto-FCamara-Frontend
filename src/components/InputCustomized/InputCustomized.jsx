@@ -14,7 +14,7 @@ export const InputCustomized = (props) => {
         paddingBottom: `${mobile ? "1.5rem" : "2.5rem"}`,
       }}
     >
-      <Typography pb="0.5rem">{props.texto}</Typography>
+      <Typography fontSize={mobile?'1rem':'1.25rem'}pb="0.5rem">{props.texto}</Typography>
       <Box
         sx={{
           display: "flex",
@@ -51,6 +51,7 @@ export const InputCustomized = (props) => {
           onFocus={() => setClicado(true)}
           onBlur={() => setClicado(false)}
           className="input"
+          id={props.idInput}
           placeholder={props.placeholder}
           type={props.tipo=='senha'? 'password':props.tipo=='email'? 'email': 'text'}
           style={{
