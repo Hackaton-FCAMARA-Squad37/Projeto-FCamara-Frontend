@@ -1,11 +1,14 @@
 import { Typography, useMediaQuery, Box, Button } from "@mui/material";
+import { getValue } from "@mui/system";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
 
 export const Register = () => {
   const mobile = useMediaQuery("(max-width:768px)");
   const cellphone = useMediaQuery("(max-width:480px)");
-  const desktop = useMediaQuery('(max-width:1024px)')
+  const desktop = useMediaQuery('(max-width:1024px)');
+  const emailRef = useRef(null)
 
   return (
     <Box
@@ -61,24 +64,28 @@ export const Register = () => {
           texto="Seu e-mail*"
           id="email"
           placeholder="exemplo@email.com"
+          reference={emailRef}
         />
         <InputCustomized
           tipo="usuario"
           texto="Seu nome*"
           id="nome"
           placeholder="Nome e sobrenome"
+          reference={emailRef}
         />
         <InputCustomized
           tipo="senha"
           texto="Sua senha*"
           id="senha"
           placeholder="*********"
+          reference={emailRef}
         />
         <InputCustomized
           tipo="senha"
           texto="Confirmação de sua senha*"
           id="senhaConfirmada"
           placeholder="*********"
+          reference={emailRef}
         />
         <Typography sx={{
             marginBottom: `${mobile?'2rem':'3rem'}`
@@ -104,6 +111,7 @@ export const Register = () => {
             borderRadius: "8px",
             marginBottom: `${mobile?'2.375rem':'3.75rem'}`
           }}
+          onClick={()=>console.log(emailRef.current)}
         >
           <Typography
             color="vitamin.main"

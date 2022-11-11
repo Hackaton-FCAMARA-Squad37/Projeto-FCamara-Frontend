@@ -1,15 +1,15 @@
-import { Box, Button, Typography, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
 import Person2Icon from "@mui/icons-material/Person2";
 import LockIcon from "@mui/icons-material/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { useState } from "react";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { useState, useRef, useEffect } from "react";
 
 export const InputCustomized = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const [focus, setFocus] = useState(false);
-    const [visibility, setVisibility] = useState(true)
+  const [visibility, setVisibility] = useState(true);
 
   return (
     <Box
@@ -38,12 +38,12 @@ export const InputCustomized = (props) => {
               }}
             />
             <input
+              ref={props.ref}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(false)}
-              className="input"
               id={props.idInput}
               placeholder={props.placeholder}
-              type={visibility?'password':'text'}
+              type={visibility ? "password" : "text"}
               style={{
                 width: "100%",
                 backgroundColor: "#484848",
@@ -57,9 +57,21 @@ export const InputCustomized = (props) => {
                 outline: "none",
               }}
             />
-            <button onClick={()=> {setVisibility(!visibility) || setFocus(true)}} 
-            style={{backgroundColor:'#484848', border:'0', color:`${focus? '#00C09B': '#9B9B9B'}`, marginTop:'auto', marginBottom:'auto', marginRight:'20px', cursor:'pointer'}}>
-                {visibility?<VisibilityIcon/>:<VisibilityOffIcon/>}
+            <button
+              onClick={() => {
+                setVisibility(!visibility) || setFocus(true);
+              }}
+              style={{
+                backgroundColor: "#484848",
+                border: "0",
+                color: `${focus ? "#00C09B" : "#9B9B9B"}`,
+                marginTop: "auto",
+                marginBottom: "auto",
+                marginRight: "20px",
+                cursor: "pointer",
+              }}
+            >
+              {visibility ? <VisibilityIcon /> : <VisibilityOffIcon />}
             </button>
           </>
         ) : props.tipo == "email" ? (
@@ -70,12 +82,13 @@ export const InputCustomized = (props) => {
               }}
             />
             <input
+              ref={props.ref}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(false)}
-              className="input"
               id={props.idInput}
               placeholder={props.placeholder}
-              type='email'
+              type="email"
+              
               style={{
                 width: "100%",
                 backgroundColor: "#484848",
@@ -98,9 +111,9 @@ export const InputCustomized = (props) => {
               }}
             />
             <input
+              ref={props.reference}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(false)}
-              className="input"
               id={props.idInput}
               placeholder={props.placeholder}
               type="text"
@@ -119,7 +132,7 @@ export const InputCustomized = (props) => {
             />
           </>
         ) : (
-          ""
+          <></>
         )}
       </Box>
     </Box>
