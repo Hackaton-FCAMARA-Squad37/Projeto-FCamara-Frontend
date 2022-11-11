@@ -1,8 +1,8 @@
 import { Box, Typography, useMediaQuery } from "@mui/material";
 
 export const CardArea = (props) => {
-  const mobile = useMediaQuery("(max-width:768px)");
   const desktopWide = useMediaQuery("(max-width:1200px)");
+
   return (
     <Box
       sx={{
@@ -15,7 +15,8 @@ export const CardArea = (props) => {
         border: `1px solid`,
         borderColor: `${desktopWide ? "tea.main" : "milkshake.main"}`,
         height: `${desktopWide ? "6rem" : "22rem"}`,
-        width: `${desktopWide ? "100%" : "30%"}`
+        width: `${desktopWide ? "100%" : "30%"}`,
+        position:`${desktopWide?'relative':''}`
       }}
     >
       <Box
@@ -26,15 +27,21 @@ export const CardArea = (props) => {
           width: `${props.size}`,
           height: `${props.size}`,
           borderRadius: "8px",
-          margin: "auto",
+          position:`${desktopWide?'absolute':''}`,
+          margin:`${desktopWide?'0':'auto'}`,
+          top: `${desktopWide?'30%':''}`,
+          left: `${desktopWide?'20%':'0'}`
         }}
       />
       <Typography
         fontWeight="600"
         fontSize={desktopWide ? "1rem" : "1.5rem"}
         sx={{
-          margin: "auto",
           padding: `${desktopWide ? "" : ""}`,
+          position:`${desktopWide?'absolute':''}`,
+          top: `${desktopWide?'30%':''}`,
+          left: `${desktopWide?'40%':'0'}`,
+          margin:`${desktopWide?'0':'auto'}`,
         }}
       >
         {props.texto}
