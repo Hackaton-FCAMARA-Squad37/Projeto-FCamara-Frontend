@@ -1,5 +1,5 @@
 export const stateAndNeutral = {
-  sucess: { main: "#63C132" },
+  sucess: { main: "#53F300" },
   warning: { main: "#FFBA49" },
   info: { main: "#6F7AEC" },
   error: { main: "#FF3838" },

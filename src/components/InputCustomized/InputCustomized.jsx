@@ -31,7 +31,7 @@ export const InputCustomized = (props) => {
             focus
               ? props.error
                 ? "errorColor.main"
-                : "primary.main"
+                : "tea.main"
               : props.error
               ? "errorColor.main"
               : "tea.main"
@@ -121,7 +121,11 @@ export const InputCustomized = (props) => {
               document.getElementById(props.id) ? (
                 document.getElementById(props.id).value ? (
                   <CheckCircleIcon
-                    sx={{ margin: "auto", marginRight: "10px" }}
+                    sx={{
+                      margin: "auto",
+                      marginRight: "10px",
+                      color: "sucess.main",
+                    }}
                   />
                 ) : (
                   ""
@@ -164,7 +168,21 @@ export const InputCustomized = (props) => {
               }}
             />
             {props.error == undefined ? (
-              ""
+              document.getElementById(props.id) ? (
+                document.getElementById(props.id).value ? (
+                  <CheckCircleIcon
+                    sx={{
+                      margin: "auto",
+                      marginRight: "10px",
+                      color: "sucess.main",
+                    }}
+                  />
+                ) : (
+                  ""
+                )
+              ) : (
+                ""
+              )
             ) : (
               <ErrorIcon sx={{ margin: "auto", marginRight: "10px" }} />
             )}
