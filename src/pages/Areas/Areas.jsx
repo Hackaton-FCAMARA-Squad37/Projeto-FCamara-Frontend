@@ -60,7 +60,7 @@ export const Areas = () => {
           display: "flex",
           flexDirection: `${desktopWide ? "column" : "row"}`,
           justifyContent: "space-between",
-          padding: `0 1.5rem ${mobile ? "3rem" : "4rem"} 1.5rem`,
+          padding: `0 0rem ${mobile ? "3rem" : "4rem"} 0rem`,
         }}
       >
         <CardArea
