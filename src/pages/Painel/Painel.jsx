@@ -3,9 +3,11 @@ import { Box } from "@mui/system";
 import { BotaoGenerico } from "../../components/BotaoGenerico";
 import { TituloSubtitulo } from "../../components/TituloSubtitulo";
 import { CardPainel } from "./CardPainel";
+import useUserState from "../../hook/useUserState";
 
 export const Painel = () => {
   const mobile = useMediaQuery("(max-width: 768px)");
+  const loged = useUserState()
 
   return (
     <Box
@@ -19,9 +21,10 @@ export const Painel = () => {
       }}
     >
       <TituloSubtitulo
+      nome={loged.nome}
         titulo="Painel"
-        subtitulo="Olá, Pedro! Este é seu painel, aqui você encontrará suas trilhas de
-          estudo adicionadas e em que nível você está"
+        subtitulo=" Este é seu painel, aqui você encontrará suas trilhas de
+          estudo adicionadas"
         titleFontSize="1.5rem"
       />
       <CardPainel
