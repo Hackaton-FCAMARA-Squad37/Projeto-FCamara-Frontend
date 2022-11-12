@@ -22,7 +22,7 @@ export const Navbar = () => {
             maxWidth:'24.375rem',
             justifyContent: 'space-between'
         }}>
-            <Link to='/' style={{ textDecoration:'inherit', color:'inherit', height:'1.5rem' }} >
+            <Link to={logado?'/painel':'/'} style={{ textDecoration:'inherit', color:'inherit', height:'1.5rem' }} >
                 <Typography sx={{
                     color: 'water.main',
                     fontWeight: '600'

@@ -9,9 +9,12 @@ import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../context/user/UserContext";
+import useUserState from "../../hook/useUserState";
 
 export function Login() {
   const { login, usuario } = useContext(UserContext);
+  const loged = useUserState();
+  const logado = loged.id;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -62,14 +65,15 @@ export function Login() {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
-          <Button
+              
+            <Button
             type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-          >
+            >
             Logar
-          </Button>
+            </Button>
           <Link to="/signin">Cadastre-se</Link>
         </Box>
       </Box>
