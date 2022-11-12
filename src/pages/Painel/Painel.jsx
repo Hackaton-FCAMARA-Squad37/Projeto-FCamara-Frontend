@@ -1,6 +1,5 @@
-import { Typography, useMediaQuery, Button } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
-import { BotaoGenerico } from "../../components/BotaoGenerico";
 import { TituloSubtitulo } from "../../components/TituloSubtitulo";
 import { CardPainel } from "./CardPainel";
 import useUserState from "../../hook/useUserState";

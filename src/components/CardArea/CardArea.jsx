@@ -10,6 +10,7 @@ export const CardArea = (props) => {
         color:'#F8F8F8',
         textDecoration:'none',
         width: `${desktopWide ? "100%" : "30%"}`,
+        cursor:`${props.cursor}`
       }}>
         <Box
           sx={{

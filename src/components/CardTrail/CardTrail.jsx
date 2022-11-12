@@ -52,9 +52,6 @@ export const CardTrail = (props) => {
             display:'flex',
             cursor:'pointer'
           }}>
-              <PlayArrowIcon sx={{
-                paddingRight:`${mobile?'0.5rem':'1rem'}`
-              }}/>
               <Typography sx={{
                 minWidth:`${mobile? '' : '5.3rem'}`
               }}>Iniciar trilha</Typography>
