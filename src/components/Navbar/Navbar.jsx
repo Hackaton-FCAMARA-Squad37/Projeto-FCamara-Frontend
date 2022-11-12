@@ -1,10 +1,15 @@
 import { Box, Typography, useMediaQuery } from "@mui/material"; 
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import UserContext from "../../context/user/UserContext";
 
 export const Navbar = () => {
     const desktop = useMediaQuery('(max-width:1024px)')
-
+    const [logedUser, setLogedUser] = useState({})
+    const logado = useContext(UserContext)
+    console.log(logado[0])
+    
     return (
         <Box
         pt='2.25rem'
@@ -20,7 +25,7 @@ export const Navbar = () => {
                 <Typography sx={{
                     color: 'water.main',
                     fontWeight: '600'
-                }}>Início</Typography>
+                }}>{logado?'Painel':'Início'}</Typography>
             </Link>
             <HashLink smooth to='/#section-trilhas' style={{ textDecoration:'inherit', color:'inherit', height:'1.5rem' }}>
                 <Typography sx={{
