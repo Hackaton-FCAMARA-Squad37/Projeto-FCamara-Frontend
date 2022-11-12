@@ -10,6 +10,8 @@ import { Footer } from "./components/Footer/Footer.jsx";
 import { Login } from "./pages/Login/Login.jsx";
 import { Register } from "./pages/Register/Register.jsx";
 import { UserContextProvider } from "../src/context/user/UserContext.jsx";
+import { Painel } from "./pages/Painel/Painel.jsx";
+import { Areas } from "./pages/Areas/Areas.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -24,6 +26,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signin" element={<Register />} />
+              <Route path="/painel" element={<Painel />} />
+              <Route path="/areas" element={<Areas />} />
             </Routes>
           </main>
           <footer>
