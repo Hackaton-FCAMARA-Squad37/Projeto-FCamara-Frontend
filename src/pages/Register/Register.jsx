@@ -1,14 +1,36 @@
 import { Typography, useMediaQuery, Box, Button } from "@mui/material";
-import { getValue } from "@mui/system";
-import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import { useRef } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
 
 export const Register = () => {
   const mobile = useMediaQuery("(max-width:768px)");
   const cellphone = useMediaQuery("(max-width:480px)");
-  const desktop = useMediaQuery('(max-width:1024px)');
-  const emailRef = useRef(null)
+  const desktop = useMediaQuery("(max-width:1024px)");
+  const emailRef = useRef(null);
+  const senhaRef = useRef(null);
+  const nomeRef = useRef(null);
+  const senhaConfirmadaRef = useRef(null);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    await axios
+      .post("https://orange-evolution-squad37.herokuapp.com/usuarios", {
+        nome: data.nome,
+        email: data.email,
+        senha: data.senha,
+        xp: 0,
+      })
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error));
+  };
 
   return (
     <Box
@@ -28,7 +50,7 @@ export const Register = () => {
           maxWidth: `${
             mobile ? (cellphone ? "88%" : "23.375rem") : "48.875rem"
           }`,
-          width: `${desktop?'100%':'80%'}`
+          width: `${desktop ? "100%" : "80%"}`,
         }}
       >
         <Typography fontWeight="600" fontSize={mobile ? "1.5rem" : "2rem"}>
@@ -56,8 +78,10 @@ export const Register = () => {
           border: `1px solid`,
           borderColor: "milkshake.main",
           display: "flex",
-          flexDirection: "column"
+          flexDirection: "column",
         }}
+        component="form"
+        onSubmit={handleSubmit(onSubmit)}
       >
         <InputCustomized
           tipo="email"
@@ -65,31 +89,41 @@ export const Register = () => {
           id="email"
           placeholder="exemplo@email.com"
           reference={emailRef}
+          register={register}
         />
+        {errors.email?.type === "required" && <p>Email é obrigatório.</p>}
         <InputCustomized
           tipo="usuario"
           texto="Seu nome*"
           id="nome"
           placeholder="Nome e sobrenome"
-          reference={emailRef}
+          reference={nomeRef}
+          register={register}
         />
+        {errors.nome?.type === "required" && <p>Nome é obrigatório.</p>}
         <InputCustomized
           tipo="senha"
           texto="Sua senha*"
           id="senha"
           placeholder="*********"
-          reference={emailRef}
+          reference={senhaRef}
+          register={register}
         />
+        {errors.senha?.type === "required" && <p>Senha é obrigatória.</p>}
         <InputCustomized
           tipo="senha"
           texto="Confirmação de sua senha*"
           id="senhaConfirmada"
           placeholder="*********"
-          reference={emailRef}
+          reference={senhaConfirmadaRef}
+          register={register}
         />
-        <Typography sx={{
-            marginBottom: `${mobile?'2rem':'3rem'}`
-        }}>
+        {errors.senha?.type === "required" && <p>Confirme a sua senha.</p>}
+        <Typography
+          sx={{
+            marginBottom: `${mobile ? "2rem" : "3rem"}`,
+          }}
+        >
           Ao se registrar, você aceita nossa
           <a
             target="_blank"
@@ -97,7 +131,7 @@ export const Register = () => {
             style={{
               color: "#F8F8F8",
               marginLeft: "4px",
-              marginRight: "4px"
+              marginRight: "4px",
             }}
           >
             política de privacidade
@@ -109,9 +143,9 @@ export const Register = () => {
             height: `${mobile ? "3rem" : "3.5rem"}`,
             color: "vitamin.main",
             borderRadius: "8px",
-            marginBottom: `${mobile?'2.375rem':'3.75rem'}`
+            marginBottom: `${mobile ? "2.375rem" : "3.75rem"}`,
           }}
-          onClick={()=>console.log(emailRef.current)}
+          type="submit"
         >
           <Typography
             color="vitamin.main"
@@ -121,7 +155,7 @@ export const Register = () => {
             Cadastrar
           </Typography>
         </Button>
-        <Typography textAlign='center'>
+        <Typography textAlign="center">
           Tem uma conta?
           <Link
             to="/login"

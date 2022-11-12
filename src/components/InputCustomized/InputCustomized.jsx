@@ -4,7 +4,7 @@ import Person2Icon from "@mui/icons-material/Person2";
 import LockIcon from "@mui/icons-material/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 export const InputCustomized = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
@@ -38,10 +38,11 @@ export const InputCustomized = (props) => {
               }}
             />
             <input
-              ref={props.ref}
+              ref={props.reference}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(false)}
-              id={props.idInput}
+              id={props.id}
+              {...props.register("senha", { required: true })}
               placeholder={props.placeholder}
               type={visibility ? "password" : "text"}
               style={{
@@ -82,13 +83,13 @@ export const InputCustomized = (props) => {
               }}
             />
             <input
-              ref={props.ref}
+              ref={props.reference}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(false)}
-              id={props.idInput}
+              id={props.id}
               placeholder={props.placeholder}
+              {...props.register("email", { required: true })}
               type="email"
-              
               style={{
                 width: "100%",
                 backgroundColor: "#484848",
@@ -114,8 +115,9 @@ export const InputCustomized = (props) => {
               ref={props.reference}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(false)}
-              id={props.idInput}
+              id={props.id}
               placeholder={props.placeholder}
+              {...props.register("nome", { required: true })}
               type="text"
               style={{
                 width: "100%",
