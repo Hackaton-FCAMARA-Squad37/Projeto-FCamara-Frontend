@@ -6,6 +6,7 @@ export const CardArea = (props) => {
 
   return (
     <Box
+    onClick={props.clicado}
       sx={{
         borderRadius: "8px",
         display: "flex",
@@ -18,6 +19,7 @@ export const CardArea = (props) => {
         height: `${desktopWide ? "6rem" : "22rem"}`,
         width: `${desktopWide ? "100%" : "30%"}`,
         position: `${desktopWide ? "relative" : ""}`,
+        cursor: `${props.cursor}`
       }}
     >
       <Box
