@@ -5,12 +5,11 @@ import logoUXUI from "../../assets/logoUXUI.png";
 import logoDEV from "../../assets/logoDEV.png";
 import logoQA from "../../assets/logoQA.png";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Areas = () => {
   const mobile = useMediaQuery("(max-width:768px)");
   const desktopWide = useMediaQuery("(max-width:1200px)");
-  const navigate = useNavigate();
 
   return (
     <Box
@@ -65,35 +64,32 @@ export const Areas = () => {
           padding: `0 0rem ${mobile ? "3rem" : "4rem"} 0rem`,
         }}
       >
-        <CardArea
-          cursor="pointer"
-          clicado={() => {
-            navigate("/areaUXUI");
-          }}
-          imagem={logoUXUI}
-          texto="UX/UI Designer"
-          size={desktopWide ? "2.188rem" : "6.563rem"}
-        />
+        <Link to='/caminhouxui'>
+          <CardArea
+            cursor="pointer"
+            imagem={logoUXUI}
+            texto="UX/UI Designer"
+            size={desktopWide ? "2.188rem" : "6.563rem"}
+          />
+        </Link>
 
-        <CardArea
-          cursor="pointer"
-          clicado={() => {
-            navigate("/areaQA");
-          }}
-          imagem={logoQA}
-          texto="QA (Quality Assurance)"
-          size={desktopWide ? "1.875rem" : "5.625rem"}
-        />
+        <Link to='/caminhoqa'>
+          <CardArea
+            cursor="pointer"
+            imagem={logoQA}
+            texto="QA (Quality Assurance)"
+            size={desktopWide ? "1.875rem" : "5.625rem"}
+          />
+        </Link>
 
-        <CardArea
-          cursor="pointer"
-          clicado={() => {
-            navigate("/areaDEV");
-          }}
-          imagem={logoDEV}
-          texto="Desenvolvimento"
-          size={desktopWide ? "2.25rem" : "7.5rem"}
-        />
+        <Link to='/caminhodev'>
+          <CardArea
+            cursor="pointer"
+            imagem={logoDEV}
+            texto="Desenvolvimento"
+            size={desktopWide ? "2.25rem" : "7.5rem"}
+          />
+        </Link>
       </Box>
     </Box>
   );

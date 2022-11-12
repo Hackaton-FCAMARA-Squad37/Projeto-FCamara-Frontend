@@ -26,14 +26,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </header>
           <main>
             <Routes>
+              <Route path="/caminhodev" element={<AreaDEV />}/>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signin" element={<Register />} />
               <Route path="/painel" element={<Painel />} />
               <Route path="/areas" element={<Areas />} />
-              <Route path="/areauxui" element={<AreaUXUI />}/>
-              <Route path="/areaqa" element={<AreaQA />}/>
-              <Route path="/areadev" element={<AreaDEV />}/>
+              <Route path="/caminhouxui" element={<AreaUXUI />}/>
+              <Route path="/caminhoqa" element={<AreaQA />}/>
             </Routes>
           </main>
           <footer>
