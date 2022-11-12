@@ -18,9 +18,9 @@ export const Areas = () => {
       color="water.main"
       textAlign="justify"
       sx={{
-        padding: `${mobile ? "9rem" : "4rem"} ${
+        padding: `${mobile ? "4rem" : "9rem"} ${
           mobile ? "1.5rem" : "4.5rem"
-        } 0 ${mobile ? "1.5rem" : "4.5rem"}`,
+        } ${mobile ? "4rem" : "9rem"} ${mobile ? "1.5rem" : "4.5rem"}`,
       }}
     >
       <Box
@@ -33,11 +33,14 @@ export const Areas = () => {
           marginBottom: `${mobile?'2rem':'4rem'}`
         }}
       >
-        <ArrowBackIcon />
+        <ArrowBackIcon sx={{
+            height:`${mobile?'2.25rem':'2.25rem'}`
+        }}/>
         <Typography
           height={mobile ? "" : "1.5rem"}
           sx={{
-            height: `${mobile ? "1rem" : "1.5rem"}`,
+            fontSize: `${mobile ? "1rem" : "1.5rem"}`,
+            paddingLeft:`${mobile?'0.5rem':'1.375rem'}`
           }}
         >
           Voltar
@@ -55,7 +58,6 @@ export const Areas = () => {
         </Typography>
       </Box>
       <Box
-      pb={mobile?'2rem':'9rem'}
         sx={{
           display: "flex",
           flexDirection: `${desktopWide ? "column" : "row"}`,
