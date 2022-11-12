@@ -35,8 +35,6 @@ export const Register = () => {
       .catch((error) => console.log(error));
   };
 
-  const onChange = () => console.log(Mudou);
-
   return (
     <Box
       sx={{

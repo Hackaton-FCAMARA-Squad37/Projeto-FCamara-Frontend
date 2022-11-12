@@ -7,12 +7,16 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import useUserState from "../../hook/useUserState";
+import { useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../context/user/UserContext";
 
 export function Login() {
   const { login, usuario } = useContext(UserContext);
+  const mobile = useMediaQuery("(max-width:768px)");
+  const cellphone = useMediaQuery("(max-width:480px)");
+  const desktop = useMediaQuery("(max-width:1024px)");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -29,7 +33,19 @@ export function Login() {
 
   const loginUsuario = useUserState();
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      component="main"
+      maxWidth="xs"
+      sx={{
+        backgroundColor: "white",
+        display: "flex",
+        flexDirection: "column",
+        paddingTop: `${mobile ? "4rem" : "9rem"}`,
+        paddingBottom: `${mobile ? "4rem" : "9rem"}`,
+        alignItems: "center",
+        width: "100%",
+      }}
+    >
       <Box
         sx={{
           marginTop: 8,
@@ -39,7 +55,7 @@ export function Login() {
         }}
       >
         <Typography component="h1" variant="h5">
-          Login
+          Olá, acesse sua conta
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
