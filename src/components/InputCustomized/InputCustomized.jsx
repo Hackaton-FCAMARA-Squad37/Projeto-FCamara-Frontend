@@ -46,6 +46,15 @@ export const InputCustomized = (props) => {
             <LockIcon
               sx={{
                 margin: "auto",
+                color: `${
+                  props.error == undefined
+                    ? document.getElementById(props.id)
+                      ? document.getElementById(props.id).value
+                        ? "white"
+                        : ""
+                      : ""
+                    : "inherit"
+                }`,
               }}
             />
             <input
@@ -91,6 +100,15 @@ export const InputCustomized = (props) => {
             <MailIcon
               sx={{
                 margin: "auto",
+                color: `${
+                  props.error == undefined
+                    ? document.getElementById(props.id)
+                      ? document.getElementById(props.id).value
+                        ? "white"
+                        : ""
+                      : ""
+                    : "inherit"
+                }`,
               }}
             />
             <input
@@ -123,7 +141,7 @@ export const InputCustomized = (props) => {
                   <CheckCircleIcon
                     sx={{
                       margin: "auto",
-                      marginRight: "10px",
+                      marginRight: "26.6px",
                       color: "sucess.main",
                     }}
                   />
@@ -134,9 +152,9 @@ export const InputCustomized = (props) => {
                 ""
               )
             ) : props.error.type == "required" ? (
-              <ErrorIcon sx={{ margin: "auto", marginRight: "10px" }} />
+              <ErrorIcon sx={{ margin: "auto", marginRight: "26.6px" }} />
             ) : (
-              <CancelIcon sx={{ margin: "auto", marginRight: "10px" }} />
+              <CancelIcon sx={{ margin: "auto", marginRight: "26.6px" }} />
             )}
           </>
         ) : props.tipo == "usuario" ? (
@@ -144,6 +162,15 @@ export const InputCustomized = (props) => {
             <Person2Icon
               sx={{
                 margin: "auto",
+                color: `${
+                  props.error == undefined
+                    ? document.getElementById(props.id)
+                      ? document.getElementById(props.id).value
+                        ? "white"
+                        : ""
+                      : ""
+                    : "inherit"
+                }`,
               }}
             />
             <input
@@ -173,7 +200,7 @@ export const InputCustomized = (props) => {
                   <CheckCircleIcon
                     sx={{
                       margin: "auto",
-                      marginRight: "10px",
+                      marginRight: "26.6px",
                       color: "sucess.main",
                     }}
                   />
@@ -184,7 +211,7 @@ export const InputCustomized = (props) => {
                 ""
               )
             ) : (
-              <ErrorIcon sx={{ margin: "auto", marginRight: "10px" }} />
+              <ErrorIcon sx={{ margin: "auto", marginRight: "26.6px" }} />
             )}
           </>
         ) : (
@@ -195,14 +222,14 @@ export const InputCustomized = (props) => {
         <p
           style={{ color: "#FFADAD", marginTop: "10px", fontFamily: "Raleway" }}
         >
-          Este campo é obrigatório.
+          Este campo é obrigatório
         </p>
       )}
       {props.error?.type === "pattern" && (
         <p
           style={{ color: "#FFADAD", marginTop: "10px", fontFamily: "Raleway" }}
         >
-          Este e-mail não é válido.
+          Este e-mail não é válido
         </p>
       )}
     </Box>
