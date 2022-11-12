@@ -1,14 +1,14 @@
-import { useState } from "react"
+import { useContext, useState } from "react";
+import UserContext from "../context/user/UserContext.jsx";
 
-const useUserState = () => {
-    const [isOn, setIsOn] = useState(false)
-
-    return {
-        logado: isOn,
-        logar: () => setIsOn(true),
-        deslogar: () => setIsOn(false)
-    }
+export default function useUserState() {
+  const [logedUser, setLogedUser] = useState({});
+  const contextLogado = useContext(UserContext);
+  const logado = contextLogado.usuario[0];
+  try {
+    if (logado && logado!=logedUser) setLogedUser(logado);
+    return logedUser
+  } catch (e) {
+    console.log(e);
+  }
 }
-
-
-export default useUserState

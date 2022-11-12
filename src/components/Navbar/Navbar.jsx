@@ -1,14 +1,12 @@
-import { Box, Typography, useMediaQuery } from "@mui/material"; 
-import { useContext, useState } from "react";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import UserContext from "../../context/user/UserContext";
+import useUserState from "../../hook/useUserState";
 
 export const Navbar = () => {
     const desktop = useMediaQuery('(max-width:1024px)')
-    const [logedUser, setLogedUser] = useState({})
-    const logado = useContext(UserContext)
-    console.log(logado.usuario[0])
+    const login = useUserState()
+    const logado = login.id
     
     const urlSobreOrange = "https://digital.fcamara.com.br/orangejuice#rd-section-joq3m2lv"
     const urlComunidade = 'https://discord.com/invite/NtESsDFGx5'

@@ -6,7 +6,6 @@ import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import useUserState from "../../hook/useUserState";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../context/user/UserContext";
@@ -23,11 +22,8 @@ export function Login() {
     });
 
     await login(data.get("email"), data.get("password"));
-
-    console.log(await usuario);
   };
 
-  const loginUsuario = useUserState();
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -71,9 +67,6 @@ export function Login() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-            onClick={() => {
-              loginUsuario.logar();
-            }}
           >
             Logar
           </Button>

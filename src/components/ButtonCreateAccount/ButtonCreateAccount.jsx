@@ -2,12 +2,13 @@ import { Button, Typography, useMediaQuery } from "@mui/material"
 import { Link } from "react-router-dom"
 
 
-export const ButtonCreateAccount = () => {
+export const ButtonCreateAccount = (props) => {
     const mobile = useMediaQuery('(max-width:768px)')
     
     return (
         <Link to='/signin'>
             <Button
+                onClick={props.clicado}
                 variant="contained"
                 sx={{
                 height: `${mobile?'3rem':'3.5rem'}`,
