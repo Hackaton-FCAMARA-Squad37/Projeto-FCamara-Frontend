@@ -4,6 +4,9 @@ import Person2Icon from "@mui/icons-material/Person2";
 import LockIcon from "@mui/icons-material/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
+import ErrorIcon from "@mui/icons-material/Error";
 import { useState } from "react";
 
 export const InputCustomized = (props) => {
@@ -24,7 +27,15 @@ export const InputCustomized = (props) => {
         sx={{
           display: "flex",
           backgroundColor: "milkshake.main",
-          color: `${focus ? "primary.main" : "tea.main"}`,
+          color: `${
+            focus
+              ? props.error
+                ? "errorColor.main"
+                : "primary.main"
+              : props.error
+              ? "errorColor.main"
+              : "tea.main"
+          }`,
           paddingLeft: "1.5rem",
           borderRadius: "4px",
           border: "1px solid",
@@ -88,7 +99,10 @@ export const InputCustomized = (props) => {
               onBlur={() => setFocus(false)}
               id={props.id}
               placeholder={props.placeholder}
-              {...props.register("email", { required: true })}
+              {...props.register("email", {
+                required: true,
+                pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+              })}
               type="email"
               style={{
                 width: "100%",
@@ -103,6 +117,23 @@ export const InputCustomized = (props) => {
                 outline: "none",
               }}
             />
+            {props.error == undefined ? (
+              document.getElementById(props.id) ? (
+                document.getElementById(props.id).value ? (
+                  <CheckCircleIcon
+                    sx={{ margin: "auto", marginRight: "10px" }}
+                  />
+                ) : (
+                  ""
+                )
+              ) : (
+                ""
+              )
+            ) : props.error.type == "required" ? (
+              <ErrorIcon sx={{ margin: "auto", marginRight: "10px" }} />
+            ) : (
+              <CancelIcon sx={{ margin: "auto", marginRight: "10px" }} />
+            )}
           </>
         ) : props.tipo == "usuario" ? (
           <>
@@ -132,11 +163,30 @@ export const InputCustomized = (props) => {
                 outline: "none",
               }}
             />
+            {props.error == undefined ? (
+              ""
+            ) : (
+              <ErrorIcon sx={{ margin: "auto", marginRight: "10px" }} />
+            )}
           </>
         ) : (
           <></>
         )}
       </Box>
+      {props.error?.type === "required" && (
+        <p
+          style={{ color: "#FFADAD", marginTop: "10px", fontFamily: "Raleway" }}
+        >
+          Este campo é obrigatório.
+        </p>
+      )}
+      {props.error?.type === "pattern" && (
+        <p
+          style={{ color: "#FFADAD", marginTop: "10px", fontFamily: "Raleway" }}
+        >
+          Este e-mail não é válido.
+        </p>
+      )}
     </Box>
   );
 };

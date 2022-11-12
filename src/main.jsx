@@ -8,7 +8,7 @@ import "../src/style/reset.css";
 import { Header } from "./components/Header/Header.jsx";
 import { Footer } from "./components/Footer/Footer.jsx";
 import { Login } from "./pages/Login/Login.jsx";
-import { SignIn } from "./pages/SignIn/SigIn.jsx";
+import { Register } from "./pages/Register/Register.jsx";
 import { UserContextProvider } from "../src/context/user/UserContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signin" element={<Register />} />
             </Routes>
           </main>
           <footer>
