@@ -12,9 +12,9 @@ import { Register } from "./pages/Register/Register.jsx";
 import { UserContextProvider } from "../src/context/user/UserContext.jsx";
 import { Painel } from "./pages/Painel/Painel.jsx";
 import { Areas } from "./pages/Areas/Areas.jsx";
-import { AreaQA } from "./pages/areaQA/areaQA.jsx";
-import { AreaDEV } from "./pages/areaDEV/areaDEV.jsx";
-import { AreaUXUI } from "./pages/areaUXUI/areaUXUI.jsx";
+import { UxuiPage } from "./pages/UxuiPage/UxuiPage.jsx";
+import { QaPage } from "./pages/QaPage/QaPage.jsx";
+import { DevPage } from "./pages/DevPage/DevPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -26,14 +26,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </header>
           <main>
             <Routes>
-              <Route path="/caminhodev" element={<AreaDEV />}/>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signin" element={<Register />} />
               <Route path="/painel" element={<Painel />} />
               <Route path="/areas" element={<Areas />} />
-              <Route path="/caminhouxui" element={<AreaUXUI />}/>
-              <Route path="/caminhoqa" element={<AreaQA />}/>
+              <Route path="/caminhouxui" element={<UxuiPage/>} />
+              <Route path="/caminhoqa" element={<QaPage />} />
+              <Route path="/caminhodev" element={<DevPage />} />
             </Routes>
           </main>
           <footer>
