@@ -5,13 +5,11 @@ import logoUXUI from "../../assets/logoUXUI.png";
 import logoDEV from "../../assets/logoDEV.png";
 import logoQA from "../../assets/logoQA.png";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Areas = () => {
   const mobile = useMediaQuery("(max-width:768px)");
   const desktopWide = useMediaQuery("(max-width:1200px)");
-  const navigate = useNavigate();
-
   return (
     <Box
       bgcolor="coffee.main"
@@ -23,29 +21,31 @@ export const Areas = () => {
         } ${mobile ? "4rem" : "9rem"} ${mobile ? "1.5rem" : "4.5rem"}`,
       }}
     >
-      <Box
-      onClick={()=>{
-        navigate('/painel')
-      }}
-        sx={{
-          display: "flex",
-          cursor:'pointer',
-          marginBottom: `${mobile?'2rem':'4rem'}`
-        }}
-      >
-        <ArrowBackIcon sx={{
-            height:`${mobile?'2.25rem':'2.25rem'}`
-        }}/>
-        <Typography
-          height={mobile ? "" : "1.5rem"}
+      <Link to='/painel' style={{
+        color:'white',
+        textDecoration:'none'
+      }}>
+        <Box 
           sx={{
-            fontSize: `${mobile ? "1rem" : "1.5rem"}`,
-            paddingLeft:`${mobile?'0.5rem':'1.375rem'}`
+            display: "flex",
+            cursor:'pointer',
+            marginBottom: `${mobile?'2rem':'4rem'}`
           }}
         >
-          Voltar
-        </Typography>
-      </Box>
+          <ArrowBackIcon sx={{
+              height:`${mobile?'1.3rem':'2.25rem'}`
+          }}/>
+          <Typography
+            sx={{
+              fontSize: `${mobile ? "1rem" : "1.5rem"}`,
+              paddingLeft:`${mobile?'0.5rem':'1.375rem'}`,
+              fontWeight:'600',
+            }}
+          >
+            Voltar
+          </Typography>
+        </Box>
+      </Link>
       <Box mb={mobile?'2rem':'4rem'}>
         <Typography fontWeight='600' fontSize={mobile?'1.5rem':'2rem'} sx={{
             marginBottom: `${mobile?'1rem':'2rem'}`
@@ -62,38 +62,35 @@ export const Areas = () => {
           display: "flex",
           flexDirection: `${desktopWide ? "column" : "row"}`,
           justifyContent: "space-between",
-          padding: `0 0rem ${mobile ? "3rem" : "4rem"} 0rem`,
+          padding: `0 0 ${mobile ? "3rem" : "4rem"} 0rem`,
         }}
       >
-        <CardArea
-          cursor="pointer"
-          clicado={() => {
-            navigate("/areaUXUI");
-          }}
-          imagem={logoUXUI}
-          texto="UX/UI Designer"
-          size={desktopWide ? "2.188rem" : "6.563rem"}
-        />
+        
+          <CardArea
+          caminho='/caminhouxui'
+            cursor="pointer"
+            imagem={logoUXUI}
+            texto="UX/UI Designer"
+            size={desktopWide ? "2.188rem" : "6.563rem"}
+          />
 
-        <CardArea
-          cursor="pointer"
-          clicado={() => {
-            navigate("/areaQA");
-          }}
-          imagem={logoQA}
-          texto="QA (Quality Assurance)"
-          size={desktopWide ? "1.875rem" : "5.625rem"}
-        />
+        
+          <CardArea
+          caminho='/caminhoqa'
+            cursor="pointer"
+            imagem={logoQA}
+            texto="QA (Quality Assurance)"
+            size={desktopWide ? "1.875rem" : "5.625rem"}
+          />
 
-        <CardArea
-          cursor="pointer"
-          clicado={() => {
-            navigate("/areaDEV");
-          }}
-          imagem={logoDEV}
-          texto="Desenvolvimento"
-          size={desktopWide ? "2.25rem" : "7.5rem"}
-        />
+
+          <CardArea
+          caminho='/caminhodev'
+            cursor="pointer"
+            imagem={logoDEV}
+            texto="Desenvolvimento"
+            size={desktopWide ? "2.25rem" : "7.5rem"}
+          />
       </Box>
     </Box>
   );

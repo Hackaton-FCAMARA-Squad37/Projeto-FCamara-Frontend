@@ -44,7 +44,7 @@ export const SSevenOnboarding = () => {
                                 width: `100%`,
                                 height:`${mobile?'3rem':'4.5rem'}`,
                                 fontSize:`${mobile?'1rem':'1.5em'}`,
-                                width:`${mobile?'10.375rem':'16.063rem'}`,
+                                minWidth:`${mobile?'10.375rem':'16.063rem'}`,
                                 backgroundColor:'vitamin.main',
                                 color:'primary.main',
                                 border:'1px solid',

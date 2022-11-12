@@ -265,7 +265,6 @@ export const MenuBurger = () => {
                   }}
                   sx={{
                     display: "flex",
-                    flexDirection: "column",
                     paddingLeft: "1.438rem",
                     paddingTop: "2.25rem",
                     color:'primary.main',

@@ -18,7 +18,6 @@ export const CardDepoimento = (props) => {
                 position: 'relative'
             }}/>
             <Box sx={{
-                padding: '2rem',
                 display:'flex',
                 flexDirection: 'column',
                 border: `0.063rem solid`,
@@ -29,7 +28,6 @@ export const CardDepoimento = (props) => {
                 marginBottom: `${mobile?'1.5rem':'2.5rem'}`,
                 marginLeft: `${mobile?'0.75rem':'1.5rem'}`,
                 justifyContent: 'space-between'
-
             }}>
                 <Box>
                     <Typography fontWeight='600' fontSize={mobile?'0.75rem':'1.25rem'}>{props.nome}</Typography>
