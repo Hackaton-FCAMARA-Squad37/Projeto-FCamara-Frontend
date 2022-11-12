@@ -258,22 +258,27 @@ export const MenuBurger = () => {
                 }}
               />
               {logado ? (
-                <Box onClick={()=>{logout.logout()}}
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  paddingLeft: "1.438rem",
-                  paddingTop: "2.25rem",
-                  color:'primary.main',
-                  flexDirection:'row',
-                  cursor:'pointer'
-                }}
-              >
-                <LogoutIcon />
-                <Typography pl='15px' fontWeight='600' align='justify' color='water.main'>
-                    Sair da plataforma
-                </Typography>
-                </Box>
+                <Link to='/' sx={{color:'water.main'}}>
+                  <Box onClick={()=>{
+                    logout.logout()
+                    
+                  }}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    paddingLeft: "1.438rem",
+                    paddingTop: "2.25rem",
+                    color:'primary.main',
+                    flexDirection:'row',
+                    cursor:'pointer'
+                  }}
+                                >
+                  <LogoutIcon />
+                  <Typography pl='15px' fontWeight='600' align='justify' color='water.main'>
+                      Sair da plataforma
+                  </Typography>
+                  </Box>
+                </Link>
               ) : (
                 <Box
                   sx={{
