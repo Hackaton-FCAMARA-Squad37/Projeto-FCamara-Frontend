@@ -17,7 +17,7 @@ export const TituloSubtitulo = (props) => {
         fontSize={props.subtitleFontSize ? props.subtitleFontSize : "1rem"}
         sx={{ lineHeight: "1.5rem", color: "water.main" }}
       >
-        {'Olá, ' + props.nome + '!' + props.subtitulo}
+        {props.nomeOn?'Olá, ' + props.nome + '!' + props.subtitulo:props.subtitulo}
       </Typography>
     </Box>
   );

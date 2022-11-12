@@ -21,6 +21,7 @@ export const Painel = () => {
       }}
     >
       <TituloSubtitulo
+      nomeOn='true'
       nome={loged.nome}
         titulo="Painel"
         subtitulo=" Este é seu painel, aqui você encontrará suas trilhas de
@@ -30,7 +31,7 @@ export const Painel = () => {
       <CardPainel
         cardTitulo="Seus estudos"
         titulo="Inicie seus estudos"
-        subtitulo="Você ainda não iniciou nenhum estudo, acesse as trilhas para escolher por onde começar"
+        subtitulo=" Você ainda não iniciou nenhum estudo, acesse as trilhas para escolher por onde começar"
         mobile={mobile}
       />
     </Box>
