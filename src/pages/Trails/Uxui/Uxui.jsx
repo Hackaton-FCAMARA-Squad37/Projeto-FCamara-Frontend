@@ -1,4 +1,11 @@
 import { Box } from "@mui/system"
+import { TrailPageComponent } from "../../../components/TrailPageComponent/TrailPageComponent"
+
+export const UxuiSemear = () => {
+    return (
+        <TrailPageComponent />
+    )
+}
 
 export const UxuiColetar = () => {
     return (
@@ -12,8 +19,3 @@ export const UxuiRegar = () => {
     )
 }
 
-export const UxuiSemear = () => {
-    return (
-        <Box>UxuiSemear</Box>
-    )
-}
