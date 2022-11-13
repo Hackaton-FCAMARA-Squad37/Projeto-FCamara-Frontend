@@ -1,19 +1,31 @@
-import { Box } from "@mui/system"
+import { TrailPageComponent } from "../../../components/TrailPageComponent/TrailPageComponent";
 
 export const QaColetar = () => {
-    return (
-        <Box>QaColetar</Box>
-    )
-}
+  return (
+    <TrailPageComponent
+      titulo="Coletar"
+      area="QA(Quality Assurance)"
+      dificuldade="avançados"
+    />
+  );
+};
 
 export const QaRegar = () => {
-    return (
-        <Box>QaRegar</Box>
-    )
-}
+  return (
+    <TrailPageComponent
+      titulo="Regar"
+      area="QA(Quality Assurance)"
+      dificuldade="intermediários"
+    />
+  );
+};
 
 export const QaSemear = () => {
-    return (
-        <Box>QaSemear</Box>
-    )
-}
+  return (
+    <TrailPageComponent
+      titulo="Semear"
+      area="QA(Quality Assurance)"
+      dificuldade="básicos"
+    />
+  );
+};

@@ -40,12 +40,14 @@ export function QaPage() {
       <CardTrail
         temaId={10}
         caminho="/caminhoqa/regar"
+        nivel="regar"
         titulo="Regar"
         descricao="Regar é o segundo nível da trilha, nela há conteúdos considerados intermediários pela nossa consultroria. Se você já possui algum tempo estudando tecnologia, essa trilha te ajudará"
       />
       <CardTrail
         temaId={11}
         caminho="/caminhoqa/coletar"
+        nivel="coletar"
         titulo="Coletar"
         descricao="Coletar  é o terceiro e último nível da trilha, nela têm conteúdos mais avançados. Se você busca por assuntos mais específicos ou linguagens de programação pouco usadas, essa trilha te auxiliará"
       />

@@ -1,21 +1,32 @@
-import { Box } from "@mui/system"
-import { TrailPageComponent } from "../../../components/TrailPageComponent/TrailPageComponent"
+import { Box } from "@mui/system";
+import { TrailPageComponent } from "../../../components/TrailPageComponent/TrailPageComponent";
 
 export const UxuiSemear = () => {
-    return (
-        <TrailPageComponent />
-    )
-}
+  return (
+    <TrailPageComponent
+      titulo="Semear"
+      area="UX/UI Designer"
+      dificuldade="básicos"
+    />
+  );
+};
 
 export const UxuiColetar = () => {
-    return (
-        <Box>UxuiColetar</Box>
-    )
-}
+  return (
+    <TrailPageComponent
+      titulo="Coletar"
+      area="UX/UI Designer"
+      dificuldade="avançados"
+    />
+  );
+};
 
 export const UxuiRegar = () => {
-    return (
-        <Box>UxuiRegar</Box>
-    )
-}
-
+  return (
+    <TrailPageComponent
+      titulo="Regar"
+      area="UX/UI Designer"
+      dificuldade="intermediários"
+    />
+  );
+};

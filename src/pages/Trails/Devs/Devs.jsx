@@ -1,19 +1,32 @@
-import { Box } from "@mui/system"
+import { Box } from "@mui/system";
+import { TrailPageComponent } from "../../../components/TrailPageComponent/TrailPageComponent";
 
 export const DevsColetar = () => {
-    return (
-        <Box>DevsColetar</Box>
-    )
-}
+  return (
+    <TrailPageComponent
+      titulo="Coletar"
+      area="Desenvolvimento"
+      dificuldade="avançados"
+    />
+  );
+};
 
 export const DevsSemear = () => {
-    return (
-        <Box>DevsSemear</Box>
-    )
-}
+  return (
+    <TrailPageComponent
+      titulo="Semear"
+      area="Desenvolvimento"
+      dificuldade="básicos"
+    />
+  );
+};
 
 export const DevsRegar = () => {
-    return (
-        <Box>DevsRegar</Box>
-    )
-}
+  return (
+    <TrailPageComponent
+      titulo="Regar"
+      area="Desenvolvimento"
+      dificuldade="intermediários"
+    />
+  );
+};
