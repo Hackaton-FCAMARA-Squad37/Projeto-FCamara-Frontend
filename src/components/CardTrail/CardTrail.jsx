@@ -85,9 +85,7 @@ export const CardTrail = (props) => {
       </Typography>
       <Box
         color="primary.main"
-        onClick={() => {
-          console.log("trilha");
-        }}
+        onClick={iniciarTrilhaOnClick}
         sx={{
           display: "flex",
           cursor: "pointer",
