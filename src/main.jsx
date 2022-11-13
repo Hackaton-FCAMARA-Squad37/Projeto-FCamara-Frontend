@@ -15,6 +15,9 @@ import { Areas } from "./pages/Areas/Areas.jsx";
 import { UxuiPage } from "./pages/UxuiPage/UxuiPage.jsx";
 import { QaPage } from "./pages/QaPage/QaPage.jsx";
 import { DevPage } from "./pages/DevPage/DevPage.jsx";
+import { UxuiColetar, UxuiRegar, UxuiSemear } from "./pages/Trails/Uxui/Uxui.jsx";
+import { DevsColetar, DevsRegar, DevsSemear } from "./pages/Trails/Devs/Devs.jsx";
+import { QaColetar, QaRegar, QaSemear } from "./pages/Trails/Qa/Qa.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -34,6 +37,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route path="/caminhouxui" element={<UxuiPage/>} />
               <Route path="/caminhoqa" element={<QaPage />} />
               <Route path="/caminhodev" element={<DevPage />} />
+              <Route path="/caminhouxui/semear" element={<UxuiSemear />}/>
+              <Route path="/caminhouxui/regar" element={<UxuiRegar />}/>
+              <Route path="/caminhouxui/coletar" element={<UxuiColetar />}/>
+              <Route path="/caminhodev/semear" element={<DevsSemear />}/>
+              <Route path="/caminhodev/regar" element={<DevsRegar />}/>
+              <Route path="/caminhodev/coletar" element={<DevsColetar />}/>
+              <Route path="/caminhoqa/semear" element={<QaSemear />}/>
+              <Route path="/caminhoqa/regar" element={<QaRegar />}/>
+              <Route path="/caminhoqa/coletar" element={<QaColetar />}/>
             </Routes>
           </main>
           <footer>

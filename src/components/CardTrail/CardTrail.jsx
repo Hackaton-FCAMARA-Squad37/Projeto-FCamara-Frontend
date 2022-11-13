@@ -1,27 +1,19 @@
 import { Typography, useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
-import axios from "axios";
-import { useContext } from "react";
-import UserContext from "../../context/user/UserContext";
+import semear from "../../assets/semearLogo.png";
+import regar from "../../assets/regarLogo.png";
+import coletar from "../../assets/coletarLogo.png";
+import { useNavigate } from "react-router-dom";
 
 export const CardTrail = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const desktopWide = useMediaQuery("(max-width:1200px)");
-  const { usuario } = useContext(UserContext);
-
-  const iniciarTrilhaOnClick = async () => {
-    await axios
-      .post("https://orange-evolution-squad37.herokuapp.com/linka-user", {
-        usuarioId: usuario.id,
-        temaId: props.temaId,
-      })
-      .then((response) => console.log(response));
-  };
+  const navigate = useNavigate();
 
   return (
     <Box
       onClick={() => {
-        console.log("oi");
+        navigate(props.caminho);
       }}
       sx={{
         backgroundColor: "vitamin.main",
@@ -45,7 +37,13 @@ export const CardTrail = (props) => {
       >
         <Box
           sx={{
-            backgroundImage: `url(${props.imagem})`,
+            backgroundImage: `url(${
+              props.nivel == "semear"
+                ? semear
+                : props.nivel == "regar"
+                ? regar
+                : coletar
+            })`,
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
             borderRadius: "8px",
@@ -73,7 +71,9 @@ export const CardTrail = (props) => {
       </Typography>
       <Box
         color="primary.main"
-        onClick={iniciarTrilhaOnClick}
+        onClick={() => {
+          console.log("trilha");
+        }}
         sx={{
           display: "flex",
           cursor: "pointer",
