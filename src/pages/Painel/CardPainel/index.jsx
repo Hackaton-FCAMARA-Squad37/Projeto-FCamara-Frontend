@@ -2,11 +2,8 @@ import { Typography, useMediaQuery, Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { TituloSubtitulo } from "../../../components/TituloSubtitulo";
 import { BotaoGenerico } from "../../../components/BotaoGenerico";
-import useUserState from "../../../hook/useUserState";
 
 export const CardPainel = (props) => {
-  const loged = useUserState()
-
   return (
     <Box>
       <Typography

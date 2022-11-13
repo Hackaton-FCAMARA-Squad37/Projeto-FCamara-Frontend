@@ -4,11 +4,25 @@ import semear from "../../assets/semearLogo.png";
 import regar from "../../assets/regarLogo.png";
 import coletar from "../../assets/coletarLogo.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useContext } from "react";
+import UserContext from "../../context/user/UserContext";
 
 export const CardTrail = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const desktopWide = useMediaQuery("(max-width:1200px)");
   const navigate = useNavigate();
+  const { usuario } = useContext(UserContext);
+
+  const iniciarTrilhaOnClick = async () => {
+    await axios
+      .post("https://orange-evolution-squad37.herokuapp.com/linka-user", {
+        usuarioId: usuario[0].id,
+        temaId: props.temaId,
+      })
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error));
+  };
 
   return (
     <Box
@@ -71,9 +85,7 @@ export const CardTrail = (props) => {
       </Typography>
       <Box
         color="primary.main"
-        onClick={() => {
-          console.log("trilha");
-        }}
+        onClick={iniciarTrilhaOnClick}
         sx={{
           display: "flex",
           cursor: "pointer",
