@@ -137,7 +137,9 @@ export const CardConteudo = (props) => {
             </Typography>
           </Box>
         </Box>
-        <Box>
+        <Box sx={{
+          marginTop:'auto'
+        }}>
           <Typography
             sx={{
               fontSize: `${mobile ? "0.75rem" : "1rem"}`,

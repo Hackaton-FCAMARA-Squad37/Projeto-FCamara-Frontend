@@ -42,7 +42,8 @@ export function ThemeAccordion(props) {
                 return (
                   <Box key={id} sx={{
                     backgroundColor:'water.main',
-                    borderRadius:'8px'
+                    borderRadius:'8px',
+                    marginBottom:`${mobile? '1rem':'2rem'}`
                   }}>
                     <CardConteudo
                       tipo={element.tipo}
