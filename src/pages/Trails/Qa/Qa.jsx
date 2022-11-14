@@ -1,19 +1,19 @@
-import { Box } from "@mui/system"
+import { TrailPageComponent } from "../../../components/TrailPageComponent/TrailPageComponent"
 
 export const QaColetar = () => {
     return (
-        <Box>QaColetar</Box>
+        <TrailPageComponent titulo="Trilha Coletar" descricao="Nesta trilha você encontrará conteúdos avançados sobre Quality Assurance. Recomendamos seguir a ordem dos tópicos."/>
     )
 }
 
 export const QaRegar = () => {
     return (
-        <Box>QaRegar</Box>
+        <TrailPageComponent titulo="Trilha Regar" descricao="Nesta trilha você encontrará conteúdos intermediários sobre Quality Assurance. Recomendamos seguir a ordem dos tópicos."/>
     )
 }
 
 export const QaSemear = () => {
     return (
-        <Box>QaSemear</Box>
+        <TrailPageComponent titulo="Trilha Semear" descricao="Nesta trilha você encontrará conteúdos básicos sobre Quality Assurance. Recomendamos seguir a ordem dos tópicos."/>
     )
 }
