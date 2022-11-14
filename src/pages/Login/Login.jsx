@@ -18,25 +18,27 @@ export function Login() {
   const emailRef = useRef(null);
   const senhaRef = useRef(null);
   const mobile = useMediaQuery("(max-width:768px)");
-  const [loading, setLoading] = React.useState(false)
-  const navigate = useNavigate()
+  const [loading, setLoading] = React.useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "onChange" });
 
   const handleSubmitLogin = async (data) => {
     console.log({
       email: data.email,
       password: data.senha,
     });
-    setLoading(true)
-    await login(data.email, data.senha), navigate('/painel');
+    setLoading(true);
+    await login(data.email, data.senha), navigate("/painel");
   };
 
-  return loading? <Loading /> : (
+  return loading ? (
+    <Loading />
+  ) : (
     <Container
       component="div"
       maxWidth="100%"
@@ -93,8 +95,8 @@ export function Login() {
             placeholder="exemplo@email.com"
             reference={emailRef}
             register={register}
+            error={errors.email}
           />
-          {errors.email?.type === "required" && <p>Email é obrigatório.</p>}
           <InputCustomized
             tipo="senha"
             texto="Sua senha"
@@ -102,9 +104,8 @@ export function Login() {
             placeholder="*********"
             reference={senhaRef}
             register={register}
+            error={errors.senha}
           />
-          {errors.senha?.type === "required" && <p>Senha é obrigatória.</p>}
-
           <Button
             type="submit"
             fullWidth

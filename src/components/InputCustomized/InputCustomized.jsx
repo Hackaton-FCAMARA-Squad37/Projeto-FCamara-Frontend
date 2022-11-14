@@ -30,10 +30,10 @@ export const InputCustomized = (props) => {
           color: `${
             focus
               ? props.error
-                ? "errorColor.main"
-                : "tea.main"
+                ? "error.main"
+                : "sucess.main"
               : props.error
-              ? "errorColor.main"
+              ? "error.main"
               : "tea.main"
           }`,
           paddingLeft: "1.5rem",
@@ -50,7 +50,7 @@ export const InputCustomized = (props) => {
                   props.error == undefined
                     ? document.getElementById(props.id)
                       ? document.getElementById(props.id).value
-                        ? "white"
+                        ? "inherit"
                         : ""
                       : ""
                     : "inherit"
@@ -78,22 +78,22 @@ export const InputCustomized = (props) => {
                 outline: "none",
               }}
             />
-            <button
+            <Box
               onClick={() => {
                 setVisibility(!visibility) || setFocus(true);
               }}
               style={{
                 backgroundColor: "#484848",
                 border: "0",
-                color: `${focus ? "#00C09B" : "#9B9B9B"}`,
+                color: `${focus ? "inherit" : "#9B9B9B"}`,
                 marginTop: "auto",
                 marginBottom: "auto",
                 marginRight: "20px",
                 cursor: "pointer",
               }}
             >
-              {visibility ? <VisibilityIcon /> : <VisibilityOffIcon />}
-            </button>
+              {visibility ? <VisibilityOffIcon /> : <VisibilityIcon />}
+            </Box>
           </>
         ) : props.tipo == "email" ? (
           <>
@@ -104,7 +104,7 @@ export const InputCustomized = (props) => {
                   props.error == undefined
                     ? document.getElementById(props.id)
                       ? document.getElementById(props.id).value
-                        ? "white"
+                        ? "inherit"
                         : ""
                       : ""
                     : "inherit"
@@ -220,14 +220,22 @@ export const InputCustomized = (props) => {
       </Box>
       {props.error?.type === "required" && (
         <p
-          style={{ color: "#FFADAD", marginTop: "10px", fontFamily: "Raleway" }}
+          style={{
+            color: "#FF3838",
+            marginTop: "10px",
+            fontFamily: "Raleway",
+          }}
         >
           Este campo é obrigatório
         </p>
       )}
       {props.error?.type === "pattern" && (
         <p
-          style={{ color: "#FFADAD", marginTop: "10px", fontFamily: "Raleway" }}
+          style={{
+            color: "#FF3838",
+            marginTop: "10px",
+            fontFamily: "Raleway",
+          }}
         >
           Este e-mail não é válido
         </p>
