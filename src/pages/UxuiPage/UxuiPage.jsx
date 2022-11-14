@@ -28,21 +28,21 @@ export function UxuiPage() {
         <ReturnButton />
       </Link>
       <CardTrail
-        temaId={3}
+        temaId={1}
         caminho="/caminhouxui/semear"
         nivel="semear"
         titulo="Semear"
         descricao="Semear é o primeiro nível da trilha, nela você vai aprender assuntos básicos que irão te preparar para os próximos níveis. Se você está iniciando seus estudos em tecnologia, essa trilha é para você"
       />
       <CardTrail
-        temaId={4}
+        temaId={2}
         caminho="/caminhouxui/regar"
         nivel="regar"
         titulo="Regar"
         descricao="Regar é o segundo nível da trilha, nela há conteúdos considerados intermediários pela nossa consultroria. Se você já possui algum tempo estudando tecnologia, essa trilha te ajudará"
       />
       <CardTrail
-        temaId={5}
+        temaId={3}
         caminho="/caminhouxui/coletar"
         nivel="coletar"
         titulo="Coletar"

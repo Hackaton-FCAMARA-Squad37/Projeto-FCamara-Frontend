@@ -69,7 +69,11 @@ export function ThemeAccordion(props) {
               })
             : ""}
         </AccordionDetails>
-        <BotaoGenerico clicado={onClick} texto="+Adicionar Conteúdo" />
+        <Box sx={{
+          padding:mobile ? "1rem" : "2rem"
+        }}>
+          <BotaoGenerico clicado={onClick} texto="+Adicionar Conteúdo" />
+        </Box>
       </Accordion>
     </Box>
   );
