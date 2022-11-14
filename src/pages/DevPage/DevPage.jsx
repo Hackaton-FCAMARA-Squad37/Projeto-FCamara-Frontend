@@ -35,14 +35,14 @@ export function DevPage() {
         descricao="Semear é o primeiro nível da trilha, nela você vai aprender assuntos básicos que irão te preparar para os próximos níveis. Se você está iniciando seus estudos em tecnologia, essa trilha é para você"
       />
       <CardTrail
-        temaId={10}
+        temaId={11}
         caminho="/caminhodev/regar"
         nivel="regar"
         titulo="Regar"
         descricao="Regar é o segundo nível da trilha, nela há conteúdos considerados intermediários pela nossa consultroria. Se você já possui algum tempo estudando tecnologia, essa trilha te ajudará"
       />
       <CardTrail
-        temaId={11}
+        temaId={12}
         caminho="/caminhodev/coletar"
         nivel="coletar"
         titulo="Coletar"
