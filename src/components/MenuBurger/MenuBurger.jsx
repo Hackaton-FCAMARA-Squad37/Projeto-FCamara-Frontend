@@ -10,13 +10,12 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { ButtonLogin } from "../ButtonLogin/ButtonLogin";
 import { LogoButton } from "../LogoButton/LogoButton";
 import { ButtonCreateAccount } from "../ButtonCreateAccount/ButtonCreateAccount";
 import useUserState from "../../hook/useUserState";
-import { SearchBar } from "../SearchBar/SearchBar";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useContext } from "react";
@@ -30,8 +29,9 @@ export const MenuBurger = () => {
 
   const login = useUserState();
   const logado = login.id;
+  const navigate = useNavigate()
 
-    const {logout} = useContext(UserContext)
+    const logout = useContext(UserContext)
 
   const urlSobreOrange =
     "https://digital.fcamara.com.br/orangejuice#rd-section-joq3m2lv";
@@ -76,11 +76,8 @@ export const MenuBurger = () => {
               }}
               sx={{ display: `${isSearching ? "none" : ""}` }}
             >
-              {logado ? (
-                <SearchBar />
-              ) : (
+              
                 <LogoButton onClick={() => setIsOpen(false)} />
-              )}
             </Button>
             <Box
               sx={{
@@ -258,8 +255,9 @@ export const MenuBurger = () => {
                 }}
               />
               {logado ? (
-                <Link to='/' sx={{color:'water.main'}}>
+                <Link to='/' style={{color:'water.main', textDecoration:'none'}}>
                   <Box onClick={()=>{
+                    navigate('/')
                     logout.logout()
                     
                   }}

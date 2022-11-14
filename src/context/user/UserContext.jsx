@@ -20,6 +20,8 @@ export const UserContextProvider = ({ children }) => {
   };
 
   const logout = () => {
+    window.location.reload(true)
+    location.reload()
     setUsuario({});
   };
 
