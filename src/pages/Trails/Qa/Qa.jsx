@@ -1,31 +1,19 @@
-import { TrailPageComponent } from "../../../components/TrailPageComponent/TrailPageComponent";
+import { TrailPageComponent } from "../../../components/TrailPageComponent/TrailPageComponent"
 
 export const QaColetar = () => {
-  return (
-    <TrailPageComponent
-      titulo="Coletar"
-      area="QA(Quality Assurance)"
-      dificuldade="avançados"
-    />
-  );
-};
+    return (
+        <TrailPageComponent titulo="Trilha Coletar" descricao="Nesta trilha você encontrará conteúdos avançados sobre Quality Assurance. Recomendamos seguir a ordem dos tópicos."/>
+    )
+}
 
 export const QaRegar = () => {
-  return (
-    <TrailPageComponent
-      titulo="Regar"
-      area="QA(Quality Assurance)"
-      dificuldade="intermediários"
-    />
-  );
-};
+    return (
+        <TrailPageComponent titulo="Trilha Regar" descricao="Nesta trilha você encontrará conteúdos intermediários sobre Quality Assurance. Recomendamos seguir a ordem dos tópicos."/>
+    )
+}
 
 export const QaSemear = () => {
-  return (
-    <TrailPageComponent
-      titulo="Semear"
-      area="QA(Quality Assurance)"
-      dificuldade="básicos"
-    />
-  );
-};
+    return (
+        <TrailPageComponent titulo="Trilha Semear" descricao="Nesta trilha você encontrará conteúdos básicos sobre Quality Assurance. Recomendamos seguir a ordem dos tópicos."/>
+    )
+}

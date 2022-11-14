@@ -4,6 +4,7 @@ export const BotaoGenerico = (props) => {
   const mobile = useMediaQuery("(max-width: 768px)");
   return (
     <Button
+    onClick={props.clicado}
       variant="contained"
       sx={{
         height: `${mobile ? "3rem" : "3.5rem"}`,
@@ -13,6 +14,7 @@ export const BotaoGenerico = (props) => {
         backgroundColor: "primary.main",
         margin: "auto",
         marginRight: mobile ? "" : "0",
+        width: "100%",
       }}
       type="submit"
     >

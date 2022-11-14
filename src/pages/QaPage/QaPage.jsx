@@ -1,9 +1,6 @@
 import { useMediaQuery } from "@mui/material";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import regar from "../../assets/regarLogo.png";
-import semear from "../../assets/semearLogo.png";
-import coletar from "../../assets/coletarLogo.png";
 import { CardTrail } from "../../components/CardTrail/CardTrail";
 import { ReturnButton } from "../../components/ReturnButton/ReturnButton";
 

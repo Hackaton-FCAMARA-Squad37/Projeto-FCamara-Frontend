@@ -2,17 +2,23 @@ import * as React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery, Button, Typography } from "@mui/material";
 import { CardConteudo } from "../CardConteudo/CardConteudo";
+import { BotaoGenerico } from "../BotaoGenerico";
+import { useNavigate } from "react-router-dom";
 
 export function ThemeAccordion(props) {
   const mobile = useMediaQuery("(max-width:768px)");
   const [expanded, setExpanded] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
+  };
+
+  const onClick = () => {
+    navigate("/adicionar-conteudos", { state: { titulo: props.titulo } });
   };
 
   return (
@@ -27,10 +33,11 @@ export function ThemeAccordion(props) {
           borderColor: "tea.main",
           marginBottom: `${mobile ? "1rem" : "1.5rem"}`,
           marginTop: `${mobile ? "1rem" : "1.5rem"}`,
+          paddingBottom: ``,
         }}
       >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon sx={{color:'water.main'}}/>}
+          expandIcon={<ExpandMoreIcon sx={{ color: "water.main" }} />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
@@ -40,11 +47,14 @@ export function ThemeAccordion(props) {
           {props.conteudos
             ? props.conteudos.map((element, id) => {
                 return (
-                  <Box key={id} sx={{
-                    backgroundColor:'water.main',
-                    borderRadius:'8px',
-                    marginBottom:`${mobile? '1rem':'2rem'}`
-                  }}>
+                  <Box
+                    key={id}
+                    sx={{
+                      backgroundColor: "water.main",
+                      borderRadius: "8px",
+                      marginBottom: `${mobile ? "1rem" : "2rem"}`,
+                    }}
+                  >
                     <CardConteudo
                       tipo={element.tipo}
                       link={element.link}
@@ -59,6 +69,7 @@ export function ThemeAccordion(props) {
               })
             : ""}
         </AccordionDetails>
+        <BotaoGenerico clicado={onClick} texto="+Adicionar Conteúdo" />
       </Accordion>
     </Box>
   );

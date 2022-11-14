@@ -16,9 +16,9 @@ import { UxuiPage } from "./pages/UxuiPage/UxuiPage.jsx";
 import { QaPage } from "./pages/QaPage/QaPage.jsx";
 import { DevPage } from "./pages/DevPage/DevPage.jsx";
 import {
-  UxuiSemear,
-  UxuiRegar,
   UxuiColetar,
+  UxuiRegar,
+  UxuiSemear,
 } from "./pages/Trails/Uxui/Uxui.jsx";
 import {
   DevsColetar,
@@ -26,6 +26,7 @@ import {
   DevsSemear,
 } from "./pages/Trails/Devs/Devs.jsx";
 import { QaColetar, QaRegar, QaSemear } from "./pages/Trails/Qa/Qa.jsx";
+import { AdicionarConteudos } from "./pages/AdicionarConteudos/index.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -54,6 +55,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route path="/caminhoqa/semear" element={<QaSemear />} />
               <Route path="/caminhoqa/regar" element={<QaRegar />} />
               <Route path="/caminhoqa/coletar" element={<QaColetar />} />
+              <Route
+                path="/adicionar-conteudos"
+                element={<AdicionarConteudos />}
+              />
             </Routes>
           </main>
           <footer>

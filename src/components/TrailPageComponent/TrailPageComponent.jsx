@@ -2,17 +2,13 @@ import { Box, Divider, Typography, useMediaQuery } from "@mui/material";
 import { ReturnButton } from "../ReturnButton/ReturnButton";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { ThemeAccordion } from "../Accordion/Accordion";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export const TrailPageComponent = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
-
-  const trilha = {
-    titulo: `Trilha ${props.titulo}`,
-    descricao: `Nesta trilha você encontrará conteúdos ${props.dificuldade} sobre ${props.area}. Recomendamos seguir a ordem dos tópicos`,
-    atualizado: "14/11/2022",
-  };
+  const [listaConteudos, setListaConteudos] = useState([]);
 
   const temas = [
     { id: 1, titulo: "Introdução à UX Design" },
@@ -47,6 +43,17 @@ export const TrailPageComponent = (props) => {
     },
   ];
 
+  const pegaConteudos = async () => {
+    const response = await axios.get(
+      "https://orange-evolution-squad37.herokuapp.com/conteudos"
+    );
+    console.log(response);
+  };
+
+  useEffect(() => {
+    pegaConteudos();
+  }, []);
+
   return (
     <Box
       sx={{
@@ -63,7 +70,7 @@ export const TrailPageComponent = (props) => {
           marginBottom: `${mobile ? "1.5rem" : "2.5rem"}`,
         }}
       >
-        {trilha.titulo}
+        {props.titulo}
       </Typography>
       <Box
         sx={{
@@ -87,7 +94,7 @@ export const TrailPageComponent = (props) => {
             fontSize: `${mobile ? "1rem" : "1.25rem"}`,
           }}
         >
-          {trilha.descricao}
+          {props.descricao}
         </Typography>
       </Box>
       <Box
@@ -113,31 +120,6 @@ export const TrailPageComponent = (props) => {
           }}
         >
           Tempo estimado para encerrar a trilha: 10 horas
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          color: "water.main",
-          display: "flex",
-          marginBottom: `${mobile ? "2.5rem" : "5.25rem"}`,
-        }}
-      >
-        <CalendarMonthIcon
-          sx={{
-            margin: "auto 0",
-            height: `${mobile ? "1.25rem" : "2.5rem"}`,
-            width: `${mobile ? "1.25rem" : "2.5rem"}`,
-          }}
-        />
-        <Typography
-          sx={{
-            marginLeft: "1rem",
-            marginTop: "auto",
-            marginBottom: "auto",
-            fontSize: `${mobile ? "1rem" : "1.25rem"}`,
-          }}
-        >
-          Trilha atualizada em: {trilha.atualizado}
         </Typography>
       </Box>
       <Box

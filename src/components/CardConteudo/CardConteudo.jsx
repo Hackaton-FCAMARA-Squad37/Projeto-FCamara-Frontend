@@ -31,7 +31,7 @@ export const CardConteudo = (props) => {
             sx={{
               marginBottom: "0.5rem",
               display: "flex",
-              flexWrap:'wrap',
+              flexWrap: "wrap",
             }}
           >
             <Typography
@@ -90,7 +90,7 @@ export const CardConteudo = (props) => {
               sx={{
                 height: `${mobile ? "6.5rem" : "11rem"}`,
                 width: `${mobile ? "100%" : "60%"}`,
-                minWidth: `${mobile?'':'11rem'}`,
+                minWidth: `${mobile ? "" : "11rem"}`,
                 backgroundImage: `url(${
                   props.tipo == "podcast"
                     ? imgPodcast
@@ -108,9 +108,11 @@ export const CardConteudo = (props) => {
             <></>
           )}
 
-          <Box sx={{
-            marginBottom:`${mobile?'':'1.5rem'}`
-          }}>
+          <Box
+            sx={{
+              marginBottom: `${mobile ? "" : "1.5rem"}`,
+            }}
+          >
             <Typography
               mt="8px"
               sx={{
@@ -137,9 +139,11 @@ export const CardConteudo = (props) => {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{
-          marginTop:'auto'
-        }}>
+        <Box
+          sx={{
+            marginTop: "auto",
+          }}
+        >
           <Typography
             sx={{
               fontSize: `${mobile ? "0.75rem" : "1rem"}`,
