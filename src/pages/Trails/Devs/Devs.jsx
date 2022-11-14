@@ -1,19 +1,19 @@
-import { Box } from "@mui/system"
+import {TrailPageComponent} from '../../../components/TrailPageComponent/TrailPageComponent.jsx'
 
 export const DevsColetar = () => {
     return (
-        <Box>DevsColetar</Box>
+        <TrailPageComponent titulo="Trilha Coletar" descricao="Nesta trilha você encontrará conteúdos avançados sobre Desenvolvimento. Recomendamos seguir a ordem dos tópicos."/>
     )
 }
 
 export const DevsSemear = () => {
     return (
-        <Box>DevsSemear</Box>
+        <TrailPageComponent titulo="Trilha Semear" descricao="Nesta trilha você encontrará conteúdos básicos sobre Desenvolvimento. Recomendamos seguir a ordem dos tópicos."/>
     )
 }
 
 export const DevsRegar = () => {
     return (
-        <Box>DevsRegar</Box>
+        <TrailPageComponent titulo="Trilha Regar" descricao="Nesta trilha você encontrará conteúdos intermediários sobre Desenvolvimento. Recomendamos seguir a ordem dos tópicos."/>
     )
 }

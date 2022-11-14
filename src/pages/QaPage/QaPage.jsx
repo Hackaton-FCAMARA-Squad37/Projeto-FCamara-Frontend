@@ -1,9 +1,6 @@
 import { useMediaQuery } from "@mui/material";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import regar from "../../assets/regarLogo.png";
-import semear from "../../assets/semearLogo.png";
-import coletar from "../../assets/coletarLogo.png";
 import { CardTrail } from "../../components/CardTrail/CardTrail";
 import { ReturnButton } from "../../components/ReturnButton/ReturnButton";
 
@@ -40,12 +37,14 @@ export function QaPage() {
       <CardTrail
         temaId={10}
         caminho="/caminhoqa/regar"
+        nivel="regar"
         titulo="Regar"
         descricao="Regar é o segundo nível da trilha, nela há conteúdos considerados intermediários pela nossa consultroria. Se você já possui algum tempo estudando tecnologia, essa trilha te ajudará"
       />
       <CardTrail
         temaId={11}
         caminho="/caminhoqa/coletar"
+        nivel="coletar"
         titulo="Coletar"
         descricao="Coletar  é o terceiro e último nível da trilha, nela têm conteúdos mais avançados. Se você busca por assuntos mais específicos ou linguagens de programação pouco usadas, essa trilha te auxiliará"
       />

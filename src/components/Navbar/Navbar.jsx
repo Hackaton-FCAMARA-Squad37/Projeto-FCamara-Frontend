@@ -38,7 +38,7 @@ export const Navbar = () => {
             fontWeight: "600",
             '&:hover':{
                 textDecoration: 'underline',
-                textDecorationColor: 'primary.main',
+                textDecorationColor: '#00C09B',
                 textDecorationThickness: '4px'
             }
           }}
@@ -59,6 +59,11 @@ export const Navbar = () => {
           sx={{
             color: "water.main",
             fontWeight: "600",
+            '&:hover':{
+                textDecoration: 'underline',
+                textDecorationColor: '#00C09B',
+                textDecorationThickness: '4px'
+            }
           }}
         >
           Trilhas
@@ -77,6 +82,11 @@ export const Navbar = () => {
           sx={{
             color: "water.main",
             fontWeight: "600",
+            '&:hover':{
+                textDecoration: 'underline',
+                textDecorationColor: '#00C09B',
+                textDecorationThickness: '4px'
+            }
           }}
         >
           {logado ? "Comunidade" : "Sobre a Orange"}
