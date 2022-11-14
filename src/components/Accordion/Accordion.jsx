@@ -5,13 +5,20 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box, useMediaQuery, Button, Typography } from "@mui/material";
 import { CardConteudo } from "../CardConteudo/CardConteudo";
+import { BotaoGenerico } from "../BotaoGenerico";
+import { useNavigate } from "react-router-dom";
 
 export function ThemeAccordion(props) {
   const mobile = useMediaQuery("(max-width:768px)");
   const [expanded, setExpanded] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
+  };
+
+  const onClick = () => {
+    navigate("/adicionar-conteudos", { state: { titulo: props.titulo } });
   };
 
   return (
@@ -62,30 +69,7 @@ export function ThemeAccordion(props) {
               })
             : ""}
         </AccordionDetails>
-        <Button
-          variant="contained"
-          sx={{
-            height: `${mobile ? "3rem" : "3.5rem"}`,
-            color: "vitamin.main",
-            borderRadius: "4px",
-            width: `${mobile ? "100%" : "contain"}`,
-            backgroundColor: "primary.main",
-            margin: "auto",
-            marginRight: mobile ? "" : "0",
-            width: "100%",
-          }}
-          type="submit"
-        >
-          <Typography
-            color="black"
-            fontWeight="600"
-            sx={{
-              fontSize: `${mobile ? "1rem" : "1.25rem"}`,
-            }}
-          >
-            + Adicionar Conteúdo
-          </Typography>
-        </Button>
+        <BotaoGenerico clicado={onClick} texto="+Adicionar Conteúdo" />
       </Accordion>
     </Box>
   );

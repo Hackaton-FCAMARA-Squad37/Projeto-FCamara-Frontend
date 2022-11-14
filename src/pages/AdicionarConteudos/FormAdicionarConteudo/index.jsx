@@ -3,8 +3,9 @@ import { BotaoGenerico } from "../../../components/BotaoGenerico";
 import { InputSimples } from "../../../components/InputSimples";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
+import axios from "axios";
 
-export const FormAdicionarConteudo = () => {
+export const FormAdicionarConteudo = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const descricaoRef = useRef(null);
   const duracaoRef = useRef(null);
@@ -12,8 +13,9 @@ export const FormAdicionarConteudo = () => {
   const formatoRef = useRef(null);
   const tituloRef = useRef(null);
   const donoConteudoRef = useRef(null);
-  const divisaoRef = useRef(null);
   const categoriaRef = useRef(null);
+
+  console.log(props.stateTituloTema);
 
   const {
     register,
@@ -21,8 +23,21 @@ export const FormAdicionarConteudo = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    data.tema = props.stateTituloTema;
+    data.duracao = parseInt(data.duracao);
     console.log(data);
+    // await axios.post('http://orange-evolution-squad37.herokuapp.com/conteudos', {
+    //     titulo: "",
+    // tipo: "tipo1",
+    // duracao: "00:00",
+    // descricao:"descricao maneira",
+    // link: "https://www.link.com",
+    // donoConteudo: "euMesmo",
+    // tags:"aquela,tag,ali",
+    // divisao: "",
+    // idTema: "3"
+    // }).then();
   };
 
   return (
@@ -102,15 +117,6 @@ export const FormAdicionarConteudo = () => {
         register={register}
         reference={formatoRef}
         error={errors.formato}
-      />
-      <InputSimples
-        tipo="texto"
-        placeholder="Tema"
-        nome="Tema"
-        nomeValidacao="tema"
-        register={register}
-        reference={divisaoRef}
-        error={errors.tema}
       />
       <BotaoGenerico texto="Publicar conteúdo" />
     </Box>

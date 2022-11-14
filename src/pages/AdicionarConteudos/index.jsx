@@ -1,9 +1,13 @@
 import { Container, Typography, useMediaQuery } from "@mui/material";
+import { useLocation } from "react-router-dom";
 import { ReturnButton } from "../../components/ReturnButton/ReturnButton";
 import { FormAdicionarConteudo } from "./FormAdicionarConteudo";
 
 export const AdicionarConteudos = () => {
   const mobile = useMediaQuery("(max-width:768px)");
+  const { state } = useLocation();
+  const { titulo } = state;
+
   return (
     <Container
       component="div"
@@ -27,7 +31,7 @@ export const AdicionarConteudos = () => {
       >
         Adicionar Conteúdos
       </Typography>
-      <FormAdicionarConteudo />
+      <FormAdicionarConteudo stateTituloTema={titulo} />
     </Container>
   );
 };
