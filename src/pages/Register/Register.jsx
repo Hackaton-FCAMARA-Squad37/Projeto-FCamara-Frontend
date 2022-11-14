@@ -3,6 +3,7 @@ import axios from "axios";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { BotaoGenerico } from "../../components/BotaoGenerico";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
 
 export const Register = () => {
@@ -144,25 +145,8 @@ export const Register = () => {
             política de privacidade
           </a>
         </Typography>
-        <Button
-          variant="contained"
-          sx={{
-            height: `${mobile ? "3rem" : "3.5rem"}`,
-            color: "vitamin.main",
-            borderRadius: "8px",
-            marginBottom: `${mobile ? "2.375rem" : "3.75rem"}`,
-          }}
-          type="submit"
-        >
-          <Typography
-            color="vitamin.main"
-            fontWeight="600"
-            sx={{ fontSize: `${mobile ? "1rem" : "1.25rem"}` }}
-          >
-            Cadastrar
-          </Typography>
-        </Button>
-        <Typography textAlign="center">
+        <BotaoGenerico texto="Cadastrar" />
+        <Typography textAlign="center" sx={{ marginTop: "1.5rem" }}>
           Tem uma conta?
           <Link
             to="/login"
