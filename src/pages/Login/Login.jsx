@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../context/user/UserContext";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
@@ -11,12 +11,15 @@ import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useMediaQuery } from "@mui/material";
 import logoOrangeJuice from "../../assets/logoOrangeJuice.png";
+import { Loading } from "../../components/Loading/Loading";
 
 export function Login() {
   const { login } = useContext(UserContext);
   const emailRef = useRef(null);
   const senhaRef = useRef(null);
   const mobile = useMediaQuery("(max-width:768px)");
+  const [loading, setLoading] = React.useState(false)
+  const navigate = useNavigate()
 
   const {
     register,
@@ -29,11 +32,11 @@ export function Login() {
       email: data.email,
       password: data.senha,
     });
-
-    await login(data.email, data.senha);
+    setLoading(true)
+    await login(data.email, data.senha), navigate('/painel');
   };
 
-  return (
+  return loading? <Loading /> : (
     <Container
       component="div"
       maxWidth="100%"
