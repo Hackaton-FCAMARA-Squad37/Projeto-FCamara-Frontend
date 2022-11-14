@@ -8,6 +8,7 @@ import cubosLogo from '../../assets/logoCubos.png'
 
 export const SSixOnboarding = () => {
     const mobile = useMediaQuery('(max-width:768px)')
+    const cellphone = useMediaQuery('(max-width:480px)')
 
     return (
         <Box bgcolor='coffee.main' color='water.main' textAlign='justify' sx={{
@@ -31,9 +32,7 @@ export const SSixOnboarding = () => {
                     display:'flex',
                     flexDirection:'row',
                     justifyContent:'space-between',
-                    paddingRight: '6.563rem',
-                    flexWrap:'wrap',
-                    
+                    flexWrap:'wrap'
                 }}>
                     <a target= '_blank' href="https://www.fcamara.com.br/">
                         <Box sx={{
@@ -72,7 +71,8 @@ export const SSixOnboarding = () => {
                             width: `${mobile?'11.25rem':'20.313rem'}`,
                             height: `${mobile?'2.125rem':'3.875rem'}`,
                             paddingRight: '6.563rem',
-                            marginTop: '2.75rem'
+                            marginTop: '2.75rem',
+                            marginLeft:`${cellphone?'':'6.563rem'}`
                         }}/>
                     </a>
                     <a target= '_blank' href="https://cubos.academy/">
