@@ -6,7 +6,6 @@ import { SFourOnboarding } from "../../components/SFourOnboarding/SFourOnboardin
 import { SFiveOnboarding } from "../../components/SFiveOnboarding/SFiveOnboarding";
 import { SSixOnboarding } from "../../components/SSixOnboarding/SsixOnboarding";
 import { SSevenOnboarding } from "../../components/SSevenOnboarding/SSevenOnboarding";
-import { CardConteudo } from "../../components/CardConteudo/CardConteudo";
 
 
 export function Home() {
@@ -19,7 +18,6 @@ export function Home() {
             <SFiveOnboarding/>
             <SSixOnboarding/>
             <SSevenOnboarding/>
-            <CardConteudo />
         </Box>
     )
 }
