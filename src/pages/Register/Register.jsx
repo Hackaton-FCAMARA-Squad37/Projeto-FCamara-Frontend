@@ -3,6 +3,7 @@ import axios from "axios";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { BotaoGenerico } from "../../components/BotaoGenerico";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
 
 export const Register = () => {
@@ -13,11 +14,12 @@ export const Register = () => {
   const senhaRef = useRef(null);
   const nomeRef = useRef(null);
   const senhaConfirmadaRef = useRef(null);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "onChange" });
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -28,7 +30,9 @@ export const Register = () => {
         senha: data.senha,
         xp: 0,
       })
-      .then((response) => console.log(response.data))
+      .then((response) => {
+        console.log(response.data);
+      })
       .catch((error) => console.log(error));
   };
 
@@ -85,40 +89,44 @@ export const Register = () => {
       >
         <InputCustomized
           tipo="email"
-          texto="Seu e-mail*"
+          texto="Seu e-mail"
           id="email"
           placeholder="exemplo@email.com"
           reference={emailRef}
           register={register}
+          error={errors.email}
         />
-        {errors.email?.type === "required" && <p>Email é obrigatório.</p>}
+
         <InputCustomized
           tipo="usuario"
-          texto="Seu nome*"
+          texto="Seu nome"
           id="nome"
           placeholder="Nome e sobrenome"
           reference={nomeRef}
           register={register}
+          error={errors.nome}
         />
-        {errors.nome?.type === "required" && <p>Nome é obrigatório.</p>}
+
         <InputCustomized
           tipo="senha"
-          texto="Sua senha*"
+          texto="Sua senha"
           id="senha"
           placeholder="*********"
           reference={senhaRef}
           register={register}
+          error={errors.senha}
         />
-        {errors.senha?.type === "required" && <p>Senha é obrigatória.</p>}
+
         <InputCustomized
           tipo="senha"
-          texto="Confirmação de sua senha*"
+          texto="Confirmação de sua senha"
           id="senhaConfirmada"
           placeholder="*********"
           reference={senhaConfirmadaRef}
           register={register}
+          error={errors.senha}
         />
-        {errors.senha?.type === "required" && <p>Confirme a sua senha.</p>}
+
         <Typography
           sx={{
             marginBottom: `${mobile ? "2rem" : "3rem"}`,
@@ -137,25 +145,8 @@ export const Register = () => {
             política de privacidade
           </a>
         </Typography>
-        <Button
-          variant="contained"
-          sx={{
-            height: `${mobile ? "3rem" : "3.5rem"}`,
-            color: "vitamin.main",
-            borderRadius: "8px",
-            marginBottom: `${mobile ? "2.375rem" : "3.75rem"}`,
-          }}
-          type="submit"
-        >
-          <Typography
-            color="vitamin.main"
-            fontWeight="600"
-            sx={{ fontSize: `${mobile ? "1rem" : "1.25rem"}` }}
-          >
-            Cadastrar
-          </Typography>
-        </Button>
-        <Typography textAlign="center">
+        <BotaoGenerico texto="Cadastrar" />
+        <Typography textAlign="center" sx={{ marginTop: "1.5rem" }}>
           Tem uma conta?
           <Link
             to="/login"

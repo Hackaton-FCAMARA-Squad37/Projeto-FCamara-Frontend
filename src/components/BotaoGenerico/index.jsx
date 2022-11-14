@@ -13,6 +13,7 @@ export const BotaoGenerico = (props) => {
         backgroundColor: "primary.main",
         margin: "auto",
         marginRight: mobile ? "" : "0",
+        width: "100%",
       }}
       type="submit"
     >
