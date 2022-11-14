@@ -28,21 +28,21 @@ export function DevPage() {
         <ReturnButton />
       </Link>
       <CardTrail
-        temaId={12}
+        temaId={9}
         caminho="/caminhodev/semear"
         nivel="semear"
         titulo="Semear"
         descricao="Semear é o primeiro nível da trilha, nela você vai aprender assuntos básicos que irão te preparar para os próximos níveis. Se você está iniciando seus estudos em tecnologia, essa trilha é para você"
       />
       <CardTrail
-        temaId={13}
+        temaId={10}
         caminho="/caminhodev/regar"
         nivel="regar"
         titulo="Regar"
         descricao="Regar é o segundo nível da trilha, nela há conteúdos considerados intermediários pela nossa consultroria. Se você já possui algum tempo estudando tecnologia, essa trilha te ajudará"
       />
       <CardTrail
-        temaId={14}
+        temaId={11}
         caminho="/caminhodev/coletar"
         nivel="coletar"
         titulo="Coletar"
