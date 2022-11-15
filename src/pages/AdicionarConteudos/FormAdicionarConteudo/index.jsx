@@ -141,8 +141,18 @@ export const FormAdicionarConteudo = (props) => {
       {conteudoAdicionado ? (
         navigate(-1)
       ) : (
-        <Box>
-          <Typography>{erro}</Typography>
+        erro == ''?<></>:<Box sx={{
+          display:'flex',
+          width:'100%',
+          border:'1px solid',
+          borderColor:'#ff3838',
+          justifyContent:'center',
+          padding:'0.75rem 0rem'
+        }}>
+          <Typography sx={{
+            fontSize: mobile?'1rem':'1.25rem',
+            color:'#ff3838'
+          }}>{erro}</Typography>
         </Box>
       )}
     </Box>
