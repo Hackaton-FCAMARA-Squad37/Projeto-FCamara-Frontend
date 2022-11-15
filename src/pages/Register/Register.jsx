@@ -2,9 +2,10 @@ import { Typography, useMediaQuery, Box, Button } from "@mui/material";
 import axios from "axios";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BotaoGenerico } from "../../components/BotaoGenerico";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
+import { useState } from "react";
 
 export const Register = () => {
   const mobile = useMediaQuery("(max-width:768px)");
@@ -14,6 +15,8 @@ export const Register = () => {
   const senhaRef = useRef(null);
   const nomeRef = useRef(null);
   const senhaConfirmadaRef = useRef(null);
+  const navigate = useNavigate();
+  const [cadastroSucesso, setCadastroSucesso] = useState(null);
 
   const {
     register,
@@ -28,7 +31,15 @@ export const Register = () => {
         email: data.email,
         senha: data.senha,
       })
-      .catch((error) => error);
+      .then(() => {
+        setCadastroSucesso(true);
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      })
+      .catch((error) => {
+        setCadastroSucesso(false);
+      });
   };
 
   return (
@@ -141,6 +152,33 @@ export const Register = () => {
           </a>
         </Typography>
         <BotaoGenerico texto="Cadastrar" />
+        {cadastroSucesso === null ? (
+          ""
+        ) : cadastroSucesso ? (
+          <Typography
+            textAlign="center"
+            sx={{
+              color: "#8CD867",
+              marginTop: "1rem",
+              fontWeight: 600,
+              fontSize: mobile ? "1rem" : "1.25rem",
+            }}
+          >
+            Usuário cadastrado com sucesso.
+          </Typography>
+        ) : (
+          <Typography
+            textAlign="center"
+            sx={{
+              color: "#FF3833",
+              marginTop: "1rem",
+              fontWeight: 600,
+              fontSize: mobile ? "1rem" : "1.25rem",
+            }}
+          >
+            Falha ao cadastrar usuário.
+          </Typography>
+        )}
         <Typography textAlign="center" sx={{ marginTop: "1.5rem" }}>
           Tem uma conta?
           <Link

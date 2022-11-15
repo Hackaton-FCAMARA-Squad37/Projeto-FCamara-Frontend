@@ -117,7 +117,7 @@ export function Login() {
           </Button>
           {error ? (
             <Typography sx={{ textAlign: "center", color: "#FF3838" }}>
-              Login ou senha inválidos.
+              Email ou senha inválidos.
             </Typography>
           ) : (
             ""
