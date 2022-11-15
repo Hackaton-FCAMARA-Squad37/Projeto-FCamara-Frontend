@@ -44,14 +44,20 @@ export const TrailPageComponent = (props) => {
   ];
 
   const pegaConteudos = async () => {
-    const response = await axios.get(
+    const { data } = await axios.get(
       "https://orange-evolution-squad37.herokuapp.com/conteudos"
     );
+    setListaConteudos(data);
   };
 
   useEffect(() => {
     pegaConteudos();
   }, []);
+
+  const listaTemas = listaConteudos.map((conteudo) => {
+    console.log(conteudo);
+    return conteudo.divisao;
+  });
 
   return (
     <Box
@@ -140,7 +146,7 @@ export const TrailPageComponent = (props) => {
             fontSize: `${mobile ? "1rem" : "1.25rem"}`,
           }}
         >
-          {temas.length}
+          {listaTemas.length}
         </Typography>
       </Box>
       <Divider
@@ -149,13 +155,13 @@ export const TrailPageComponent = (props) => {
           marginBottom: `${mobile ? "1.5rem" : "4rem"}`,
         }}
       />
-      {temas.map((element, id) => {
+      {listaTemas.map((element, id) => {
         return (
           <ThemeAccordion
-            conteudos={conteudos}
+            conteudos={listaConteudos}
             key={id}
             number={id + 1}
-            titulo={element.titulo}
+            titulo={element}
           />
         );
       })}

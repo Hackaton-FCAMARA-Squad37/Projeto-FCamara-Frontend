@@ -6,7 +6,6 @@ import { FormAdicionarConteudo } from "./FormAdicionarConteudo";
 export const AdicionarConteudos = () => {
   const mobile = useMediaQuery("(max-width:768px)");
   const { state } = useLocation();
-  const { titulo } = state;
 
   return (
     <Container
@@ -31,7 +30,7 @@ export const AdicionarConteudos = () => {
       >
         Adicionar Conteúdos
       </Typography>
-      <FormAdicionarConteudo stateTituloTema={titulo} />
+      <FormAdicionarConteudo state={state} />
     </Container>
   );
 };

@@ -14,13 +14,16 @@ export function ThemeAccordion(props) {
   const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
   const admin = useUserState();
+  const idTema = props.conteudos[0] ? props.conteudos[0].idTema : "";
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
   const onClick = () => {
-    navigate("/adicionar-conteudos", { state: { titulo: props.titulo } });
+    navigate("/adicionar-conteudos", {
+      state: { titulo: props.titulo, idTema: idTema },
+    });
   };
 
   return (
@@ -48,26 +51,28 @@ export function ThemeAccordion(props) {
         <AccordionDetails>
           {props.conteudos
             ? props.conteudos.map((element, id) => {
-                return (
-                  <Box
-                    key={id}
-                    sx={{
-                      backgroundColor: "water.main",
-                      borderRadius: "8px",
-                      marginBottom: `${mobile ? "1rem" : "2rem"}`,
-                    }}
-                  >
-                    <CardConteudo
-                      tipo={element.tipo}
-                      link={element.link}
-                      tags={element.tags}
-                      titulo={element.titulo}
-                      descricao={element.descricao}
-                      duracao={element.duracao}
-                      donoConteudo={element.donoConteudo}
-                    />
-                  </Box>
-                );
+                if (element.divisao == props.titulo) {
+                  return (
+                    <Box
+                      key={id}
+                      sx={{
+                        backgroundColor: "water.main",
+                        borderRadius: "8px",
+                        marginBottom: `${mobile ? "1rem" : "2rem"}`,
+                      }}
+                    >
+                      <CardConteudo
+                        tipo={element.tipo}
+                        link={element.link}
+                        tags={element.tags}
+                        titulo={element.titulo}
+                        descricao={element.descricao}
+                        duracao={`${element.duracao}`}
+                        donoConteudo={element.donoConteudo}
+                      />
+                    </Box>
+                  );
+                }
               })
             : ""}
         </AccordionDetails>
