@@ -146,7 +146,7 @@ export const MenuBurger = () => {
                 </Typography>
               </a>
               <Link
-                to={logado ? "/painel" : "/"}
+                to={logado ? "/atualizar-usuario" : "/"}
                 style={{ textDecoration: "inherit", color: "inherit" }}
                 onClick={() => setIsOpen(false)}
                 sx={{
@@ -163,11 +163,10 @@ export const MenuBurger = () => {
                     display: `${logado ? "" : "none"}`,
                   }}
                 >
-                  Perfil
+                  Editar Perfil
                 </Typography>
               </Link>
-              <Link
-                to={logado ? "/painel" : "/"}
+              <a target="_blank" href="https://www.fcamara.com.br/canal-transparencia"
                 style={{ textDecoration: "inherit", color: "inherit" }}
                 onClick={() => setIsOpen(false)}
                 sx={{
@@ -187,7 +186,7 @@ export const MenuBurger = () => {
                 >
                   Ajuda
                 </Typography>
-              </Link>
+              </a>
             </Box>
             <Divider
               sx={{

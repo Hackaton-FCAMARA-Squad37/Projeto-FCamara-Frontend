@@ -118,8 +118,8 @@ export const MenuDropdown = (props) => {
       >
         <MenuItem onClick={()=>{
             handleClose()
-            navigate('/painel')
-            }}>Painel</MenuItem>
+            navigate('/atualizar-usuario')
+            }}>Editar perfil</MenuItem>
         <MenuItem onClick={()=>{
             handleClose()
 
