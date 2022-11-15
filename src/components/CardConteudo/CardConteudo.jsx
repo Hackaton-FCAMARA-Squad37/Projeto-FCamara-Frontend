@@ -4,12 +4,22 @@ import imgVideo from "../../assets/imgVideo.png";
 import imgPodcast from "../../assets/imgPodecast.png";
 import DeleteIcon from "@mui/icons-material/Delete";
 import useUserState from "../../hook/useUserState.jsx";
+import axios from "axios";
 
 export const CardConteudo = (props) => {
   const mobile = useMediaQuery("(max-width: 768px)");
   const admin = useUserState();
 
-  console.log("Card Conteudo props: ", props);
+  const excluirConteudo = async () => {
+    const conteudoExcluido = await axios.delete(
+      `https://orange-evolution-squad37.herokuapp.com/conteudos/${props.id}`
+    );
+    const listaConteudoAtualizada = props.listaConteudos.map(
+      (conteudo) => conteudo.id !== conteudoExcluido.id
+    );
+
+    props.setListaConteudos(listaConteudoAtualizada);
+  };
 
   return (
     <Box
@@ -83,9 +93,7 @@ export const CardConteudo = (props) => {
           <></>
         )}
         <Box
-          onClick={() => {
-            console.log("Deleta conteudo");
-          }}
+          onClick={excluirConteudo}
           sx={{
             border: "1px solid #8A0300",
             color: "#8A0300",

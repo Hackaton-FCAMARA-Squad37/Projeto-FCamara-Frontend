@@ -22,18 +22,13 @@ export const Register = () => {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = async (data) => {
-    console.log(data);
     await axios
       .post("https://orange-evolution-squad37.herokuapp.com/usuarios", {
         nome: data.nome,
         email: data.email,
         senha: data.senha,
-        xp: 0,
       })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => console.log(error));
+      .catch((error) => error);
   };
 
   return (

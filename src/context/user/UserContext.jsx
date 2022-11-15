@@ -12,16 +12,13 @@ export const UserContextProvider = ({ children }) => {
         email: email,
         senha: senha,
       })
-      .then((response) => {
-        console.log(response.data);
-        setUsuario(response.data);
-      })
-      .catch((error) => console.log(error.response.data));
+      .then((response) => setUsuario(response.data))
+      .catch((error) => error);
   };
 
   const logout = () => {
-    window.location.reload(true)
-    location.reload()
+    window.location.reload(true);
+    location.reload();
     setUsuario({});
   };
 

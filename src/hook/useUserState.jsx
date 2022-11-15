@@ -6,9 +6,9 @@ export default function useUserState() {
   const contextLogado = useContext(UserContext);
   const logado = contextLogado.usuario[0];
   try {
-    if (logado && logado!=logedUser) setLogedUser(logado);
-    return logedUser
+    if (logado && logado != logedUser) setLogedUser(logado);
+    return logedUser;
   } catch (e) {
-    console.log(e);
+    return e;
   }
 }

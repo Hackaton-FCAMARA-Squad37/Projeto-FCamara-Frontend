@@ -4,6 +4,7 @@ import { InputSimples } from "../../../components/InputSimples";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import axios from "axios";
+import { useState } from "react";
 
 export const FormAdicionarConteudo = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
@@ -14,9 +15,9 @@ export const FormAdicionarConteudo = (props) => {
   const tituloRef = useRef(null);
   const donoConteudoRef = useRef(null);
   const categoriaRef = useRef(null);
-  const { titulo, idTema } = props.state;
-
-  console.log(titulo);
+  const nomeTemaRef = useRef(null);
+  const { state } = props;
+  const [conteudoAdicionado, setConteudoAdicionado] = useState(false);
 
   const {
     register,
@@ -25,23 +26,23 @@ export const FormAdicionarConteudo = (props) => {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = async (data) => {
-    data.tema = titulo;
+    data.tema = props.titulo ? props.titulo : data.tema;
     data.duracao = parseInt(data.duracao);
-    console.log(data);
-    // await axios
-    //   .post("http://orange-evolution-squad37.herokuapp.com/conteudos", {
-    //     titulo: data.titulo,
-    //     tipo: data.formato,
-    //     duracao: data.duracao,
-    //     descricao: data.descricao,
-    //     link: data.link,
-    //     donoConteudo: data.donoConteudo,
-    //     tags: data.categoria,
-    //     divisao: data.tema,
-    //     idTema: idTema,
-    //   })
-    //   .then(() => console.log("Tema cadastrado"))
-    //   .catch((error) => console.log(error));
+    await axios.post(
+      "http://orange-evolution-squad37.herokuapp.com/conteudos",
+      {
+        titulo: data.titulo,
+        tipo: data.formato,
+        duracao: data.duracao,
+        descricao: data.descricao,
+        link: data.link,
+        donoConteudo: data.donoConteudo,
+        tags: data.categoria,
+        divisao: data.tema,
+        idTema: state.idTema,
+      }
+    );
+    setConteudoAdicionado(true);
   };
 
   return (
@@ -122,7 +123,18 @@ export const FormAdicionarConteudo = (props) => {
         reference={formatoRef}
         error={errors.formato}
       />
+      <InputSimples
+        tipo="texto"
+        placeholder="Escreva o nome do Tema"
+        nome="Tema"
+        nomeValidacao="tema"
+        reference={nomeTemaRef}
+        register={register}
+        error={errors.nomeTema}
+        valorPadrao={props.titulo}
+      />
       <BotaoGenerico texto="Publicar conteúdo" />
+      {conteudoAdicionado ? <p>Conteúdo adicionado com sucesso!</p> : ""}
     </Box>
   );
 };

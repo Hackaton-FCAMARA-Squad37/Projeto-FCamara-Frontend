@@ -5,43 +5,19 @@ import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { ThemeAccordion } from "../Accordion/Accordion";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BotaoGenerico } from "../BotaoGenerico";
+import { useNavigate } from "react-router-dom";
 
 export const TrailPageComponent = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const [listaConteudos, setListaConteudos] = useState([]);
+  const navigate = useNavigate();
 
-  const temas = [
-    { id: 1, titulo: "Introdução à UX Design" },
-    { id: 2, titulo: "Metodologias do design" },
-    { id: 3, titulo: "Frameworks de design" },
-    { id: 4, titulo: "Introdução à pesquisa" },
-    { id: 5, titulo: "Introdução à conceitos de UI" },
-    { id: 6, titulo: "Introdução ao Figma" },
-    { id: 7, titulo: "Introdução à ideação" },
-  ];
-
-  const conteudos = [
-    {
-      titulo: "O que é UX Design?",
-      tipo: "artigo",
-      duracao: "8:00",
-      descricao: "Aprenda sobre ux",
-      link: "https://www.hostinger.com.br/tutoriais/ux-o-que-e-user-experience",
-      donoConteudo: "FCamara",
-      tags: "UX Design, UI Design, Significado",
-      idTema: "Introdução à UX Design",
-    },
-    {
-      titulo: "O que é UX Design?",
-      tipo: "artigo",
-      duracao: "8:00",
-      descricao: "Aprenda sobre ux",
-      link: "https://www.hostinger.com.br/tutoriais/ux-o-que-e-user-experience",
-      donoConteudo: "FCamara",
-      tags: "UX Design, UI Design, Significado",
-      idTema: "Introdução à UX Design",
-    },
-  ];
+  const onClick = () => {
+    navigate("/adicionar-conteudos", {
+      state: { titulo: "", idTema: props.idTrilha },
+    });
+  };
 
   const pegaConteudos = async () => {
     const { data } = await axios.get(
@@ -54,10 +30,7 @@ export const TrailPageComponent = (props) => {
     pegaConteudos();
   }, []);
 
-  const listaTemas = listaConteudos.map((conteudo) => {
-    console.log(conteudo);
-    return conteudo.divisao;
-  });
+  const listaTemas = listaConteudos.map((conteudo) => conteudo.divisao);
 
   return (
     <Box
@@ -159,12 +132,20 @@ export const TrailPageComponent = (props) => {
         return (
           <ThemeAccordion
             conteudos={listaConteudos}
+            setListaConteudos={setListaConteudos}
             key={id}
             number={id + 1}
             titulo={element}
           />
         );
       })}
+      <Box
+        sx={{
+          padding: mobile ? "1rem" : "2rem",
+        }}
+      >
+        <BotaoGenerico clicado={onClick} texto="+ Adicionar Novo Tema" />
+      </Box>
     </Box>
   );
 };

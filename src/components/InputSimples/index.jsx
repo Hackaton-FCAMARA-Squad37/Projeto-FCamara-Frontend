@@ -41,6 +41,7 @@ export const InputSimples = (props) => {
           ref={props.reference}
           {...props.register(props.nomeValidacao, { required: true })}
           placeholder={props.placeholder}
+          defaultValue={props.valorPadrao}
           style={{
             width: "auto",
             backgroundColor: "#484848",

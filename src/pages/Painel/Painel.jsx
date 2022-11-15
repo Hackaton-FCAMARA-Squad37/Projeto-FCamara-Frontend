@@ -22,14 +22,13 @@ export const Painel = () => {
           ? setTrilhasAtivas(null)
           : setTrilhasAtivas(response.data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => error);
   };
 
   useEffect(() => {
     buscaTrilhasAtivas();
   }, []);
 
-  console.log(trilhasAtivas);
   return (
     <Box
       sx={{

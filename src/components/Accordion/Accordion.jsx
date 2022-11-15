@@ -60,6 +60,7 @@ export function ThemeAccordion(props) {
                       }}
                     >
                       <CardConteudo
+                        id={element.id}
                         tipo={element.tipo}
                         link={element.link}
                         tags={element.tags}
@@ -67,6 +68,8 @@ export function ThemeAccordion(props) {
                         descricao={element.descricao}
                         duracao={`${element.duracao}`}
                         donoConteudo={element.donoConteudo}
+                        setListaConteudos={props.setListaConteudos}
+                        listaConteudos={props.conteudos}
                       />
                     </Box>
                   );
