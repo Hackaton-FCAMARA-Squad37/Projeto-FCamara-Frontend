@@ -14,7 +14,7 @@ import logoOrangeJuice from "../../assets/logoOrangeJuice.png";
 import { Loading } from "../../components/Loading/Loading";
 
 export function Login() {
-  const { login } = useContext(UserContext);
+  const { login, error } = useContext(UserContext);
   const emailRef = useRef(null);
   const senhaRef = useRef(null);
   const mobile = useMediaQuery("(max-width:768px)");
@@ -27,9 +27,14 @@ export function Login() {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
+  const redirecionamento = () => {
+    navigate("/painel");
+  };
+
   const handleSubmitLogin = async (data) => {
     setLoading(true);
-    await login(data.email, data.senha), navigate("/painel");
+    await login(data.email, data.senha, redirecionamento);
+    setLoading(false);
   };
 
   return loading ? (
@@ -110,6 +115,13 @@ export function Login() {
           >
             Entrar
           </Button>
+          {error ? (
+            <Typography sx={{ textAlign: "center", color: "#FF3838" }}>
+              Login ou senha inválidos.
+            </Typography>
+          ) : (
+            ""
+          )}
           <Typography
             sx={{ textAlign: "center", marginTop: "2rem", marginBottom: "0" }}
           >
