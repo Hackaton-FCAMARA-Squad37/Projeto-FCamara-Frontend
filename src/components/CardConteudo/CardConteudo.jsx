@@ -81,7 +81,7 @@ export const CardConteudo = (props) => {
         ) : (
           <></>
         )}
-        <Box
+        {admin.isAdmin?<Box
           onClick={() => {
             console.log("Deleta conteudo");
           }}
@@ -94,7 +94,7 @@ export const CardConteudo = (props) => {
           }}
         >
           <DeleteIcon /> <Typography>Excluir conteúdo</Typography>
-        </Box>
+        </Box>:<></>}
       </Box>
       <a
         target="_blank"

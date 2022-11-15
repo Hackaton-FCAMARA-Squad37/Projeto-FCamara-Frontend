@@ -3,15 +3,17 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Box, useMediaQuery, Button, Typography } from "@mui/material";
+import { Box, useMediaQuery, Typography } from "@mui/material";
 import { CardConteudo } from "../CardConteudo/CardConteudo";
 import { BotaoGenerico } from "../BotaoGenerico";
 import { useNavigate } from "react-router-dom";
+import useUserState from "../../hook/useUserState";
 
 export function ThemeAccordion(props) {
   const mobile = useMediaQuery("(max-width:768px)");
   const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
+  const admin = useUserState();
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -69,17 +71,25 @@ export function ThemeAccordion(props) {
               })
             : ""}
         </AccordionDetails>
-        <Box sx={{
-          display:'flex',
-          justifyContent:'center'
-        }}>
-          <Box sx={{
-            padding:mobile ? "1rem" : "2rem",
-            maxWidth:'22.688rem'
-          }}>
-            <BotaoGenerico clicado={onClick} texto="+ Adicionar Conteúdo" />
+        {admin.isAdmin ? (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              sx={{
+                padding: mobile ? "1rem" : "2rem",
+                maxWidth: "22.688rem",
+              }}
+            >
+              <BotaoGenerico clicado={onClick} texto="+ Adicionar Conteúdo" />
+            </Box>
           </Box>
-        </Box>
+        ) : (
+          <></>
+        )}
       </Accordion>
     </Box>
   );
