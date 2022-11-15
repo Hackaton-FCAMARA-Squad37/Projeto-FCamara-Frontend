@@ -28,7 +28,7 @@ export const FormAdicionarConteudo = (props) => {
   const onSubmit = async (data) => {
     data.tema = props.titulo ? props.titulo : data.tema;
     data.duracao = parseInt(data.duracao);
-    await axios.post(
+    const response = await axios.post(
       "http://orange-evolution-squad37.herokuapp.com/conteudos",
       {
         titulo: data.titulo,
@@ -42,6 +42,9 @@ export const FormAdicionarConteudo = (props) => {
         idTema: state.idTema,
       }
     );
+    if (!response) {
+      return;
+    }
     setConteudoAdicionado(true);
   };
 
