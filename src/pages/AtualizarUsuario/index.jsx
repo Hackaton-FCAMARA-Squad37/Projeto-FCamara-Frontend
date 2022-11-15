@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
 import { BotaoGenerico } from "../../components/BotaoGenerico";
+import useUserState from "../../hook/useUserState";
+import axios from "axios";
 
 export const AtualizarUsuario = () => {
   const mobile = useMediaQuery("(max-width:768px)");
@@ -11,6 +13,9 @@ export const AtualizarUsuario = () => {
   const senhaRef = useRef(null);
   const nomeRef = useRef(null);
   const senhaConfirmadaRef = useRef(null);
+  const loged = useUserState();
+
+  console.log(loged);
 
   const {
     register,
@@ -18,7 +23,10 @@ export const AtualizarUsuario = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => {};
+  const onSubmit = async (data) => {
+    console.log(data);
+    await axios.put();
+  };
 
   return (
     <Container
