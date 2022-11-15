@@ -1,10 +1,11 @@
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { BotaoGenerico } from "../../../components/BotaoGenerico";
 import { InputSimples } from "../../../components/InputSimples";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const FormAdicionarConteudo = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
@@ -18,6 +19,8 @@ export const FormAdicionarConteudo = (props) => {
   const nomeTemaRef = useRef(null);
   const { state } = props;
   const [conteudoAdicionado, setConteudoAdicionado] = useState(false);
+  const [erro, setErro] = useState('');
+  const navigate = useNavigate();
 
   const {
     register,
@@ -28,9 +31,8 @@ export const FormAdicionarConteudo = (props) => {
   const onSubmit = async (data) => {
     data.tema = props.titulo ? props.titulo : data.tema;
     data.duracao = parseInt(data.duracao);
-    const response = await axios.post(
-      "http://orange-evolution-squad37.herokuapp.com/conteudos",
-      {
+    const response = await axios
+      .post("http://orange-evolution-squad37.herokuapp.com/conteudos", {
         titulo: data.titulo,
         tipo: data.formato,
         duracao: data.duracao,
@@ -40,12 +42,11 @@ export const FormAdicionarConteudo = (props) => {
         tags: data.categoria,
         divisao: data.tema,
         idTema: state.idTema,
-      }
-    );
-    if (!response) {
-      return;
-    }
-    setConteudoAdicionado(true);
+      })
+      .then(() => {
+        setConteudoAdicionado(true);
+      })
+      .catch((e) => {setErro('Falha ao cadastrar conteúdo')});
   };
 
   return (
@@ -137,7 +138,13 @@ export const FormAdicionarConteudo = (props) => {
         valorPadrao={state.titulo}
       />
       <BotaoGenerico texto="Publicar conteúdo" />
-      {conteudoAdicionado ? <p>Conteúdo adicionado com sucesso!</p> : ""}
+      {conteudoAdicionado ? (
+        navigate(-1)
+      ) : (
+        <Box>
+          <Typography>{erro}</Typography>
+        </Box>
+      )}
     </Box>
   );
 };
