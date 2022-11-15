@@ -13,7 +13,6 @@ export const UserContextProvider = ({ children }) => {
         senha: senha,
       })
       .then((response) => {
-        console.log(response.data);
         setUsuario(response.data);
       })
       .catch((error) => console.log(error.response.data));

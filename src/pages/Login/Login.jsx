@@ -28,10 +28,6 @@ export function Login() {
   } = useForm({ mode: "onChange" });
 
   const handleSubmitLogin = async (data) => {
-    console.log({
-      email: data.email,
-      password: data.senha,
-    });
     setLoading(true);
     await login(data.email, data.senha), navigate("/painel");
   };

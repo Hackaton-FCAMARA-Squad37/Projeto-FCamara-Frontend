@@ -47,7 +47,6 @@ export const TrailPageComponent = (props) => {
     const response = await axios.get(
       "https://orange-evolution-squad37.herokuapp.com/conteudos"
     );
-    console.log(response);
   };
 
   useEffect(() => {
