@@ -31,9 +31,9 @@ export const InputSimples = (props) => {
             outline: "none",
           }}
         >
-          <option value="Vídeo">Vídeo</option>
-          <option value="Artigo">Artigo</option>
-          <option value="Podcast">Podcast</option>
+          <option value="video">Vídeo</option>
+          <option value="artigo">Artigo</option>
+          <option value="podecast">Podcast</option>
         </select>
       ) : props.tipo == "texto" ? (
         <input
