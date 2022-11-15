@@ -7,6 +7,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../context/user/UserContext";
+import useUserState from "../../hook/useUserState";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -58,6 +59,7 @@ const StyledMenu = styled((props) => (
 export const MenuDropdown = (props) => {
     const contexto = useContext(UserContext)
     const navigate = useNavigate()
+    const admin = useUserState()
 
     const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -116,10 +118,11 @@ export const MenuDropdown = (props) => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={()=>{
+        {admin.isAdmin? <></> : <MenuItem onClick={()=>{
             handleClose()
             navigate('/atualizar-usuario')
-            }}>Editar perfil</MenuItem>
+            }}>Editar perfil
+        </MenuItem>}
         <MenuItem onClick={()=>{
             handleClose()
 

@@ -145,7 +145,7 @@ export const MenuBurger = () => {
                   {logado ? "Comunidade" : "Sobre a Orange"}
                 </Typography>
               </a>
-              <Link
+              {login.isAdmin? <></> : <Link
                 to={logado ? "/atualizar-usuario" : "/"}
                 style={{ textDecoration: "inherit", color: "inherit" }}
                 onClick={() => setIsOpen(false)}
@@ -165,7 +165,7 @@ export const MenuBurger = () => {
                 >
                   Editar Perfil
                 </Typography>
-              </Link>
+              </Link>}
               <a target="_blank" href="https://www.fcamara.com.br/canal-transparencia"
                 style={{ textDecoration: "inherit", color: "inherit" }}
                 onClick={() => setIsOpen(false)}

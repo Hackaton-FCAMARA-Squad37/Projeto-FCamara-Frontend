@@ -89,7 +89,7 @@ export const App = () => {
           />
           <Route
             path="/atualizar-usuario"
-            element={<AtualizarUsuario autorizado={loged.id} />}
+            element={<AtualizarUsuario autorizado={loged.id && !loged.isAdmin} />}
           />
         </Routes>
       </main>
