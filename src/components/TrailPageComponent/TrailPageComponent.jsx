@@ -13,7 +13,6 @@ export const TrailPageComponent = (props) => {
   const [listaConteudos, setListaConteudos] = useState([]);
   const navigate = useNavigate();
 
-  console.log(props);
   const onClick = () => {
     navigate("/adicionar-conteudos", {
       state: { titulo: "", idTema: props.idTrilha },
