@@ -13,7 +13,7 @@ export const TrailPageComponent = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const [listaConteudos, setListaConteudos] = useState([]);
   const navigate = useNavigate();
-  const admin = useUserState()
+  const admin = useUserState();
 
   const onClick = () => {
     navigate("/adicionar-conteudos", {
@@ -33,7 +33,10 @@ export const TrailPageComponent = (props) => {
     pegaConteudos();
   }, []);
 
-  const listaTemas = listaConteudos.map((conteudo) => conteudo.divisao);
+  const listaTemasComTemasRepetidos = listaConteudos.map(
+    (conteudo) => conteudo.divisao
+  );
+  const listaTemas = Array.from(new Set(listaTemasComTemasRepetidos));
 
   return (
     <Box
@@ -142,13 +145,17 @@ export const TrailPageComponent = (props) => {
           />
         );
       })}
-      {admin.isAdmin?<Box
-        sx={{
-          padding: mobile ? "1rem" : "2rem",
-        }}
-      >
-        <BotaoGenerico clicado={onClick} texto="+ Adicionar Novo Tema" />
-      </Box>:<></>}
+      {admin.isAdmin ? (
+        <Box
+          sx={{
+            padding: mobile ? "1rem" : "2rem",
+          }}
+        >
+          <BotaoGenerico clicado={onClick} texto="+ Adicionar Novo Tema" />
+        </Box>
+      ) : (
+        <></>
+      )}
     </Box>
   );
 };
