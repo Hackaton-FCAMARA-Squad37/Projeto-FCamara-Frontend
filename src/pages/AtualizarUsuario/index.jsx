@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
 import { BotaoGenerico } from "../../components/BotaoGenerico";
+import useUserState from "../../hook/useUserState";
+import axios from "axios";
+import { useState } from "react";
 
 export const AtualizarUsuario = () => {
   const mobile = useMediaQuery("(max-width:768px)");
@@ -11,6 +14,10 @@ export const AtualizarUsuario = () => {
   const senhaRef = useRef(null);
   const nomeRef = useRef(null);
   const senhaConfirmadaRef = useRef(null);
+  const loged = useUserState();
+  const [alteraçãoSalva, setAlteraçãoSalva] = useState(false);
+
+  console.log(loged);
 
   const {
     register,
@@ -18,7 +25,22 @@ export const AtualizarUsuario = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => {};
+  const onSubmit = async (data) => {
+    const response = await axios.put(
+      `https://orange-evolution-squad37.herokuapp.com/usuarios/${loged.id}`,
+      {
+        nome: data.nome,
+        email: data.email,
+        senha: data.senha,
+      }
+    );
+
+    if (!response) {
+      return;
+    }
+
+    setAlteraçãoSalva(true);
+  };
 
   return (
     <Container
@@ -98,6 +120,21 @@ export const AtualizarUsuario = () => {
         />
 
         <BotaoGenerico texto="Salvar alterações" />
+        {alteraçãoSalva ? (
+          <p
+            style={{
+              marginTop: "1rem",
+              marginLeft: "auto",
+              marginRight: "auto",
+              fontFamily: "Raleway, sans-serif",
+              fontWeight: 600,
+            }}
+          >
+            Alteração salva com sucesso!
+          </p>
+        ) : (
+          ""
+        )}
       </Box>
     </Container>
   );
