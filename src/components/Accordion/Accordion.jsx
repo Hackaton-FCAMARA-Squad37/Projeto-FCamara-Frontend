@@ -13,6 +13,7 @@ export function ThemeAccordion(props) {
   const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
 
+  console.log(props.conteudos);
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -61,7 +62,7 @@ export function ThemeAccordion(props) {
                       tags={element.tags}
                       titulo={element.titulo}
                       descricao={element.descricao}
-                      duracao={element.duracao}
+                      duracao={`${element.duracao / 60}`}
                       donoConteudo={element.donoConteudo}
                     />
                   </Box>
@@ -69,9 +70,11 @@ export function ThemeAccordion(props) {
               })
             : ""}
         </AccordionDetails>
-        <Box sx={{
-          padding:mobile ? "1rem" : "2rem"
-        }}>
+        <Box
+          sx={{
+            padding: mobile ? "1rem" : "2rem",
+          }}
+        >
           <BotaoGenerico clicado={onClick} texto="+Adicionar Conteúdo" />
         </Box>
       </Accordion>
