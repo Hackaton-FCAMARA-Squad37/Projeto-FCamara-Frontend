@@ -61,6 +61,7 @@ export const InputCustomized = (props) => {
               ref={props.reference}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(false)}
+              defaultValue={props.valorPadrao ?? ""}
               id={props.id}
               {...props.register("senha", { required: true })}
               placeholder={props.placeholder}
@@ -115,6 +116,7 @@ export const InputCustomized = (props) => {
               ref={props.reference}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(false)}
+              defaultValue={props.valorPadrao ?? ""}
               id={props.id}
               placeholder={props.placeholder}
               {...props.register("email", {
@@ -177,6 +179,7 @@ export const InputCustomized = (props) => {
               ref={props.reference}
               onFocus={() => setFocus(true)}
               onBlur={() => setFocus(false)}
+              defaultValue={props.valorPadrao ?? ""}
               id={props.id}
               placeholder={props.placeholder}
               {...props.register("nome", { required: true })}

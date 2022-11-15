@@ -8,7 +8,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 
-export const AtualizarUsuario = ({autorizado}) => {
+export const AtualizarUsuario = ({ autorizado }) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const cellphone = useMediaQuery("(max-width:480px)");
   const emailRef = useRef(null);
@@ -18,6 +18,7 @@ export const AtualizarUsuario = ({autorizado}) => {
   const loged = useUserState();
   const [alteraçãoSalva, setAlteraçãoSalva] = useState(false);
 
+  console.log(loged);
   const {
     register,
     handleSubmit,
@@ -41,7 +42,9 @@ export const AtualizarUsuario = ({autorizado}) => {
     setAlteraçãoSalva(true);
   };
 
-  return (!autorizado? <Navigate to="/"/>:
+  return !autorizado ? (
+    <Navigate to="/" />
+  ) : (
     <Container
       sx={{
         display: "flex",
@@ -86,6 +89,7 @@ export const AtualizarUsuario = ({autorizado}) => {
           reference={emailRef}
           register={register}
           error={errors.email}
+          valorPadrao={loged.email}
         />
 
         <InputCustomized
@@ -96,6 +100,7 @@ export const AtualizarUsuario = ({autorizado}) => {
           reference={nomeRef}
           register={register}
           error={errors.nome}
+          valorPadrao={loged.nome}
         />
 
         <InputCustomized
@@ -106,6 +111,7 @@ export const AtualizarUsuario = ({autorizado}) => {
           reference={senhaRef}
           register={register}
           error={errors.senha}
+          valorPadrao={loged.senha}
         />
 
         <InputCustomized
@@ -116,6 +122,7 @@ export const AtualizarUsuario = ({autorizado}) => {
           reference={senhaConfirmadaRef}
           register={register}
           error={errors.senha}
+          valorPadrao={loged.senha}
         />
 
         <BotaoGenerico texto="Salvar alterações" />
