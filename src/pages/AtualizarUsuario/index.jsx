@@ -26,7 +26,6 @@ export const AtualizarUsuario = () => {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = async (data) => {
-    console.log(data);
     const response = await axios.put(
       `https://orange-evolution-squad37.herokuapp.com/usuarios/${loged.id}`,
       {
