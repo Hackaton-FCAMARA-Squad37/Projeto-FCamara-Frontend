@@ -13,6 +13,7 @@ export const TrailPageComponent = (props) => {
   const [listaConteudos, setListaConteudos] = useState([]);
   const navigate = useNavigate();
 
+  console.log(props);
   const onClick = () => {
     navigate("/adicionar-conteudos", {
       state: { titulo: "", idTema: props.idTrilha },
@@ -23,7 +24,8 @@ export const TrailPageComponent = (props) => {
     const { data } = await axios.get(
       "https://orange-evolution-squad37.herokuapp.com/conteudos"
     );
-    setListaConteudos(data);
+    const dataFiltrada = data.filter((data) => data.idTema === props.idTrilha);
+    setListaConteudos(dataFiltrada);
   };
 
   useEffect(() => {

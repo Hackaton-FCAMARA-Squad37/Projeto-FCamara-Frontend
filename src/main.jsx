@@ -27,6 +27,7 @@ import {
 } from "./pages/Trails/Devs/Devs.jsx";
 import { QaColetar, QaRegar, QaSemear } from "./pages/Trails/Qa/Qa.jsx";
 import { AdicionarConteudos } from "./pages/AdicionarConteudos/index.jsx";
+import { AtualizarUsuario } from "./pages/AtualizarUsuario/index.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -59,6 +60,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 path="/adicionar-conteudos"
                 element={<AdicionarConteudos />}
               />
+              <Route path="/atualizar-usuario" element={<AtualizarUsuario />} />
             </Routes>
           </main>
           <footer>
