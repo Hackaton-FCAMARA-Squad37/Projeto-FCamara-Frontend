@@ -12,6 +12,7 @@ import useUserState from "../../hook/useUserState";
 export const TrailPageComponent = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const [listaConteudos, setListaConteudos] = useState([]);
+  const [atualizaTela, setAtualizaTela] = useState(false);
   const navigate = useNavigate();
   const admin = useUserState();
 
@@ -31,7 +32,7 @@ export const TrailPageComponent = (props) => {
 
   useEffect(() => {
     pegaConteudos();
-  }, []);
+  }, [atualizaTela]);
 
   const listaTemasComTemasRepetidos = listaConteudos.map(
     (conteudo) => conteudo.divisao
@@ -139,6 +140,8 @@ export const TrailPageComponent = (props) => {
           <ThemeAccordion
             conteudos={listaConteudos}
             setListaConteudos={setListaConteudos}
+            setAtualizaTela={setAtualizaTela}
+            atualizaTela={atualizaTela}
             key={id}
             number={id + 1}
             titulo={element}

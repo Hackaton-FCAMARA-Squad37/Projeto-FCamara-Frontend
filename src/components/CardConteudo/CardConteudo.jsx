@@ -19,6 +19,7 @@ export const CardConteudo = (props) => {
     );
 
     props.setListaConteudos(listaConteudoAtualizada);
+    props.setAtualizaTela(!props.atualizaTela);
   };
 
   return (
@@ -92,20 +93,22 @@ export const CardConteudo = (props) => {
         ) : (
           <></>
         )}
-        {admin.isAdmin?<Box
-          onClick={() => {
-            console.log("Deleta conteudo");
-          }}
-          sx={{
-            border: "1px solid #8A0300",
-            color: "#8A0300",
-            display: "flex",
-            marginBottom: "5px",
-            cursor: "pointer",
-          }}
-        >
-          <DeleteIcon /> <Typography>Excluir conteúdo</Typography>
-        </Box>:<></>}
+        {admin.isAdmin ? (
+          <Box
+            onClick={excluirConteudo}
+            sx={{
+              border: "1px solid #8A0300",
+              color: "#8A0300",
+              display: "flex",
+              marginBottom: "5px",
+              cursor: "pointer",
+            }}
+          >
+            <DeleteIcon /> <Typography>Excluir conteúdo</Typography>
+          </Box>
+        ) : (
+          <></>
+        )}
       </Box>
       <a
         target="_blank"
