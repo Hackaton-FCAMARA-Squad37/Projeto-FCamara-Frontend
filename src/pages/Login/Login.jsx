@@ -1,6 +1,6 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Link, useNavigate } from "react-router-dom";
@@ -28,10 +28,6 @@ export function Login() {
   } = useForm({ mode: "onChange" });
 
   const handleSubmitLogin = async (data) => {
-    console.log({
-      email: data.email,
-      password: data.senha,
-    });
     setLoading(true);
     await login(data.email, data.senha), navigate("/painel");
   };

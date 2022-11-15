@@ -1,9 +1,12 @@
-import { Typography, useMediaQuery, Button } from "@mui/material";
+import { Typography} from "@mui/material";
 import { Box } from "@mui/system";
 import { TituloSubtitulo } from "../../../components/TituloSubtitulo";
 import { BotaoGenerico } from "../../../components/BotaoGenerico";
+import { useNavigate } from "react-router-dom";
 
 export const CardPainel = (props) => {
+  const navigate = useNavigate()
+
   return (
     <Box>
       <Typography
@@ -32,6 +35,7 @@ export const CardPainel = (props) => {
           subtitleFontSize={props.mobile ? "" : "1.25rem"}
         />
         <BotaoGenerico
+        clicado={()=>navigate('/areas')}
           texto="Acessar trilhas"
           mobile={props.mobile}
         ></BotaoGenerico>

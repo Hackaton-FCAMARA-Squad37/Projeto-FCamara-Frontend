@@ -20,8 +20,8 @@ export const CardTrail = (props) => {
         usuarioId: usuario[0].id,
         temaId: props.temaId,
       })
-      .then((response) => console.log(response.data))
-      .catch((error) => console.log(error));
+      .then((response) => response.data)
+      .catch((error) => error);
   };
 
   return (

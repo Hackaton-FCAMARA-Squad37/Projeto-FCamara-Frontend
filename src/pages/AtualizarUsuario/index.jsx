@@ -1,15 +1,12 @@
-import { Typography, useMediaQuery, Box, Button } from "@mui/material";
-import axios from "axios";
-import { useRef } from "react";
+import { Box, Typography, Container, useMediaQuery } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { BotaoGenerico } from "../../components/BotaoGenerico";
+import { useRef } from "react";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
+import { BotaoGenerico } from "../../components/BotaoGenerico";
 
-export const Register = () => {
+export const AtualizarUsuario = () => {
   const mobile = useMediaQuery("(max-width:768px)");
   const cellphone = useMediaQuery("(max-width:480px)");
-  const desktop = useMediaQuery("(max-width:1024px)");
   const emailRef = useRef(null);
   const senhaRef = useRef(null);
   const nomeRef = useRef(null);
@@ -21,48 +18,26 @@ export const Register = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = async (data) => {
-    await axios
-      .post("https://orange-evolution-squad37.herokuapp.com/usuarios", {
-        nome: data.nome,
-        email: data.email,
-        senha: data.senha,
-      })
-      .catch((error) => error);
-  };
+  const onSubmit = (data) => {};
 
   return (
-    <Box
+    <Container
       sx={{
-        backgroundColor: "coffee.main",
         display: "flex",
         flexDirection: "column",
+        backgroundColor: "coffee.main",
         paddingTop: `${mobile ? "4rem" : "9rem"}`,
         paddingBottom: `${mobile ? "4rem" : "9rem"}`,
         alignItems: "center",
         width: "100%",
+        color: "water.main",
+        gap: mobile ? "2.5rem" : "4rem",
+        minWidth: "100%",
       }}
     >
-      <Box
-        sx={{
-          color: "water.main",
-          maxWidth: `${
-            mobile ? (cellphone ? "88%" : "23.375rem") : "48.875rem"
-          }`,
-          width: `${desktop ? "100%" : "80%"}`,
-        }}
-      >
-        <Typography fontWeight="600" fontSize={mobile ? "1.5rem" : "2rem"}>
-          Olá, faça sua conta. É gratuito
-        </Typography>
-        <Typography
-          pt={mobile ? "0.5rem" : "2rem"}
-          pb={mobile ? "2rem" : "3rem"}
-        >
-          Cadastre-se na Orange Evolution e acesse as trilhas de acordo com o
-          seu nível de conhecimento
-        </Typography>
-      </Box>
+      <Typography fontWeight="600" fontSize={mobile ? "1.5rem" : "2rem"}>
+        Editar perfil
+      </Typography>
       <Box
         sx={{
           backgroundColor: "vitamin.main",
@@ -71,7 +46,7 @@ export const Register = () => {
             mobile ? (cellphone ? "80%" : "21.375rem") : "41.875rem"
           }`,
           width: "100%",
-          margin: "auto",
+          margin: mobile ? "" : "auto",
           padding: `${mobile ? "1.5rem 1rem 2.5rem 1rem" : "3.5rem"}`,
           borderRadius: "8px",
           border: `1px solid`,
@@ -122,39 +97,8 @@ export const Register = () => {
           error={errors.senha}
         />
 
-        <Typography
-          sx={{
-            marginBottom: `${mobile ? "2rem" : "3rem"}`,
-          }}
-        >
-          Ao se registrar, você aceita nossa
-          <a
-            target="_blank"
-            href="https://fcamara-images.s3.amazonaws.com/site-fcamara/politica-privacidade.pdf"
-            style={{
-              color: "#F8F8F8",
-              marginLeft: "4px",
-              marginRight: "4px",
-            }}
-          >
-            política de privacidade
-          </a>
-        </Typography>
-        <BotaoGenerico texto="Cadastrar" />
-        <Typography textAlign="center" sx={{ marginTop: "1.5rem" }}>
-          Tem uma conta?
-          <Link
-            to="/login"
-            style={{
-              color: "#F8F8F8",
-              marginLeft: "4px",
-              marginRight: "4px",
-            }}
-          >
-            Conecte-se
-          </Link>
-        </Typography>
+        <BotaoGenerico texto="Salvar alterações" />
       </Box>
-    </Box>
+    </Container>
   );
 };

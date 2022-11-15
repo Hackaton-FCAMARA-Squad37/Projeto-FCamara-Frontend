@@ -3,8 +3,10 @@ import { BotaoGenerico } from "../../../components/BotaoGenerico";
 import { InputSimples } from "../../../components/InputSimples";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
+import axios from "axios";
+import { useState } from "react";
 
-export const FormAdicionarConteudo = () => {
+export const FormAdicionarConteudo = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const descricaoRef = useRef(null);
   const duracaoRef = useRef(null);
@@ -12,8 +14,10 @@ export const FormAdicionarConteudo = () => {
   const formatoRef = useRef(null);
   const tituloRef = useRef(null);
   const donoConteudoRef = useRef(null);
-  const divisaoRef = useRef(null);
   const categoriaRef = useRef(null);
+  const nomeTemaRef = useRef(null);
+  const { state } = props;
+  const [conteudoAdicionado, setConteudoAdicionado] = useState(false);
 
   const {
     register,
@@ -21,8 +25,24 @@ export const FormAdicionarConteudo = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    data.tema = props.titulo ? props.titulo : data.tema;
+    data.duracao = parseInt(data.duracao);
+    await axios.post(
+      "http://orange-evolution-squad37.herokuapp.com/conteudos",
+      {
+        titulo: data.titulo,
+        tipo: data.formato,
+        duracao: data.duracao,
+        descricao: data.descricao,
+        link: data.link,
+        donoConteudo: data.donoConteudo,
+        tags: data.categoria,
+        divisao: data.tema,
+        idTema: state.idTema,
+      }
+    );
+    setConteudoAdicionado(true);
   };
 
   return (
@@ -105,14 +125,16 @@ export const FormAdicionarConteudo = () => {
       />
       <InputSimples
         tipo="texto"
-        placeholder="Tema"
+        placeholder="Escreva o nome do Tema"
         nome="Tema"
         nomeValidacao="tema"
+        reference={nomeTemaRef}
         register={register}
-        reference={divisaoRef}
-        error={errors.tema}
+        error={errors.nomeTema}
+        valorPadrao={props.titulo}
       />
       <BotaoGenerico texto="Publicar conteúdo" />
+      {conteudoAdicionado ? <p>Conteúdo adicionado com sucesso!</p> : ""}
     </Box>
   );
 };

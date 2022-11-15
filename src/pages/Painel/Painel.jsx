@@ -18,9 +18,11 @@ export const Painel = () => {
         usuarioId: loged.id,
       })
       .then((response) => {
-        setTrilhasAtivas(response.data);
+        response.data.length == 0
+          ? setTrilhasAtivas(null)
+          : setTrilhasAtivas(response.data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => error);
   };
 
   useEffect(() => {
