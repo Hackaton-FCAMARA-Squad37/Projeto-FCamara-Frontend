@@ -146,12 +146,19 @@ export const TrailPageComponent = (props) => {
         );
       })}
       {admin.isAdmin ? (
-        <Box
-          sx={{
-            padding: mobile ? "1rem" : "2rem",
-          }}
-        >
-          <BotaoGenerico clicado={onClick} texto="+ Adicionar Novo Tema" />
+        <Box sx={{
+          display:'flex',
+          alignItems:'center',
+          justifyContent:'center',
+        }}>
+          <Box
+            sx={{
+              padding: mobile ? "1rem" : "2rem",
+              maxWidth: "22.688rem",
+            }}
+          >
+            <BotaoGenerico clicado={onClick} texto="+ Adicionar tema" />
+          </Box>
         </Box>
       ) : (
         <></>

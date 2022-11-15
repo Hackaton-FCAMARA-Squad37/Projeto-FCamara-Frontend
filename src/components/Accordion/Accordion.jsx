@@ -3,9 +3,8 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Box, useMediaQuery, Typography } from "@mui/material";
+import { Box, useMediaQuery, Typography, Button } from "@mui/material";
 import { CardConteudo } from "../CardConteudo/CardConteudo";
-import { BotaoGenerico } from "../BotaoGenerico";
 import { useNavigate } from "react-router-dom";
 import useUserState from "../../hook/useUserState";
 
@@ -92,7 +91,19 @@ export function ThemeAccordion(props) {
                 maxWidth: "22.688rem",
               }}
             >
-              <BotaoGenerico clicado={onClick} texto="+ Adicionar Conteúdo" />
+              <Button onClick={onClick} variant='contained' sx={{
+                            width: `100%`,
+                            fontSize:'1.25rem',
+                            backgroundColor:'vitamin.main',
+                            color:'primary.main',
+                            border:'1px solid',
+                            borderRadius:'8px',
+                            '&:hover':{
+                                backgroundColor:'#141111'
+                            }
+                        }}>
+                            + Adicionar conteúdo
+                        </Button>
             </Box>
           </Box>
         ) : (

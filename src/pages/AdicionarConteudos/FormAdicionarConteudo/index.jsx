@@ -6,6 +6,7 @@ import { useRef } from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ErrorIcon from '@mui/icons-material/Error';
 
 export const FormAdicionarConteudo = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
@@ -144,8 +145,6 @@ export const FormAdicionarConteudo = (props) => {
         erro == ''?<></>:<Box sx={{
           display:'flex',
           width:'100%',
-          border:'1px solid',
-          borderColor:'#ff3838',
           justifyContent:'center',
           padding:'0.75rem 0rem'
         }}>
@@ -153,6 +152,11 @@ export const FormAdicionarConteudo = (props) => {
             fontSize: mobile?'1rem':'1.25rem',
             color:'#ff3838'
           }}>{erro}</Typography>
+          <ErrorIcon sx={{
+            marginLeft:'0.5rem',
+            paddingTop:'2px',
+            color:'#ff3838'
+          }} />
         </Box>
       )}
     </Box>

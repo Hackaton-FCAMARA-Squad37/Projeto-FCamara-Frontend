@@ -102,6 +102,7 @@ export const CardConteudo = (props) => {
             display: "flex",
             marginBottom: "5px",
             cursor: "pointer",
+            padding:'5px'
           }}
         >
           <DeleteIcon /> <Typography>Excluir conteúdo</Typography>

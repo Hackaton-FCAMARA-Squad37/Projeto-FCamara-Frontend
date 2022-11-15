@@ -41,6 +41,9 @@ export const CardTrail = (props) => {
         alignItems: "center",
         marginBottom: "1rem",
         cursor: "pointer",
+        '&:hover':{
+          backgroundColor:'#005F57'
+        }
       }}
     >
       <Box
