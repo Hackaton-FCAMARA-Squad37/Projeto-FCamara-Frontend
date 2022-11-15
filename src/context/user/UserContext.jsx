@@ -5,15 +5,21 @@ const UserContext = createContext(null);
 
 export const UserContextProvider = ({ children }) => {
   const [usuario, setUsuario] = useState({});
+  const [error, setError] = useState(false);
 
-  const login = async (email, senha) => {
+  const login = async (email, senha, redirecionamento) => {
     await axios
       .post("https://orange-evolution-squad37.herokuapp.com/login", {
         email: email,
         senha: senha,
       })
-      .then((response) => setUsuario(response.data))
-      .catch((error) => error);
+      .then((response) => {
+        setUsuario(response.data);
+        redirecionamento();
+      })
+      .catch(() => {
+        setError(true);
+      });
   };
 
   const logout = () => {
@@ -25,6 +31,7 @@ export const UserContextProvider = ({ children }) => {
   const value = {
     usuario,
     setUsuario,
+    error,
     login,
     logout,
   };

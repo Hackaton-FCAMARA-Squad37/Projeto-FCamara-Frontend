@@ -71,6 +71,8 @@ export function ThemeAccordion(props) {
                         donoConteudo={element.donoConteudo}
                         setListaConteudos={props.setListaConteudos}
                         listaConteudos={props.conteudos}
+                        setAtualizaTela={props.setAtualizaTela}
+                        atualizaTela={props.atualizaTela}
                       />
                     </Box>
                   );

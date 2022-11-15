@@ -19,6 +19,7 @@ export const CardConteudo = (props) => {
     );
 
     props.setListaConteudos(listaConteudoAtualizada);
+    props.setAtualizaTela(!props.atualizaTela);
   };
 
   return (
