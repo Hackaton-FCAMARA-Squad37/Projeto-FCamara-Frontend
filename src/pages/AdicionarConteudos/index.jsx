@@ -7,7 +7,9 @@ export const AdicionarConteudos = ({ autorizado }) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const { state } = useLocation();
 
-  return ( !autorizado? <Navigate to="/"/>:
+  return !autorizado ? (
+    <Navigate to="/" />
+  ) : (
     <Container
       component="div"
       maxWidth="100%"
