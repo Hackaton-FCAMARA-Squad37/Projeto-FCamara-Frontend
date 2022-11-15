@@ -14,8 +14,9 @@ export const FormAdicionarConteudo = (props) => {
   const tituloRef = useRef(null);
   const donoConteudoRef = useRef(null);
   const categoriaRef = useRef(null);
+  const { titulo, idTema } = props.state;
 
-  console.log(props.stateTituloTema);
+  console.log(titulo);
 
   const {
     register,
@@ -24,20 +25,23 @@ export const FormAdicionarConteudo = (props) => {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = async (data) => {
-    data.tema = props.stateTituloTema;
+    data.tema = titulo;
     data.duracao = parseInt(data.duracao);
     console.log(data);
-    // await axios.post('http://orange-evolution-squad37.herokuapp.com/conteudos', {
-    //     titulo: "",
-    // tipo: "tipo1",
-    // duracao: "00:00",
-    // descricao:"descricao maneira",
-    // link: "https://www.link.com",
-    // donoConteudo: "euMesmo",
-    // tags:"aquela,tag,ali",
-    // divisao: "",
-    // idTema: "3"
-    // }).then();
+    // await axios
+    //   .post("http://orange-evolution-squad37.herokuapp.com/conteudos", {
+    //     titulo: data.titulo,
+    //     tipo: data.formato,
+    //     duracao: data.duracao,
+    //     descricao: data.descricao,
+    //     link: data.link,
+    //     donoConteudo: data.donoConteudo,
+    //     tags: data.categoria,
+    //     divisao: data.tema,
+    //     idTema: idTema,
+    //   })
+    //   .then(() => console.log("Tema cadastrado"))
+    //   .catch((error) => console.log(error));
   };
 
   return (

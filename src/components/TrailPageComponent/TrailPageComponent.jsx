@@ -54,8 +54,10 @@ export const TrailPageComponent = (props) => {
     pegaConteudos();
   }, []);
 
-  const listaTemas = listaConteudos.map((conteudo) => conteudo.titulo);
-  console.log(listaTemas);
+  const listaTemas = listaConteudos.map((conteudo) => {
+    console.log(conteudo);
+    return conteudo.divisao;
+  });
 
   return (
     <Box

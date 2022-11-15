@@ -3,12 +3,13 @@ import imgArtigo from "../../assets/imgArtigo.png";
 import imgVideo from "../../assets/imgVideo.png";
 import imgPodcast from "../../assets/imgPodecast.png";
 import DeleteIcon from "@mui/icons-material/Delete";
-import useUserState from '../../hook/useUserState.jsx'
-
+import useUserState from "../../hook/useUserState.jsx";
 
 export const CardConteudo = (props) => {
   const mobile = useMediaQuery("(max-width: 768px)");
-  const admin = useUserState()
+  const admin = useUserState();
+
+  console.log("Card Conteudo props: ", props);
 
   return (
     <Box
@@ -90,7 +91,7 @@ export const CardConteudo = (props) => {
             color: "#8A0300",
             display: "flex",
             marginBottom: "5px",
-            cursor:'pointer'
+            cursor: "pointer",
           }}
         >
           <DeleteIcon /> <Typography>Excluir conteúdo</Typography>

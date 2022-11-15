@@ -12,14 +12,16 @@ export function ThemeAccordion(props) {
   const mobile = useMediaQuery("(max-width:768px)");
   const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
+  const idTema = props.conteudos[0] ? props.conteudos[0].idTema : "";
 
-  console.log(props.conteudos);
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
   const onClick = () => {
-    navigate("/adicionar-conteudos", { state: { titulo: props.titulo } });
+    navigate("/adicionar-conteudos", {
+      state: { titulo: props.titulo, idTema: idTema },
+    });
   };
 
   return (
@@ -47,26 +49,28 @@ export function ThemeAccordion(props) {
         <AccordionDetails>
           {props.conteudos
             ? props.conteudos.map((element, id) => {
-                return (
-                  <Box
-                    key={id}
-                    sx={{
-                      backgroundColor: "water.main",
-                      borderRadius: "8px",
-                      marginBottom: `${mobile ? "1rem" : "2rem"}`,
-                    }}
-                  >
-                    <CardConteudo
-                      tipo={element.tipo}
-                      link={element.link}
-                      tags={element.tags}
-                      titulo={element.titulo}
-                      descricao={element.descricao}
-                      duracao={`${element.duracao / 60}`}
-                      donoConteudo={element.donoConteudo}
-                    />
-                  </Box>
-                );
+                if (element.divisao == props.titulo) {
+                  return (
+                    <Box
+                      key={id}
+                      sx={{
+                        backgroundColor: "water.main",
+                        borderRadius: "8px",
+                        marginBottom: `${mobile ? "1rem" : "2rem"}`,
+                      }}
+                    >
+                      <CardConteudo
+                        tipo={element.tipo}
+                        link={element.link}
+                        tags={element.tags}
+                        titulo={element.titulo}
+                        descricao={element.descricao}
+                        duracao={`${element.duracao}`}
+                        donoConteudo={element.donoConteudo}
+                      />
+                    </Box>
+                  );
+                }
               })
             : ""}
         </AccordionDetails>
@@ -75,7 +79,7 @@ export function ThemeAccordion(props) {
             padding: mobile ? "1rem" : "2rem",
           }}
         >
-          <BotaoGenerico clicado={onClick} texto="+Adicionar Conteúdo" />
+          <BotaoGenerico clicado={onClick} texto="+ Adicionar Conteúdo" />
         </Box>
       </Accordion>
     </Box>
