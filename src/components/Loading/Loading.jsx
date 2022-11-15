@@ -16,9 +16,7 @@ export const Loading = () => {
             position:'absolute',
             zIndex:'1'
         }}>
-            <Box sx={{
-                maxWidth:'100%'
-            }}>
+            <Box>
                 <LoadingSpin primaryColor='#00C09B' secondaryColor='#161616'/>
             </Box>
         </Box>
