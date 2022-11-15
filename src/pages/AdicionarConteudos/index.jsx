@@ -7,6 +7,8 @@ export const AdicionarConteudos = () => {
   const mobile = useMediaQuery("(max-width:768px)");
   const { state } = useLocation();
 
+  console.log(state);
+
   return (
     <Container
       component="div"

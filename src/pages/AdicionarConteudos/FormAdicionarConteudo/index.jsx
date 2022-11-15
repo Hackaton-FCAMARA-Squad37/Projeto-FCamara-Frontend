@@ -134,7 +134,7 @@ export const FormAdicionarConteudo = (props) => {
         reference={nomeTemaRef}
         register={register}
         error={errors.nomeTema}
-        valorPadrao={props.titulo}
+        valorPadrao={state.titulo}
       />
       <BotaoGenerico texto="Publicar conteúdo" />
       {conteudoAdicionado ? <p>Conteúdo adicionado com sucesso!</p> : ""}
