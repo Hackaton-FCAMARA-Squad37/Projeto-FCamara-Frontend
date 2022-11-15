@@ -92,8 +92,10 @@ export const CardConteudo = (props) => {
         ) : (
           <></>
         )}
-        <Box
-          onClick={excluirConteudo}
+        {admin.isAdmin?<Box
+          onClick={() => {
+            console.log("Deleta conteudo");
+          }}
           sx={{
             border: "1px solid #8A0300",
             color: "#8A0300",
@@ -103,7 +105,7 @@ export const CardConteudo = (props) => {
           }}
         >
           <DeleteIcon /> <Typography>Excluir conteúdo</Typography>
-        </Box>
+        </Box>:<></>}
       </Box>
       <a
         target="_blank"

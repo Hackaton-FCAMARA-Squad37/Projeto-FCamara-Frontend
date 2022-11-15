@@ -6,9 +6,11 @@ import { Typography } from "@mui/material";
 import semear from "../../../assets/semearLogo.png";
 import regar from "../../../assets/regarLogo.png";
 import coletar from "../../../assets/coletarLogo.png";
+import { useNavigate } from "react-router-dom";
 
 export const CardPainelAtivo = (props) => {
   const [nivelTrilha, setNivelTrilha] = useState(null);
+  const navigate = useNavigate();
 
   const buscaNivelDaTrilha = async () => {
     const { data } = await axios.get(
@@ -69,6 +71,17 @@ export const CardPainelAtivo = (props) => {
             props.trilha.titulo.slice(1)}
         </Typography>
         <BotaoGenerico
+          clicado={() => {
+            navigate(
+              `/${
+                props.trilha.id <= 3
+                  ? "caminhouxui/"
+                  : props.trilha.id <= 6
+                  ? "caminhoqa/"
+                  : "caminhodev/"
+              }${props.trilha.titulo}`
+            );
+          }}
           texto="Continuar estudando"
           mobile={props.mobile}
         ></BotaoGenerico>
