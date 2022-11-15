@@ -1,13 +1,13 @@
 import { Container, Typography, useMediaQuery } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { ReturnButton } from "../../components/ReturnButton/ReturnButton";
 import { FormAdicionarConteudo } from "./FormAdicionarConteudo";
 
-export const AdicionarConteudos = () => {
+export const AdicionarConteudos = ({ autorizado }) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const { state } = useLocation();
 
-  return (
+  return ( !autorizado? <Navigate to="/"/>:
     <Container
       component="div"
       maxWidth="100%"

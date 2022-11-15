@@ -1,13 +1,13 @@
 import { useMediaQuery } from "@mui/material";
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { CardTrail } from "../../components/CardTrail/CardTrail";
 import { ReturnButton } from "../../components/ReturnButton/ReturnButton";
 
-export function UxuiPage() {
+export function UxuiPage({autorizado}) {
   const mobile = useMediaQuery("(max-width:768px)");
 
-  return (
+  return ( !autorizado? <Navigate to="/"/>:
     <Box
       bgcolor="coffee.main"
       color="water.main"

@@ -1,7 +1,9 @@
+import { Navigate} from "react-router-dom";
 import { TrailPageComponent } from "../../../components/TrailPageComponent/TrailPageComponent.jsx";
 
-export const DevsColetar = () => {
-  return (
+export const DevsColetar = ({autorizado}) => {
+
+  return (!autorizado? <Navigate to="/"/>:
     <TrailPageComponent
       idTrilha={9}
       titulo="Trilha Coletar"
@@ -10,8 +12,9 @@ export const DevsColetar = () => {
   );
 };
 
-export const DevsSemear = () => {
-  return (
+export const DevsSemear = ({autorizado}) => {
+
+  return (!autorizado? <Navigate to="/"/>:
     <TrailPageComponent
       idTrilha={7}
       titulo="Trilha Semear"
@@ -20,8 +23,9 @@ export const DevsSemear = () => {
   );
 };
 
-export const DevsRegar = () => {
-  return (
+export const DevsRegar = ({autorizado}) => {
+
+  return (!autorizado? <Navigate to="/"/>:
     <TrailPageComponent
       idTrilha={8}
       titulo="Trilha Regar"

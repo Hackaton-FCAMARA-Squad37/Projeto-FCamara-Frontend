@@ -1,11 +1,13 @@
 import { useMediaQuery } from "@mui/material";
 import { Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { CardTrail } from "../../components/CardTrail/CardTrail";
 import { ReturnButton } from "../../components/ReturnButton/ReturnButton";
 
-export function QaPage() {
+export function QaPage({autorizado}) {
   const mobile = useMediaQuery("(max-width:768px)");
+  const navigate = useNavigate()
 
   return (
     <Box

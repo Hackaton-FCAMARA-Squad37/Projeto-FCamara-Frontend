@@ -5,7 +5,7 @@ import LoadingSpin from 'react-loading-spin'
 export const Loading = () => {
     const mobile = useMediaQuery('(max-width:768px)')
 
-    return (
+    return  (
         <Box sx={{
             height:`${mobile?'95%':'90%'}`,
             width:'100%',

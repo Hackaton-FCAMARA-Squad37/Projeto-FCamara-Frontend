@@ -1,7 +1,10 @@
+import { Navigate } from "react-router-dom";
 import { TrailPageComponent } from "../../../components/TrailPageComponent/TrailPageComponent";
 
-export const QaColetar = () => {
-  return (
+export const QaColetar = ({ autorizado }) => {
+  return !autorizado ? (
+    <Navigate to="/" />
+  ) : (
     <TrailPageComponent
       idTrilha={6}
       titulo="Trilha Coletar"
@@ -10,8 +13,10 @@ export const QaColetar = () => {
   );
 };
 
-export const QaRegar = () => {
-  return (
+export const QaRegar = ({ autorizado }) => {
+  return !autorizado ? (
+    <Navigate to="/" />
+  ) : (
     <TrailPageComponent
       idTrilha={5}
       titulo="Trilha Regar"
@@ -20,8 +25,10 @@ export const QaRegar = () => {
   );
 };
 
-export const QaSemear = () => {
-  return (
+export const QaSemear = ({ autorizado }) => {
+  return !autorizado ? (
+    <Navigate to="/" />
+  ) : (
     <TrailPageComponent
       idTrilha={4}
       titulo="Trilha Semear"

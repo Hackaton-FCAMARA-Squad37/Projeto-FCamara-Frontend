@@ -5,12 +5,13 @@ import logoUXUI from "../../assets/logoUXUI.png";
 import logoDEV from "../../assets/logoDEV.png";
 import logoQA from "../../assets/logoQA.png";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
-export const Areas = () => {
+export const Areas = ({autorizado}) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const desktopWide = useMediaQuery("(max-width:1200px)");
-  return (
+  
+  return  (!autorizado? <Navigate to="/"/>:
     <Box
       bgcolor="coffee.main"
       color="water.main"

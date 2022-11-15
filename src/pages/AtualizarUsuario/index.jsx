@@ -6,8 +6,9 @@ import { BotaoGenerico } from "../../components/BotaoGenerico";
 import useUserState from "../../hook/useUserState";
 import axios from "axios";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
-export const AtualizarUsuario = () => {
+export const AtualizarUsuario = ({autorizado}) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const cellphone = useMediaQuery("(max-width:480px)");
   const emailRef = useRef(null);
@@ -16,8 +17,6 @@ export const AtualizarUsuario = () => {
   const senhaConfirmadaRef = useRef(null);
   const loged = useUserState();
   const [alteraçãoSalva, setAlteraçãoSalva] = useState(false);
-
-  console.log(loged);
 
   const {
     register,
@@ -42,7 +41,7 @@ export const AtualizarUsuario = () => {
     setAlteraçãoSalva(true);
   };
 
-  return (
+  return (!autorizado? <Navigate to="/"/>:
     <Container
       sx={{
         display: "flex",
