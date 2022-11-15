@@ -7,11 +7,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BotaoGenerico } from "../BotaoGenerico";
 import { useNavigate } from "react-router-dom";
+import useUserState from "../../hook/useUserState";
 
 export const TrailPageComponent = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
   const [listaConteudos, setListaConteudos] = useState([]);
   const navigate = useNavigate();
+  const admin = useUserState()
 
   const onClick = () => {
     navigate("/adicionar-conteudos", {
@@ -140,13 +142,13 @@ export const TrailPageComponent = (props) => {
           />
         );
       })}
-      <Box
+      {admin.isAdmin?<Box
         sx={{
           padding: mobile ? "1rem" : "2rem",
         }}
       >
         <BotaoGenerico clicado={onClick} texto="+ Adicionar Novo Tema" />
-      </Box>
+      </Box>:<></>}
     </Box>
   );
 };
