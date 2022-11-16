@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { CardPainelAtivo } from "./CardPainelAtivo";
 import { Navigate, useNavigate } from "react-router-dom";
 
-export const Painel = ({autorizado}) => {
+export const Painel = ({ autorizado }) => {
   const mobile = useMediaQuery("(max-width: 768px)");
   const loged = useUserState();
   const [trilhasAtivas, setTrilhasAtivas] = useState(null);
@@ -27,53 +27,55 @@ export const Painel = ({autorizado}) => {
   };
 
   useEffect(() => {
-    if(autorizado) buscaTrilhasAtivas();
+    if (autorizado) buscaTrilhasAtivas();
   }, []);
 
-  return  (
-     !autorizado ? <Navigate to="/" /> :
-       <Box
+  return !autorizado ? (
+    <Navigate to="/" />
+  ) : (
+    <Box
+      sx={{
+        color: "white",
+        backgroundColor: "coffee.main",
+        padding: `${mobile ? "4rem 1.5rem" : "9rem 4.5rem"}`,
+        display: "flex",
+        flexDirection: "column",
+        gap: `${mobile ? "2rem" : "6rem"}`,
+      }}
+    >
+      <TituloSubtitulo
+        nomeOn="true"
+        nome={loged.nome}
+        titulo="Painel"
+        subtitulo=" Este é seu painel, aqui você encontrará suas trilhas de
+            estudo adicionadas"
+        titleFontSize="1.5rem"
+      />
+      <Box
         sx={{
-          color: "white",
-          backgroundColor: "coffee.main",
-          padding: `${mobile ? "4rem 1.5rem" : "9rem 4.5rem"}`,
           display: "flex",
-          flexDirection: "column",
-          gap: `${mobile ? "2rem" : "6rem"}`,
+          flexDirection: `${mobile ? "column" : "row"}`,
+          flexWrap: "wrap",
+          gap: "1.5rem",
         }}
       >
-        <TituloSubtitulo
-          nomeOn="true"
-          nome={loged.nome}
-          titulo="Painel"
-          subtitulo=" Este é seu painel, aqui você encontrará suas trilhas de
-            estudo adicionadas"
-          titleFontSize="1.5rem"
-        />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: `${mobile ? "column" : "row"}`,
-            gap: "1.5rem",
-          }}
-        >
-          {trilhasAtivas ? (
-            trilhasAtivas.map((trilha) => (
-              <CardPainelAtivo
-                key={trilha.id}
-                trilha={trilha}
-                mobile={mobile}
-              ></CardPainelAtivo>
-            ))
-          ) : (
-            <CardPainel
-              cardTitulo="Seus estudos"
-              titulo="Inicie seus estudos"
-              subtitulo=" Você ainda não iniciou nenhum estudo, acesse as trilhas para escolher por onde começar"
+        {trilhasAtivas ? (
+          trilhasAtivas.map((trilha) => (
+            <CardPainelAtivo
+              key={trilha.id}
+              trilha={trilha}
               mobile={mobile}
-            />
-          )}
-        </Box>
+            ></CardPainelAtivo>
+          ))
+        ) : (
+          <CardPainel
+            cardTitulo="Seus estudos"
+            titulo="Inicie seus estudos"
+            subtitulo=" Você ainda não iniciou nenhum estudo, acesse as trilhas para escolher por onde começar"
+            mobile={mobile}
+          />
+        )}
       </Box>
-  ) 
+    </Box>
+  );
 };

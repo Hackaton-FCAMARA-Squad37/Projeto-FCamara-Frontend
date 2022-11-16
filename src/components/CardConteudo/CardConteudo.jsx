@@ -93,21 +93,25 @@ export const CardConteudo = (props) => {
         ) : (
           <></>
         )}
-        {admin.isAdmin?<Box
-          onClick={() => {
-            excluirConteudo;
-          }}
-          sx={{
-            border: "1px solid #8A0300",
-            color: "#8A0300",
-            display: "flex",
-            marginBottom: "5px",
-            cursor: "pointer",
-            padding:'5px'
-          }}
-        >
-          <DeleteIcon /> <Typography>Excluir conteúdo</Typography>
-        </Box>:<></>}
+        {admin.isAdmin ? (
+          <Box
+            onClick={() => {
+              excluirConteudo();
+            }}
+            sx={{
+              border: "1px solid #8A0300",
+              color: "#8A0300",
+              display: "flex",
+              marginBottom: "5px",
+              cursor: "pointer",
+              padding: "5px",
+            }}
+          >
+            <DeleteIcon /> <Typography>Excluir conteúdo</Typography>
+          </Box>
+        ) : (
+          <></>
+        )}
       </Box>
       <a
         target="_blank"
