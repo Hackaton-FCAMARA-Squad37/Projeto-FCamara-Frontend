@@ -95,7 +95,7 @@ export const CardConteudo = (props) => {
         )}
         {admin.isAdmin?<Box
           onClick={() => {
-            console.log("Deleta conteudo");
+            console.log(excluirConteudo);
           }}
           sx={{
             border: "1px solid #8A0300",
