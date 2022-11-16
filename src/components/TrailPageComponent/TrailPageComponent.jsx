@@ -5,7 +5,7 @@ import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { ThemeAccordion } from "../Accordion/Accordion";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { BotaoGenerico } from "../BotaoGenerico";
+import { BotaoGenerico } from "../BotaoGenerico/BotaoGenerico.jsx";
 import { useNavigate } from "react-router-dom";
 import useUserState from "../../hook/useUserState";
 

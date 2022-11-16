@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { TituloSubtitulo } from "../../../components/TituloSubtitulo/TituloSubtitulo";
-import { BotaoGenerico } from "../../../components/BotaoGenerico";
+import { BotaoGenerico } from "../../../components/BotaoGenerico/BotaoGenerico.jsx";
 import { useNavigate } from "react-router-dom";
 
 export const CardPainel = (props) => {

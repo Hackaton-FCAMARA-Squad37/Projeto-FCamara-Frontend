@@ -2,7 +2,7 @@ import { Box, Typography, Container, useMediaQuery } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
-import { BotaoGenerico } from "../../components/BotaoGenerico";
+import { BotaoGenerico } from "../../components/BotaoGenerico/BotaoGenerico";
 import useUserState from "../../hook/useUserState";
 import axios from "axios";
 import { useState } from "react";
@@ -18,7 +18,6 @@ export const AtualizarUsuario = ({ autorizado }) => {
   const loged = useUserState();
   const [alteraçãoSalva, setAlteraçãoSalva] = useState(false);
 
-  console.log(loged);
   const {
     register,
     handleSubmit,

@@ -1,5 +1,5 @@
 import { Box } from "@mui/system";
-import { BotaoGenerico } from "../../../components/BotaoGenerico";
+import { BotaoGenerico } from "../../../components/BotaoGenerico/BotaoGenerico";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Typography } from "@mui/material";

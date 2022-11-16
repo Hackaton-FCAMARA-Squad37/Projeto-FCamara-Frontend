@@ -3,7 +3,7 @@ import axios from "axios";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { BotaoGenerico } from "../../components/BotaoGenerico";
+import { BotaoGenerico } from "../../components/BotaoGenerico/BotaoGenerico";
 import { InputCustomized } from "../../components/InputCustomized/InputCustomized";
 import { useState } from "react";
 
