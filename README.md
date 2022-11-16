@@ -20,7 +20,6 @@ A Orange Evoluiton é uma plataforma SPA de estudos para os usuários finais, e 
  - Figma
  - Heroku
  - Netlify
- - Canva
  - Vite
  - React Hook Form
 
