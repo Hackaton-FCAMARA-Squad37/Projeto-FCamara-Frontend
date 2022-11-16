@@ -1,12 +1,12 @@
 import { Box, Typography, useMediaQuery } from "@mui/material";
-import { BotaoGenerico } from "../../../components/BotaoGenerico";
-import { InputSimples } from "../../../components/InputSimples";
+import { BotaoGenerico } from "../../../components/BotaoGenerico/BotaoGenerico";
+import { InputSimples } from "../../../components/InputSimples/InputSimples";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ErrorIcon from '@mui/icons-material/Error';
+import ErrorIcon from "@mui/icons-material/Error";
 
 export const FormAdicionarConteudo = (props) => {
   const mobile = useMediaQuery("(max-width:768px)");
@@ -20,7 +20,7 @@ export const FormAdicionarConteudo = (props) => {
   const nomeTemaRef = useRef(null);
   const { state } = props;
   const [conteudoAdicionado, setConteudoAdicionado] = useState(false);
-  const [erro, setErro] = useState('');
+  const [erro, setErro] = useState("");
   const navigate = useNavigate();
 
   const {
@@ -32,7 +32,7 @@ export const FormAdicionarConteudo = (props) => {
   const onSubmit = async (data) => {
     data.tema = props.titulo ? props.titulo : data.tema;
     data.duracao = parseInt(data.duracao);
-    const response = await axios
+    await axios
       .post("http://orange-evolution-squad37.herokuapp.com/conteudos", {
         titulo: data.titulo,
         tipo: data.formato,
@@ -47,7 +47,9 @@ export const FormAdicionarConteudo = (props) => {
       .then(() => {
         setConteudoAdicionado(true);
       })
-      .catch((e) => {setErro('Falha ao cadastrar conteúdo')});
+      .catch(() => {
+        setErro("Falha ao cadastrar conteúdo");
+      });
   };
 
   return (
@@ -141,22 +143,32 @@ export const FormAdicionarConteudo = (props) => {
       <BotaoGenerico texto="Publicar conteúdo" />
       {conteudoAdicionado ? (
         navigate(-1)
+      ) : erro == "" ? (
+        <></>
       ) : (
-        erro == ''?<></>:<Box sx={{
-          display:'flex',
-          width:'100%',
-          justifyContent:'center',
-          padding:'0.75rem 0rem'
-        }}>
-          <Typography sx={{
-            fontSize: mobile?'1rem':'1.25rem',
-            color:'#ff3838'
-          }}>{erro}</Typography>
-          <ErrorIcon sx={{
-            marginLeft:'0.5rem',
-            paddingTop:'2px',
-            color:'#ff3838'
-          }} />
+        <Box
+          sx={{
+            display: "flex",
+            width: "100%",
+            justifyContent: "center",
+            padding: "0.75rem 0rem",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: mobile ? "1rem" : "1.25rem",
+              color: "#ff3838",
+            }}
+          >
+            {erro}
+          </Typography>
+          <ErrorIcon
+            sx={{
+              marginLeft: "0.5rem",
+              paddingTop: "2px",
+              color: "#ff3838",
+            }}
+          />
         </Box>
       )}
     </Box>

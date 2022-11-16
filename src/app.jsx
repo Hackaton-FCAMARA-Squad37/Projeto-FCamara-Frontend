@@ -14,20 +14,18 @@ import {
   DevsSemear,
 } from "./pages/Trails/Devs/Devs.jsx";
 import { QaColetar, QaRegar, QaSemear } from "./pages/Trails/Qa/Qa.jsx";
-import { AdicionarConteudos } from "./pages/AdicionarConteudos/index.jsx";
-import { AtualizarUsuario } from "./pages/AtualizarUsuario/index.jsx";
+import { AdicionarConteudos } from "./pages/AdicionarConteudos/AdicionarConteudos.jsx";
+import { AtualizarUsuario } from "./pages/AtualizarUsuario/AtualizarUsuario.jsx";
 import { Header } from "./components/Header/Header.jsx";
 import { Footer } from "./components/Footer/Footer.jsx";
 import { Login } from "./pages/Login/Login.jsx";
 import { Register } from "./pages/Register/Register.jsx";
 import { Home } from "./pages/Home/Home.jsx";
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes } from "react-router-dom";
 import useUserState from "./hook/useUserState.jsx";
 
-
-
 export const App = () => {
-    const loged = useUserState()
+  const loged = useUserState();
 
   return (
     <>
@@ -46,7 +44,10 @@ export const App = () => {
             element={<UxuiPage autorizado={loged.id} />}
           />
           <Route path="/caminhoqa" element={<QaPage autorizado={loged.id} />} />
-          <Route path="/caminhodev" element={<DevPage autorizado={loged.id} />} />
+          <Route
+            path="/caminhodev"
+            element={<DevPage autorizado={loged.id} />}
+          />
           <Route
             path="/caminhouxui/semear"
             element={<UxuiSemear autorizado={loged.id} />}
@@ -89,7 +90,9 @@ export const App = () => {
           />
           <Route
             path="/atualizar-usuario"
-            element={<AtualizarUsuario autorizado={loged.id && !loged.isAdmin} />}
+            element={
+              <AtualizarUsuario autorizado={loged.id && !loged.isAdmin} />
+            }
           />
         </Routes>
       </main>

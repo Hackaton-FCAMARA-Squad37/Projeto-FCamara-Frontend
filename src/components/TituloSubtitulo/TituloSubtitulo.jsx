@@ -1,4 +1,4 @@
-import { Typography, useMediaQuery } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 export const TituloSubtitulo = (props) => {
@@ -17,7 +17,9 @@ export const TituloSubtitulo = (props) => {
         fontSize={props.subtitleFontSize ? props.subtitleFontSize : "1rem"}
         sx={{ lineHeight: "1.5rem", color: "water.main" }}
       >
-        {props.nomeOn?'Olá, ' + props.nome + '!' + props.subtitulo:props.subtitulo}
+        {props.nomeOn
+          ? "Olá, " + props.nome + "!" + props.subtitulo
+          : props.subtitulo}
       </Typography>
     </Box>
   );
