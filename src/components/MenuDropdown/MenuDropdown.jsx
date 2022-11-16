@@ -118,7 +118,7 @@ export const MenuDropdown = (props) => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        {admin.isAdmin? <></> : <MenuItem onClick={()=>{
+        {admin.isAdmin? "" : <MenuItem onClick={()=>{
             handleClose()
             navigate('/atualizar-usuario')
             }}>Editar perfil
